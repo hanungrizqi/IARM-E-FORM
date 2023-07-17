@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "RptFaktaIntegritasH";
+}
+
+<h2>RptFaktaIntegritasH</h2>
+
+<!DOCTYPE html>
+<html>
+<section class="content" style="background-color:white">
+    <head>
+        <title>Pakta Integritas</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 5px;
+            }
+
+            h4 {
+                text-align: center;
+                margin-bottom: 5px;
+            }
+
+            .info {
+                margin-bottom: 5px;
+            }
+
+            .signature {
+                margin-top: 5px;
+            }
+
+            .office {
+                margin-top: 5px;
+                display: flex;
+                justify-content: space-between;
+                font-size: 8px;
+            }
+
+            .address {
+                font-size: 5px;
+            }
+
+            .office .address {
+                width: 70%;
+            }
+        </style>
+        <script>
+            function printPage() {
+                var printContent = document.getElementById('print-content').innerHTML;
+                var originalContent = document.body.innerHTML;
+                document.body.innerHTML = printContent;
+                window.print();
+                document.body.innerHTML = originalContent;
+            }
+        </script>
+    </head>
+    <body>
+        @*/// @using (Html.BeginForm("SubmitForm", "Integritas", FormMethod.Post, new { id = "nrp" }))*@
+        {
+        <div id="print-content">
+            <img src="~/Content/Image/Logo_KPP2-removebg-preview.png" alt="Header Image" style="display: block; margin: 0 auto; width: 600px;" /><br>
+            <h4>PAKTA INTEGRITAS</h4>
+            <div class="info">
+                <strong>Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> @ViewBag.NAME<br>
+                <strong>NRP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> @ViewBag.NRP<br>
+                <strong>Dept. / Div.:</strong> @ViewBag.DEPT_DESC
+            </div>
+            <div>
+                <p>
+                    Dalam rangka menjalankan tugas, kewajiban, dan tanggung jawab sebagai Pekerja PT Kalimantan Prima
+                    Persada
+                    (“Perusahaan”) dan untuk mendukung terciptanya tata Kelola Perusahaan yang baik, dengan ini menyatakan
+                    bahwa
+                    saya:
+                </p>
+                <ol>
+                    <li>Menjunjung tinggi nilai integritas dalam lingkungan kerja perusahaan.</li>
+                    <li>Berjanji untuk menerapkan perilaku yang berpedoman pada etika bisnis dan etika kerja.</li>
+                    <li>
+                        Berjanji untuk selalu berupaya melakukan tindakan pencegahan terhadap potensi terjadinya pelanggaran
+                        etika
+                        bisnis dan etika kerja.
+                    </li>
+                    <li>
+                        Berjanji untuk selalu melaporkan segala bentuk pelanggaran etika bisnis dan etika kerja yang terjadi
+                        yang
+                        kami ketahui melalui media pelaporan yang disediakan perusahaan.
+                    </li>
+                    <li>Berjanji untuk menjadi role model dalam berperilaku positif.</li>
+                </ol>
+                <p>
+                    Demikian pernyataan ini saya buat dengan sebenar-benarnya dan tanpa paksaan dari pihak manapun. Apabila
+                    saya
+                    melanggar hal-hal yang telah dinyatakan dalam pakta integritas ini, maka saya bersedia menerima sanksi
+                    sesuai
+                    dengan ketentuan dan peraturan yang berlaku dalam perusahaan.
+                </p>
+                <p> @ViewBag.ADDRESS &nbsp;,&nbsp;@(((DateTime)ViewBag.LETTER_DATE).ToString("dd MMMM yyyy"))</p>
+                <div class="signature">
+                    <br><br>
+                    <strong> @ViewBag.NAME</strong>
+                </div>
+            </div>
+            <div>
+                <table style="width: 100%;font-size: 0.75rem;">
+                    <thead>
+                        <tr>
+                            <th>Jakarta office:</th>
+                            <th></th>
+                            <th colspan="2">Banjarbaru office:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jln Rawa Gelam 1 No. 9,</td>
+                            <td style="width: 50%;"></td>
+                            <td colspan="2">Jl.A.Yani Km. 30</td>
+                        </tr>
+                        <tr>
+                            <td>Kawasan Industri Pulo Gadung,</td>
+                            <td></td>
+                            <td>Phone</td>
+                            <td>: (0511) 478 5352</td>
+                        </tr>
+                        <tr>
+                            <td>Jakarta Timur 13930, Indonesia</td>
+                            <td></td>
+                            <td></td>
+                            <td>: (0511) 478 5353</td>
+                        </tr>
+                        <tr>
+                            <td>Phone &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: (021) 468 34 633</td>
+                            <td></td>
+                            <td></td>
+                            <td>: (0511) 478 5354</td>
+                        </tr>
+                        <tr>
+                            <td>Fax &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: (021) 468 22988</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VSAT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 1615</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <button type="button" onclick="printPage()">Print</button>
+            <button onclick="window.location.href='batal.html'">Batal</button>
+        </div>
+        }
+    </body>
+</section>
+</html>
+
