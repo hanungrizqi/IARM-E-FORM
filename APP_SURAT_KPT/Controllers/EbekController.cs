@@ -9,17 +9,6 @@ namespace APP_SURAT_KPT.Controllers
 {
     public class EbekController : BaseController
     {
-        // GET: Ebek
-        //public ActionResult Ebek()
-        //{
-        //    return View();
-        //}
-        //public EbekController()
-        //{
-        //    var KPTDataContext = new DbSurat_KPTDataContext();
-        //    dbSurat_KPTDataContext = KPTDataContext;
-        //}
-
         public ActionResult Index()
         {
             return View();
@@ -29,49 +18,11 @@ namespace APP_SURAT_KPT.Controllers
 
         public ActionResult Ebek()
         {
-            // Auth auth = new Auth(this.HttpContext);
+            return View();
+        }
 
-           // var nrp = @Session["Employee_id"];
-
-           // Memanggil stored procedure menggunakan LINQ
-           //var result = dbSurat_KPTDataContext.Getdatasurat_EBEK(nrp.ToString())
-           //    .Select(x => new Getdatasurat_EBEKResult
-           //    {
-           //        NO_SURAT = x.NO_SURAT,
-           //        NRP = x.NRP,
-           //        NAME = x.NAME,
-           //        DEPT_DESC = x.DEPT_DESC,
-           //        Address = x.Address,
-           //        LETTER_DATE = x.LETTER_DATE,
-           //        CRE_DATE = x.CRE_DATE,
-           //        CRE_BY = x.CRE_BY,
-           //        MOD_DATE = x.MOD_DATE,
-           //        MOD_BY = x.MOD_BY,
-           //        No_telp = x.No_telp,
-           //        Site = x.Site,
-           //        Tanggal_Masuk = x.Tanggal_Masuk
-
-           //    })
-           //    .FirstOrDefault();
-
-           // if (result == null)
-           // {
-           //     Handle jika data tidak ditemukan
-           //     return HttpNotFound();
-           // }
-
-           // ViewBag.NAME = result.NAME;
-           // ViewBag.NRP = result.NRP;
-           // ViewBag.DEPT_DESC = result.DEPT_DESC;
-           // ViewBag.Address = result.Address;
-           // ViewBag.LETTER_DATE = result.LETTER_DATE;
-           // ViewBag.CRE_DATE = result.CRE_DATE;
-           // ViewBag.CRE_BY = result.CRE_BY;
-           // ViewBag.MOD_DATE = result.MOD_DATE;
-           // ViewBag.MOD_BY = result.MOD_BY;
-           // ViewBag.No_telp = result.No_telp;
-           // ViewBag.Site = result.Site;
-           // ViewBag.Tanggal_masuk = result.Tanggal_Masuk;
+        public ActionResult EbekReport()
+        {
             return View();
         }
 

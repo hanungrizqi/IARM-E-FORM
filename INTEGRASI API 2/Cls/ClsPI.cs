@@ -85,5 +85,11 @@ namespace INTEGRASI_API_2.Cls
                 return responseVM;
             }
         }
+
+        public List<TBL_T_PI> GetDataTablePI()
+        {
+            var listDataPI = db.TBL_T_PIs.ToList();
+            return listDataPI;
+        }
     }
 }

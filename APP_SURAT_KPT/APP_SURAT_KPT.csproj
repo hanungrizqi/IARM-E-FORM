@@ -6558,6 +6558,7 @@
     <Content Include="Content\Boostraps\dist\js\adminlte.js" />
     <Content Include="Content\Boostraps\dist\js\adminlte.min.js" />
     <Content Include="Content\Boostraps\dist\js\demo.js" />
+    <Content Include="Content\Boostraps\dist\js\moment.min.js" />
     <Content Include="Content\Boostraps\dist\js\pages\dashboard.js" />
     <Content Include="Content\Boostraps\dist\js\pages\dashboard2.js" />
     <Content Include="Content\Boostraps\dist\js\sweetalert2.all.min.js" />
@@ -6724,8 +6725,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Js\EbekIndex.js" />
-    <Content Include="Js\PaktaIntegritas.js" />
+    <Content Include="Js\Ebek\EbekIndex.js" />
+    <Content Include="Js\Ebek\EbekReport.js" />
+    <Content Include="Js\PaktaIntegritas\PaktaIntegritas.js" />
+    <Content Include="Js\PaktaIntegritas\PaktaIntegritasReport.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -7247,6 +7250,8 @@
     <Content Include="Views\Ebek\Ebek.cshtml" />
     <Content Include="Views\dashboard\dashboard.cshtml" />
     <Content Include="Views\Ebek\Index.cshtml" />
+    <Content Include="Views\Integritas\PaktaIntegritasReport.cshtml" />
+    <Content Include="Views\Ebek\EbekReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

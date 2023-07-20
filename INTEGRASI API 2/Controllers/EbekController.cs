@@ -48,5 +48,22 @@ namespace INTEGRASI_API_2.Controllers
                 return Ok(new { Success = false, Message = $"Tejadi kesalahan: {ex.Message}" });
             }
         }
+
+        [Route("api/ebek/datatable")]
+        [HttpGet]
+        public IHttpActionResult GetDataTable()
+        {
+            try
+            {
+                var response = clsEbek.GetDataTableEbek();
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
     }
 }

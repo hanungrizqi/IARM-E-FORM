@@ -142,7 +142,12 @@ namespace INTEGRASI_API_2.Cls
                 response.Message = $"Terjadi kesalahan: {ex.Message}";
                 return response;
             }
-            
+        }
+
+        public List<TBL_T_EBEK> GetDataTableEbek()
+        {
+            var listDataEbek = db.TBL_T_EBEKs.ToList();
+            return listDataEbek;
         }
     }
 }

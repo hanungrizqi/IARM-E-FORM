@@ -57,6 +57,22 @@ namespace INTEGRASI_API_2.Controllers
             }
         }
 
+        [Route("api/integritas/datatable")]
+        [HttpGet]
+        public IHttpActionResult GetDataTable()
+        {
+            try
+            {
+                var response = clsPi.GetDataTablePI();
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response } );
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
 
         //[HttpGet]
         //[Route("getdataHystoryintegritas")]

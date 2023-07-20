@@ -112,14 +112,16 @@
                     {
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-history"></i> <span>history</span>
+                                <i class="fa fa-history"></i> <span>Report</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/IntegritasH/RptFaktaIntegritasH"><i class="fa fa-circle-o"></i>FaktaIntegritas</a></li>
-                                <li><a href="/Home/Rpt_EBEK"><i class="fa fa-circle-o"></i>EBEK</a></li>
+                                <li class="@(ViewBag.NavMainLink == "PIReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>PI Report</span></a></li>
+                                <li class="@(ViewBag.NavMainLink == "EBEKReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>
+                                @*<li class="@(ViewBag.NavMainLink == "PIReport" ? "active" : "")"><a href="/integritas/paktaintegritasreport"><i class="fa fa-files-o"></i> <span>PI Report</span></a></li>
+                                <li class="@(ViewBag.NavMainLink == "EBEKReport" ? "active" : "")"><a href="/ebek/ebekreport"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>*@
                             </ul>
                         </li>
                     }
