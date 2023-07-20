@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DBPakta_Integritas">
+  <DataContextMoniker Name="/DBPakta_IntegritasDataContext" />
+  <nestedChildShapes>
+    <classShape Id="07840e15-87bb-41ed-9c78-8941b498543c" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_M_ROLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10be7671-02cc-493a-9fe4-fc1ba6faa36b" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="74dd1b98-59f9-4dc1-84db-ca9ba5f630f2" isExpanded="false" absoluteBounds="0.5, 1, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_R_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f0ad6fd-d61e-4f3a-b2d4-e5f8bcf69f6d" absoluteBounds="0.51499999999999968, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7fd0bd13-96f2-487a-9053-fd8d7298d037" isExpanded="false" absoluteBounds="6.625, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_T_EBEK_FAMILY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="280bf381-2216-42b1-b505-745ab4ef8cd7" absoluteBounds="6.6400000000000006, 3.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="54e7e5f5-0125-4fac-af0e-1d5a41fe4b8f" absoluteBounds="2.375, 2.875, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_T_EBEK_MIKAD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7a8cc3b-c15e-446a-87a0-223bf9b30f5d" absoluteBounds="2.3900000000000006, 3.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="106507d7-c617-4218-b7d3-b14bed9f41ca" isExpanded="false" absoluteBounds="4.5, 2.875, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_T_EBEK_COI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e711779-d7e5-412e-aebc-a7b36f5e64ef" absoluteBounds="4.515, 3.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="55d33a77-981c-4bbe-b99d-718be00d4330" isExpanded="false" absoluteBounds="2.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_T_PI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="016af128-a305-46d5-941a-e677c1dc53fe" absoluteBounds="2.64, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="94d42fea-dcc1-4ac2-b445-3e9c6c736c55" isExpanded="false" absoluteBounds="2.625, 1, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_T_EBEK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bafff729-9443-4684-916f-68bd8ba59b80" absoluteBounds="2.6399999999999997, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="835a3c0d-916a-4d83-97cd-14605fd5bbde" isExpanded="false" absoluteBounds="4.875, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_ALL_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c999fd7-7a90-4f86-99b2-9685d0662159" absoluteBounds="4.89, 0.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

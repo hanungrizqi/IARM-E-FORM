@@ -1,6 +1,4 @@
-﻿using APP_SURAT_KPT.Helper;
-using APP_SURAT_KPT.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,97 +8,45 @@ using FormsAuth;
 using APP_SURAT_KPT.ViewModels.Account;
 using System.DirectoryServices;
 using APP_SURAT_KPT.Controllers;
+using System.Threading.Tasks;
+using APP_SURAT_KPT.Cls.Auth;
 
 namespace APP_SURAT_KPT.Controllers
 {
     public class LoginController : Controller
     {
 
-        DbSurat_KPTDataContext db = new DbSurat_KPTDataContext();
-        Auth clsAuth = new Auth();
+        ClsAuth auth = new ClsAuth();
 
-
-        public ActionResult Process(LoginVM request)
+        public ActionResult Logout()
         {
-            bool isAuthenticated = true;
-
-            isAuthenticated = clsAuth.AuthLDAP(request);
-
-            isAuthenticated = true;
-
-            if (isAuthenticated)
-            {
-                var dataUser = db.VW_LOGIN_USERs.Where(x => x.EMPLOYEE_ID == request.nrp).FirstOrDefault();
-
-                if (dataUser == null)
-                {
-                    TempData["ErrorMsg"] = $"User belum terdaftar  aplikasi Integrasi KPT <br />";
-                    return RedirectToAction("Login");
-                }
-                //var dta=db.TBL_H_LETTER_FAKTA_INTEGRITAs.Where(x => x.NRP==request.nrp).FirstOrDefault();
-                //if (dta != null)
-                //{
-                //    TempData["ErrorMsg"] = $"User sudah Submit di aplikasi Integrasi KPT <br />";
-                //    return RedirectToAction("Login");
-                //}
-
-
-                var payload = new Dictionary<string, object>()                {
-                    { "Name", dataUser.NAME },
-                    //{ "Nrp", dataUser.NRP },
-                    { "Dstrct_code", dataUser.dstrct_code },
-                    { "Employee_id", dataUser.EMPLOYEE_ID },
-                    { "Pos_title", dataUser.POS_TITLE },
-                };
-
-
-                Session["Employee_id"] = dataUser.EMPLOYEE_ID;
-                Session["Name"] = dataUser.NAME;
-                Session["Position_id"] = dataUser.POSITION_ID;
-                return Redirect("/dashboard/dashboard");
-
-            }
-            else
-            {
-                TempData["ErrorMsg"] = $"Nrp/Password Salah <br />Message :";
-                return RedirectToAction("Login");
-            }
+            Session.Clear();
+            return RedirectToAction("Login", "Login");
         }
 
-        public bool OpenLdap(string username = "", string password = "")
+        [HttpPost]
+        public async Task<ActionResult> LoginUser(LoginVM requestVM)
         {
-            bool status = true;
-            String uid = "cn=" + username + ",ou=Users,dc=kpp,dc=net";
-
-            DirectoryEntry root = new DirectoryEntry("LDAP://10.12.101.102", uid, password, AuthenticationTypes.None);
-
-
-            try
+            var tryLogin = await auth.GetUserData(requestVM);
+            if (tryLogin.Success)
             {
-                // attempt to use LDAP connection
-                object connected = root.NativeObject;
-                status = true;
-                // no exception, login successful
-                //Session["LoginNRP"] = model.username.ToUpper();
-                //return RedirectToLocal(returnUrl);
-
-            }
-            catch (Exception ex)
-            {
-                status = false;
+                Session["Nrp"] = tryLogin.Data.Nrp;
+                Session["Role"] = tryLogin.Data.Role;
+                Session["IsSectionHead"] = tryLogin.Data.IsSectionHead;
+                return RedirectToAction("dashboard", "dashboard");
             }
 
-            return status;
+            TempData["Error"] = tryLogin.Message;
+            return RedirectToAction("Login", "Login");
         }
-
-        //GET: Login
+        
         public ActionResult Login()
         {
             //return View();
 
-            if (TempData["ErrorMsg"] != null)
+            if (TempData["Error"] != null)
             {
-                ViewBag.Msg = TempData["ErrorMsg"].ToString();
+                ViewBag.Msg = TempData["Error"].ToString();
             }
             return View();
         }

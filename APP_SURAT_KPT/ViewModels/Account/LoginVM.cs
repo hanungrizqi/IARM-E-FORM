@@ -7,7 +7,7 @@ namespace APP_SURAT_KPT.ViewModels.Account
 {
     public class LoginVM
     {
-        public string nrp { get; set; }
-        public string password { get; set; }
+        public string Nrp { get; set; }
+        public string Password { get; set; }
     }
 }

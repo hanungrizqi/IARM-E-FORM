@@ -51,9 +51,6 @@ D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\roslyn\vbc.rsp
 D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\roslyn\VBCSCompiler.exe
 D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\roslyn\VBCSCompiler.exe.config
 D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\Antlr3.Runtime.dll
-D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\jose-jwt.dll
-D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\JWT.dll
-D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\LdapAuthentication.dll
 D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\Microsoft.Web.Infrastructure.dll
 D:\project\APP_SURAT_KPT\INTEGRASI API 2\bin\Newtonsoft.Json.dll
