@@ -3,8 +3,16 @@
 ################################################################################
 
 /.vs/*
+/.vs
 /APP_SURAT_KPT/bin/*
+/APP_SURAT_KPT/bin
 /APP_SURAT_KPT/obj/*
+/APP_SURAT_KPT/obj
 /APP_SURAT_KPT/Properties/*
+/APP_SURAT_KPT/Properties
 /INTEGRASI API 2/bin/*
-/INTEGRASI API 2/obj/Release/Package/PackageTmp/bin/INTEGRASI API 2.dll
+/INTEGRASI API 2/bin
+/INTEGRASI API 2/obj/*
+/INTEGRASI API 2/obj
+/INTEGRASI API 2/Properties/*
+/INTEGRASI API 2/Properties
