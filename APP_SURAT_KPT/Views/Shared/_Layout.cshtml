@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>KPP</title>
+    <title>@ViewBag.Title - IARM e-Form</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -39,9 +39,9 @@
             <!-- Logo -->
             <a href="#" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>P</b>I</span>
+                <span class="logo-mini"><b>I</b>e</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Pakta</b> Integritas</span>
+                <span class="logo-lg"><b>IARM</b> e-Form</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -93,7 +93,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="treeview">
+                    <li class="treeview @(ViewBag.NavMainLink == "letter" ? "active" : "")">
                         <a href="#">
                             <i class="fa fa-file-o"></i> <span>Letter</span>
                             <span class="pull-right-container">
@@ -103,25 +103,25 @@
                         <ul class="treeview-menu">
                             @if (ViewBag.IsSectionHead)
                             {
-                                <li><a href="/Integritas/RptFaktaIntegritas"><i class="fa fa-files-o"></i>Pakta Integritas</a></li>
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "PI" ? "active" : "")"><a href="/Integritas/RptFaktaIntegritas"><i class="fa fa-files-o"></i>Pakta Integritas</a></li>
                             }
-                            <li class="@(ViewBag.NavMainLink == "CompletedReport" ? "active" : "")"><a href="/Ebek/Index"><i class="fa fa-files-o"></i><span>EBEK</span></a></li>
+                            <li class="@(ViewBag.NavMainLinkSubmenu == "EBEK" ? "active" : "")"><a href="/Ebek/Index"><i class="fa fa-files-o"></i><span>EBEK</span></a></li>
                         </ul>
                     </li>
                     @if (ViewBag.Role == "ADMINISTRATOR")
                     {
-                        <li class="treeview">
+                        <li class="treeview @(ViewBag.NavMainLink == "report" ? "active" : "")">
                             <a href="#">
-                                <i class="fa fa-history"></i> <span>Report</span>
+                                <i class="fa fa-table"></i> <span>Report</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="@(ViewBag.NavMainLink == "PIReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>PI Report</span></a></li>
-                                <li class="@(ViewBag.NavMainLink == "EBEKReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>
-                                @*<li class="@(ViewBag.NavMainLink == "PIReport" ? "active" : "")"><a href="/integritas/paktaintegritasreport"><i class="fa fa-files-o"></i> <span>PI Report</span></a></li>
-                                <li class="@(ViewBag.NavMainLink == "EBEKReport" ? "active" : "")"><a href="/ebek/ebekreport"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>*@
+                                @*<li class="@(ViewBag.NavMainLinkSubmenu == "PIReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>PI Report</span></a></li>
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "EBEKReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>*@
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "PIReport" ? "active" : "")"><a href="/integritas/paktaintegritasreport"><i class="fa fa-files-o"></i> <span>PI Report</span></a></li>
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "EBEKReport" ? "active" : "")"><a href="/ebek/ebekreport"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>
                             </ul>
                         </li>
                     }

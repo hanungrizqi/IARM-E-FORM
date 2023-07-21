@@ -1,0 +1,234 @@
+﻿
+@{
+    ViewBag.Title = "Etika Bisnis dan Etika Kerja";
+}
+
+@section Styles{
+    @*<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Content/Page/Index.css">*@
+    <style>
+        body {
+            font-size: 16px;
+        }
+
+        .segments {
+            margin-top: 20px;
+        }
+
+        .btn-add {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .row-height {
+            height: 40px;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script type="text/javascript" src="~/Js/Ebek/EbekIndex.js"></script>
+    <script type="text/javascript" src="~/Content/Boostraps/dist/js/moment.min.js"></script>
+}
+
+
+<section class="content-header" id="form-ebek">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <img src="~/Content/Image/Logo_KPP2-removebg-preview.png" alt="Header Image" style="display: block; margin: 0 auto; width: 600px;" /><br>
+                <h4 class="text-bold">Surat Pernyataan Etika Bisnis dan Etika Kerja (EBEK)</h4>
+            </div>
+            <div>
+                <span>Saya yang bertanda tangan dibawah ini:</span>
+            </div>
+            <div class="col-md-2">
+                <div>Nama</div>
+                <div>NRP</div>
+                <div>Site</div>
+                <div>Departemen</div>
+                <div>Divisi</div>
+                <div>Tanggal Masuk</div>
+                <div>Jenis Kelamin</div>
+                <div>Alamat</div>
+                <div>No Telepon</div>
+            </div>
+            <div class="col-md-10">
+                <div id="user-name"></div>
+                <div id="user-nrp"></div>
+                <div id="user-site"></div>
+                <div id="user-dept"></div>
+                <div id="user-divisi"></div>
+                <div id="user-hire-date"></div>
+                <div id="user-gender"></div>
+                <div id="user-address"></div>
+                <div id="user-phone"></div>
+            </div>
+        </div>
+        <div class="row segments">
+            <div>
+                <span>Dengan ini menyatakan bahwa:</span>
+            </div>
+            <div>
+                <input class="user-checkbox" type="checkbox" id="no-family" name="no-family" value="true">
+                <label for="no-family"> Saya tidak memiliki anggota keluarga yang bekerja di PT Kalimantan Prima Persada</label><br>
+            </div>
+            <div>
+                <input class="user-checkbox" type="checkbox" id="no-mikad" name="no-mikad" value="true">
+                <label for="no-mikad"> Saya tidak memiliki anggota keluarga yang bekerja sebagai MIKAD/Supplier di PT Kalimantan Prima Persada</label><br>
+            </div>
+            <div>
+                <input class="user-checkbox" type="checkbox" id="no-coi" name="no-coi" value="true">
+                <label for="no-coi"> Saya tidak memiliki benturan kepentingan <i>(Conflict Of Interest)</i> dengan PT Kalimantan Prima Persada, dimana benturan kepentingan termasuk di dalam-nya adalah:</label><br>
+                <ol type="a">
+                    <li>Melakukan hubungan bisnis dengan anggota keluarga maupun kerabat dalam kaitannya dengan operasional perusahaan.</li>
+                    <li>Mempunyai investasi di perusahaan sejenis <i>(non public)</i></li>
+                    <li>Mempunyai investasi di perusahaan pemasok/<i>supplier</i></li>
+                    <li>Mengelola perusahaan miliknya sendiri sehingga mengganggu aktivitasnya sebagai pekerja</li>
+                    <li>Mempunyai pekerjaan sambilan diluar perusahaan yang jelas-jelas mengganggu pekerjaanya</li>
+                </ol>
+            </div>
+            <div>
+                <input class="user-checkbox" type="checkbox" id="family" name="family" value="true">
+                <label for="family">Saya memiliki anggota keluarga yang bekerja di PT Kalimantan Prima Persada yaitu:</label><br>
+                <div id="family-table">
+                    <table id="tbl-family" style="width:100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th style="width: 5%; text-align: center;">No</th>
+                                <th style="width: 20%; text-align: center;">Nama</th>
+                                <th style="width: 20%; text-align: center;">Jabatan</th>
+                                <th style="width: 20%; text-align: center;">Departemen</th>
+                                <th style="width: 20%; text-align: center;">Hubungan keluarga</th>
+                                <th style="width: 5%; text-align: center;"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-family-body">
+                            <tr class="row-height">
+                                <td class="text-center">1</td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center btn-add">
+                        <button id="family-add-btn" class="btn btn-primary add-btn">Tambah data</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input class="user-checkbox" type="checkbox" id="mikad" name="mikad" value="true">
+                <label for="mikad">Saya memiliki anggota keluarga yang bekerja sebagai MIKAD/Supplier/Customer di PT Kalimantan Prima Persada yaitu:</label><br>
+                <div id="mikad-table">
+                    <table id="tbl-mikad" style="width:100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th style="width: 5%; text-align: center;">No</th>
+                                <th style="width: 20%; text-align: center;">Nama</th>
+                                <th style="width: 20%; text-align: center;">Jabatan</th>
+                                <th style="width: 20%; text-align: center;">Departemen</th>
+                                <th style="width: 20%; text-align: center;">Hubungan keluarga</th>
+                                <th style="width: 5%; text-align: center;"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-mikad-body">
+                            <tr class="row-height">
+                                <td class="text-center">1</td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center btn-add">
+                        <button id="mikad-add-btn" class="btn btn-primary add-btn">Tambah data</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input class="user-checkbox" type="checkbox" id="coi" name="coi" value="true">
+                <label for="coi"> Saya memiliki benturan kepentingan <i>(Conflict Of Interest)</i> dengan PT Kalimantan Prima Persada, dimana benturan kepentingan termasuk di dalam-nya adalah:</label><br>
+                <div id="coi-table">
+                    <table id="tbl-coi" style="width:100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th style="width: 10%; text-align: center;">No</th>
+                                <th style="width: 20%; text-align: center;">Detail</th>
+                                <th style="width: 20%; text-align: center;">Perusahaan</th>
+                                <th style="width: 20%; text-align: center;">Jabatan</th>
+                                <th style="width: 20%; text-align: center;">Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td>Melakukan hubungan bisnis dengan anggota keluarga maupun kerabat dalam kaitannya dengan operasional perusahaan</td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">2</td>
+                                <td>Mempunyai investasi di perusahaan sejenis <i>(non public)</i></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">3</td>
+                                <td>Mempunyai investasi di perusahaan pemasok/<i>supplier</i></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                                <td class="text-center"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">4</td>
+                                <td>Mengelola perusahaan miliknya sendiri sehingga mengganggu aktivitasnya sebagai pekerja</td>
+                                <td><div class="text-center"><input type="text" id="coi-1" name="coi-1"></div></td>
+                                <td><div class="text-center"><input type="text" id="coi-2" name="coi-2"></div></td>
+                                <td><div class="text-center"><input type="text" id="coi-3" name="coi-3"></div></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">5</td>
+                                <td>Mempunyai pekerjaan sambilan diluar perusahaan yang jelas-jelas mengganggu pekerjaanya</td>
+                                <td><div class="text-center"><input type="text" id="coi-1" name="coi-1"></div></td>
+                                <td><div class="text-center"><input type="text" id="coi-2" name="coi-2"></div></td>
+                                <td><div class="text-center"><input type="text" id="coi-3" name="coi-3"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                Demikian pernyataan ini saya buat dengan sebenar-benarnya tanpa ada paksaan dari siapapun. Apabila dikemudian hari terbukti pernyataan yang saya buat
+                ini tidak benar maka saya bersedia menerima sanksi yang telah ditetapkan oleh PT Kalimantan Prima Persada
+            </div>
+            <div class="row segments">
+                <div class="col-md-4 text-center">
+                    <div>
+                        <span><input id="sign-location" type="text" placeholder="lokasi"></span>, @DateTime.Now.ToString("dd-MMM-yyyy")
+                    </div>
+                    <div>
+                        Yang membuat pernyataan
+                    </div>
+                    <div id="sign-name" class="segments">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center btn-submit">
+                <button class="btn btn-success btn-sm" type="button" id="btn-submit-ebek">Submit</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-header" id="form-ebek-submit">
+    <div class="container text-center">
+        <h1>Anda sudah mensubmit EBEK</h1>
+    </div>
+</section>
+

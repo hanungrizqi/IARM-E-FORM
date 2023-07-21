@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_IA_PAKTA_INTEGRITAS_KPT" Class="DBPakta_IntegritasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=10.14.101.101\shpol;Initial Catalog=DB_IA_PAKTA_INTEGRITAS_KPT;Persist Security Info=True;User ID=sqlservices" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_IA_PAKTA_INTEGRITAS_KPTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TBL_M_ROLE" Member="TBL_M_ROLEs">
+    <Type Name="TBL_M_ROLE">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ROLE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATED_BY" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CREATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATED_BY" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UPDATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_R_USER" Member="TBL_R_USERs">
+    <Type Name="TBL_R_USER">
+      <Column Name="ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ROLE" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATED_BY" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CREATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATED_BY" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UPDATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_EBEK_FAMILY" Member="TBL_T_EBEK_FAMILies">
+    <Type Name="TBL_T_EBEK_FAMILY">
+      <Column Name="ID" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EBEK_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATION" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_EBEK_MIKAD" Member="TBL_T_EBEK_MIKADs">
+    <Type Name="TBL_T_EBEK_MIKAD">
+      <Column Name="ID" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EBEK_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATION" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_EBEK_COI" Member="TBL_T_EBEK_COIs">
+    <Type Name="TBL_T_EBEK_COI">
+      <Column Name="ID" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EBEK_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CATEGORY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COMPANY" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="POSITION" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="INFORMATION" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_PI" Member="TBL_T_PIs">
+    <Type Name="TBL_T_PI">
+      <Column Name="ID" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PI_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SUBMIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SIGN_LOCATION" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SUBMITDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_EBEK" Member="TBL_T_EBEKs">
+    <Type Name="TBL_T_EBEK">
+      <Column Name="ID" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EBEK_NO" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NRP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SUBMIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SIGN_LOCATION" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SUBMITDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ISHADFAMILY" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ISHADMIKAD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ISHADCOI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ALL_USER" Member="VW_ALL_USERs">
+    <Type Name="VW_ALL_USER">
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POSITION_ID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POS_TITLE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="alamat" Type="System.String" DbType="VarChar(303)" CanBeNull="true" />
+      <Column Name="HIRE_DATE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="GENDER_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="No_telp" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ROLE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PI_SUBMIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EBEK_SUBMIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SECTION_HEAD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

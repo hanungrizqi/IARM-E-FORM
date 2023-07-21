@@ -4,20 +4,49 @@
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<div class="login-box">
-    <div class="login-logo">
-        <a href="../../index2.html"><b>APP</b>Integrasi</a>
+@section Styles{
+    <style>
+        /*.login-body {
+            margin: 7% auto;
+        }*/
+
+        .login-header {
+            width: 520px;
+            margin-top: 7%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .login-box-body {
+            width: 360px;
+        }
+
+        .login-body {
+            width: 360px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 7%;
+        }
+    </style>
+}
+
+<div class="login-header">
+    <div class="login-logo" @*style="width: 480px;*@>
+        <div><b>IARM e-Form</b></div>
+        <div>(Internal Audit & Risk Management <b>e</b>-Form)</div>
     </div>
+</div>
+
+<div class="login-body">
     <!-- /.login-logo -->
     <script>
-    function showError(message) {
-        // Menampilkan pesan kesalahan dalam sebuah elemen dengan ID "error-message"
-        var errorElement = document.getElementById("error-message");
-        errorElement.innerHTML = message;
-        errorElement.style.display = "block";
-    }
+        function showError(message) {
+            // Menampilkan pesan kesalahan dalam sebuah elemen dengan ID "error-message"
+            var errorElement = document.getElementById("error-message");
+            errorElement.innerHTML = message;
+            errorElement.style.display = "block";
+        }
     </script>
-
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
         @if (ViewBag.Msg != null)
@@ -45,10 +74,10 @@
                 <div class="col-xs-8">
                     &nbsp;
                     @*<div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> Remember Me
-                        </label>
-                    </div>*@
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                        </div>*@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
@@ -60,7 +89,7 @@
 
         <!-- /.social-auth-links -->
         @*<a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>*@
+            <a href="register.html" class="text-center">Register a new membership</a>*@
 
     </div>
     <!-- /.login-box-body -->
