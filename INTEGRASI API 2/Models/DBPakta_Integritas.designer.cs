@@ -22,7 +22,7 @@ namespace INTEGRASI_API_2.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DB_IA_PAKTA_INTEGRITAS_KPT")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DB_IA_PAKTA_INTEGRITAS_KPP")]
 	public partial class DBPakta_IntegritasDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -144,6 +144,38 @@ namespace INTEGRASI_API_2.Models
 			get
 			{
 				return this.GetTable<VW_ALL_USER>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_EBEK_REPORT> VW_EBEK_REPORTs
+		{
+			get
+			{
+				return this.GetTable<VW_EBEK_REPORT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_PI_REPORT> VW_PI_REPORTs
+		{
+			get
+			{
+				return this.GetTable<VW_PI_REPORT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_DEPT_ALL> VW_DEPT_ALLs
+		{
+			get
+			{
+				return this.GetTable<VW_DEPT_ALL>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_DISTRICT_ALL> VW_DISTRICT_ALLs
+		{
+			get
+			{
+				return this.GetTable<VW_DISTRICT_ALL>();
 			}
 		}
 	}
@@ -1840,6 +1872,456 @@ namespace INTEGRASI_API_2.Models
 				if ((this._SECTION_HEAD != value))
 				{
 					this._SECTION_HEAD = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_EBEK_REPORT")]
+	public partial class VW_EBEK_REPORT
+	{
+		
+		private string _NRP;
+		
+		private System.Nullable<bool> _SUBMIT;
+		
+		private string _SIGN_LOCATION;
+		
+		private System.Nullable<System.DateTime> _SUBMITDATE;
+		
+		private System.Nullable<bool> _ISHADFAMILY;
+		
+		private System.Nullable<bool> _ISHADMIKAD;
+		
+		private System.Nullable<bool> _ISHADCOI;
+		
+		private string _NAME;
+		
+		private string _DEPT;
+		
+		private string _SITE;
+		
+		public VW_EBEK_REPORT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="NVarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMIT", DbType="Bit")]
+		public System.Nullable<bool> SUBMIT
+		{
+			get
+			{
+				return this._SUBMIT;
+			}
+			set
+			{
+				if ((this._SUBMIT != value))
+				{
+					this._SUBMIT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIGN_LOCATION", DbType="NVarChar(100)")]
+		public string SIGN_LOCATION
+		{
+			get
+			{
+				return this._SIGN_LOCATION;
+			}
+			set
+			{
+				if ((this._SIGN_LOCATION != value))
+				{
+					this._SIGN_LOCATION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMITDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SUBMITDATE
+		{
+			get
+			{
+				return this._SUBMITDATE;
+			}
+			set
+			{
+				if ((this._SUBMITDATE != value))
+				{
+					this._SUBMITDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISHADFAMILY", DbType="Bit")]
+		public System.Nullable<bool> ISHADFAMILY
+		{
+			get
+			{
+				return this._ISHADFAMILY;
+			}
+			set
+			{
+				if ((this._ISHADFAMILY != value))
+				{
+					this._ISHADFAMILY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISHADMIKAD", DbType="Bit")]
+		public System.Nullable<bool> ISHADMIKAD
+		{
+			get
+			{
+				return this._ISHADMIKAD;
+			}
+			set
+			{
+				if ((this._ISHADMIKAD != value))
+				{
+					this._ISHADMIKAD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISHADCOI", DbType="Bit")]
+		public System.Nullable<bool> ISHADCOI
+		{
+			get
+			{
+				return this._ISHADCOI;
+			}
+			set
+			{
+				if ((this._ISHADCOI != value))
+				{
+					this._ISHADCOI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(43)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT", DbType="VarChar(50)")]
+		public string DEPT
+		{
+			get
+			{
+				return this._DEPT;
+			}
+			set
+			{
+				if ((this._DEPT != value))
+				{
+					this._DEPT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SITE", DbType="VarChar(50)")]
+		public string SITE
+		{
+			get
+			{
+				return this._SITE;
+			}
+			set
+			{
+				if ((this._SITE != value))
+				{
+					this._SITE = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_PI_REPORT")]
+	public partial class VW_PI_REPORT
+	{
+		
+		private string _NRP;
+		
+		private System.Nullable<bool> _SUBMIT;
+		
+		private string _SIGN_LOCATION;
+		
+		private System.Nullable<System.DateTime> _SUBMITDATE;
+		
+		private string _NAME;
+		
+		private string _DEPT;
+		
+		private string _SITE;
+		
+		public VW_PI_REPORT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="NVarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMIT", DbType="Bit")]
+		public System.Nullable<bool> SUBMIT
+		{
+			get
+			{
+				return this._SUBMIT;
+			}
+			set
+			{
+				if ((this._SUBMIT != value))
+				{
+					this._SUBMIT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIGN_LOCATION", DbType="NVarChar(100)")]
+		public string SIGN_LOCATION
+		{
+			get
+			{
+				return this._SIGN_LOCATION;
+			}
+			set
+			{
+				if ((this._SIGN_LOCATION != value))
+				{
+					this._SIGN_LOCATION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMITDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SUBMITDATE
+		{
+			get
+			{
+				return this._SUBMITDATE;
+			}
+			set
+			{
+				if ((this._SUBMITDATE != value))
+				{
+					this._SUBMITDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(43)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT", DbType="VarChar(50)")]
+		public string DEPT
+		{
+			get
+			{
+				return this._DEPT;
+			}
+			set
+			{
+				if ((this._DEPT != value))
+				{
+					this._DEPT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SITE", DbType="VarChar(50)")]
+		public string SITE
+		{
+			get
+			{
+				return this._SITE;
+			}
+			set
+			{
+				if ((this._SITE != value))
+				{
+					this._SITE = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_DEPT_ALL")]
+	public partial class VW_DEPT_ALL
+	{
+		
+		private string _DEPT_CODE;
+		
+		private string _DEPT_DESC;
+		
+		private string _DEPT_NAME;
+		
+		public VW_DEPT_ALL()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_CODE", DbType="VarChar(100)")]
+		public string DEPT_CODE
+		{
+			get
+			{
+				return this._DEPT_CODE;
+			}
+			set
+			{
+				if ((this._DEPT_CODE != value))
+				{
+					this._DEPT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_DESC", DbType="VarChar(100)")]
+		public string DEPT_DESC
+		{
+			get
+			{
+				return this._DEPT_DESC;
+			}
+			set
+			{
+				if ((this._DEPT_DESC != value))
+				{
+					this._DEPT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_NAME", DbType="VarChar(100)")]
+		public string DEPT_NAME
+		{
+			get
+			{
+				return this._DEPT_NAME;
+			}
+			set
+			{
+				if ((this._DEPT_NAME != value))
+				{
+					this._DEPT_NAME = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_DISTRICT_ALL")]
+	public partial class VW_DISTRICT_ALL
+	{
+		
+		private string _DSTRCT_CODE;
+		
+		private string _DSTRCT_NAME;
+		
+		private string _DSTRCT_STATUS;
+		
+		public VW_DISTRICT_ALL()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSTRCT_CODE", DbType="VarChar(100)")]
+		public string DSTRCT_CODE
+		{
+			get
+			{
+				return this._DSTRCT_CODE;
+			}
+			set
+			{
+				if ((this._DSTRCT_CODE != value))
+				{
+					this._DSTRCT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSTRCT_NAME", DbType="VarChar(100)")]
+		public string DSTRCT_NAME
+		{
+			get
+			{
+				return this._DSTRCT_NAME;
+			}
+			set
+			{
+				if ((this._DSTRCT_NAME != value))
+				{
+					this._DSTRCT_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSTRCT_STATUS", DbType="VarChar(100)")]
+		public string DSTRCT_STATUS
+		{
+			get
+			{
+				return this._DSTRCT_STATUS;
+			}
+			set
+			{
+				if ((this._DSTRCT_STATUS != value))
+				{
+					this._DSTRCT_STATUS = value;
 				}
 			}
 		}

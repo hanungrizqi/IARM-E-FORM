@@ -6,18 +6,65 @@
 
 @section Styles{
     <link rel="stylesheet" href="~/Content/Boostraps/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <style>
+        .select2-selection__rendered {
+            line-height: 23px !important;
+        }
+        .btn-filter {
+            height: 30px;
+            margin-bottom: 10px;
+        }
+    </style>
 }
 
 @section Scripts{
     <script src="~/Content/Boostraps/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/Boostraps/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    @*<script src="~/Content/Boostraps/dist/js/demo.js"></script>*@
     <script type="text/javascript" src="~/Js/Ebek/EbekReport.js"></script>
 }
 
 <!-- Content Wrapper. Contains page content -->
 <section class="content-header" id="form-pi">
     <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="form-label" for="no-fix-plan">Nama</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="filter-name" placeholder="Nama Karyawan" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label" for="no-fix-plan">District</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select id="list-district" name="list-district" class="form-control select2" style="width: 100%;">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label" for="no-fix-plan">Department</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select id="list-dept" name="list-dept" class="form-control select2" style="width: 100%;">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <button class="btn btn-primary btn-filter" id="filter-ebek">Filter</button>
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
@@ -31,7 +78,10 @@
                                 <tr>
                                     <th>No</th>
                                     <th>NRP</th>
+                                    <th>Nama</th>
                                     <th>Submit</th>
+                                    <th>Department</th>
+                                    <th>District</th>
                                     <th>Lokasi Sign</th>
                                     <th>Tanggal Sign</th>
                                     <th>Keluarga</th>

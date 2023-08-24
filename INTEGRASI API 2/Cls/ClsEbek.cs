@@ -2,6 +2,7 @@
 using INTEGRASI_API_2.Models;
 using INTEGRASI_API_2.ViewModels;
 using INTEGRASI_API_2.ViewModels.Ebek;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -144,10 +145,32 @@ namespace INTEGRASI_API_2.Cls
             }
         }
 
-        public List<TBL_T_EBEK> GetDataTableEbek()
+        public List<VW_EBEK_REPORT> GetDataTableEbek()
         {
-            var listDataEbek = db.TBL_T_EBEKs.ToList();
+            var listDataEbek = db.VW_EBEK_REPORTs.ToList();
             return listDataEbek;
+        }
+
+        public List<VW_EBEK_REPORT> GetFilteredDataTableEbek(EbekFilterRequestsVM requestsVM)
+        {
+            var listDataEbek = db.VW_EBEK_REPORTs.AsQueryable();
+            var result = new List<VW_EBEK_REPORT>();
+            if (!requestsVM.Nama.IsNullOrWhiteSpace())
+            {
+                listDataEbek = listDataEbek.Where(x => x.NAME.Contains(requestsVM.Nama));
+            }
+
+            if (!requestsVM.District.IsNullOrWhiteSpace())
+            {
+                listDataEbek = listDataEbek.Where(x => x.SITE == requestsVM.District);
+            }
+
+            if (!requestsVM.Dept.IsNullOrWhiteSpace())
+            {
+                listDataEbek = listDataEbek.Where(x => x.DEPT == requestsVM.Dept);
+            }
+
+            return listDataEbek.ToList();
         }
     }
 }

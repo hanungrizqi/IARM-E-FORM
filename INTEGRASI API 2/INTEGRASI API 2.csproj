@@ -170,12 +170,14 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Cls\ClsAuth.cs" />
     <Compile Include="Cls\ClsEbek.cs" />
+    <Compile Include="Cls\ClsMasterData.cs" />
     <Compile Include="Cls\ClsPI.cs" />
     <Compile Include="Constants\CoiConstant.cs" />
     <Compile Include="Controllers\EbekController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntegritasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MasterDataController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,7 +196,9 @@
     <Compile Include="ViewModels\Auth\UserRole.cs" />
     <Compile Include="ViewModels\ClsSIntegrasi.cs" />
     <Compile Include="ViewModels\Auth\LoginVM.cs" />
+    <Compile Include="ViewModels\Ebek\EbekFilterRequestsVM.cs" />
     <Compile Include="ViewModels\Ebek\EbekRequestsVM.cs" />
+    <Compile Include="ViewModels\PI\PIFilterRequestsVM.cs" />
     <Compile Include="ViewModels\PI\PiDataResponseVM.cs" />
     <Compile Include="ViewModels\PI\SubmitPIDataRequestVM.cs" />
     <Compile Include="ViewModels\StatusResponseVM.cs" />
@@ -289,6 +293,7 @@
     <Folder Include="Views\Integrasi\" />
     <Folder Include="Views\LoginVM\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\MasterData\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

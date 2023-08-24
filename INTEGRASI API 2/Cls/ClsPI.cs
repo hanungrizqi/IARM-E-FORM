@@ -1,6 +1,8 @@
 ﻿using INTEGRASI_API_2.Models;
 using INTEGRASI_API_2.ViewModels;
+using INTEGRASI_API_2.ViewModels.Ebek;
 using INTEGRASI_API_2.ViewModels.PI;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,10 +88,32 @@ namespace INTEGRASI_API_2.Cls
             }
         }
 
-        public List<TBL_T_PI> GetDataTablePI()
+        public List<VW_PI_REPORT> GetDataTablePI()
         {
-            var listDataPI = db.TBL_T_PIs.ToList();
+            var listDataPI = db.VW_PI_REPORTs.ToList();
             return listDataPI;
         }
+
+        public List<VW_PI_REPORT> GetFilteredDataTablePI(PIFilterRequestsVM requestsVM)
+        {
+            var listDataPI = db.VW_PI_REPORTs.AsQueryable();
+            if (!requestsVM.Nama.IsNullOrWhiteSpace())
+            {
+                listDataPI = listDataPI.Where(x => x.NAME.Contains(requestsVM.Nama));
+            }
+
+            if (!requestsVM.District.IsNullOrWhiteSpace())
+            {
+                listDataPI = listDataPI.Where(x => x.SITE == requestsVM.District);
+            }
+
+            if (!requestsVM.Dept.IsNullOrWhiteSpace())
+            {
+                listDataPI = listDataPI.Where(x => x.DEPT == requestsVM.Dept);
+            }
+
+            return listDataPI.ToList();
+        }
+
     }
 }

@@ -65,5 +65,21 @@ namespace INTEGRASI_API_2.Controllers
             }
         }
 
+        [Route("api/ebek/datatable/filter")]
+        [HttpPost]
+        public IHttpActionResult GetFilteredDataTable(EbekFilterRequestsVM ebekFilterRequestsVM)
+        {
+            try
+            {
+                var response = clsEbek.GetFilteredDataTableEbek(ebekFilterRequestsVM);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
     }
 }
