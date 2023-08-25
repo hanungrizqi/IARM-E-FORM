@@ -119,7 +119,8 @@
     })
 
     $('.select2').select2({
-        placeholder: "Pilih input   ",
+        placeholder: "Pilih input",
+        allowClear: true
     });
 
     function getDistrict() {
