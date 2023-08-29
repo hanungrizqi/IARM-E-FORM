@@ -277,6 +277,7 @@
     <Content Include="Content\Boostraps\bower_components\bootstrap\js\tooltip.js" />
     <Content Include="Content\Boostraps\bower_components\bootstrap\js\transition.js" />
     <Content Include="Content\Boostraps\bower_components\bootstrap\package.js" />
+    <Content Include="Content\Boostraps\bower_components\chartjs\Chart.js" />
     <Content Include="Content\Boostraps\bower_components\datatables.net-bs\css\dataTables.bootstrap.css" />
     <Content Include="Content\Boostraps\bower_components\datatables.net-bs\css\dataTables.bootstrap.min.css" />
     <Content Include="Content\Boostraps\bower_components\datatables.net-bs\js\dataTables.bootstrap.js" />

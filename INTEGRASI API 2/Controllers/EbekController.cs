@@ -1,4 +1,5 @@
 ﻿using INTEGRASI_API_2.Cls;
+using INTEGRASI_API_2.ViewModels.Chart;
 using INTEGRASI_API_2.ViewModels.Ebek;
 using System;
 using System.Net;
@@ -72,6 +73,23 @@ namespace INTEGRASI_API_2.Controllers
             try
             {
                 var response = clsEbek.GetFilteredDataTableEbek(ebekFilterRequestsVM);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
+
+        [Route("api/ebek/chart")]
+        [HttpPost]
+        public IHttpActionResult GetChart(ChartRequestVM chartRequestVM)
+        {
+            try
+            {
+                var response = clsEbek.GetChartEbek(chartRequestVM);
                 return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
             }
             catch (Exception ex)

@@ -1,12 +1,13 @@
-﻿using INTEGRASI_API_2.Models;
+﻿using INTEGRASI_API_2.Helpers;
+using INTEGRASI_API_2.Models;
 using INTEGRASI_API_2.ViewModels;
+using INTEGRASI_API_2.ViewModels.Chart;
 using INTEGRASI_API_2.ViewModels.Ebek;
 using INTEGRASI_API_2.ViewModels.PI;
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace INTEGRASI_API_2.Cls
 {
@@ -39,7 +40,7 @@ namespace INTEGRASI_API_2.Cls
             var nowDateMonth = DateTime.Now.ToString("MM");
             var nowDateYear = DateTime.Now.ToString("yyyy");
             var findPiNumber = "INTEG" + "/" + nowDateYear + "/" + nowDateMonth;
-            var latestPiNumber  = db.TBL_T_PIs.Where(x => x.PI_NO.Contains(findPiNumber))
+            var latestPiNumber = db.TBL_T_PIs.Where(x => x.PI_NO.Contains(findPiNumber))
                                                 .OrderByDescending(x => x.PI_NO)
                                                 .Select(x => x.PI_NO)
                                                 .FirstOrDefault();
@@ -77,7 +78,7 @@ namespace INTEGRASI_API_2.Cls
 
                 return responseVM;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 var responseVM = new StatusResponseVM()
                 {
@@ -115,5 +116,144 @@ namespace INTEGRASI_API_2.Cls
             return listDataPI.ToList();
         }
 
+        public ChartResponseVM GetChartPI(ChartRequestVM requests)
+        {
+            var dataInit = ChartHelper.InitChartDataSet();
+            ChartResponseVM dataResponse = new ChartResponseVM()
+            {
+                labels = new List<string>(),
+                datasets = new List<ChartDataSet>()
+            };
+
+            var baseData = db.VW_ALL_USERs.Where(x => x.DSTRCT_CODE != null && x.SECTION_HEAD != null).ToList();
+
+            if (!requests.Dept.IsNullOrWhiteSpace() && !requests.District.IsNullOrWhiteSpace())
+            {
+                baseData = baseData.Where(x => x.DEPT_DESC == requests.Dept && x.DSTRCT_CODE == requests.District).ToList();
+                var customLabel = ($"{requests.District} - {requests.Dept}");
+                dataResponse.labels.Add(customLabel);
+
+                foreach (var dataSet in dataInit)
+                {
+                    var countData = baseData.Where(x => x.PI_SUBMIT == dataSet.isSubmit).Count();
+                    var newData = new ChartDataSet
+                    {
+                        label = dataSet.label,
+                        backgroundColor = dataSet.backgroundColor,
+                        data = new List<int>()
+                    };
+                    int totalData = 0;
+                    if (dataSet.isSubmit)
+                    {
+                        totalData = baseData.Where(x => x.PI_SUBMIT == dataSet.isSubmit).Count();
+                    }
+                    else
+                    {
+                        totalData = baseData.Where(x => x.PI_SUBMIT == dataSet.isSubmit || x.EBEK_SUBMIT == null).Count();
+                    }
+                    newData.data.Add(totalData);
+                    dataResponse.datasets.Add(newData);
+                }
+
+                return dataResponse;
+            }
+            else if (!requests.Dept.IsNullOrWhiteSpace())
+            {
+                baseData = baseData.Where(x => x.DEPT_DESC == requests.Dept).ToList();
+                var listDistrict = baseData.Select(x => x.DSTRCT_CODE).Distinct().ToList();
+                dataResponse.labels = listDistrict;
+
+                foreach (var dataSet in dataInit)
+                {
+                    var newData = new ChartDataSet
+                    {
+                        label = dataSet.label,
+                        backgroundColor = dataSet.backgroundColor,
+                        data = new List<int>()
+                    };
+
+                    foreach (var district in listDistrict)
+                    {
+                        int totalData = 0;
+                        if (dataSet.isSubmit)
+                        {
+                            totalData = baseData.Where(x => x.DSTRCT_CODE == district && x.PI_SUBMIT == dataSet.isSubmit).Count();
+                        }
+                        else
+                        {
+                            totalData = baseData.Where(x => x.DSTRCT_CODE == district && (x.PI_SUBMIT == dataSet.isSubmit || x.PI_SUBMIT == null)).Count();
+                        }
+                        newData.data.Add(totalData);
+                    }
+                    dataResponse.datasets.Add(newData);
+                }
+
+                return dataResponse;
+            }
+            else if (!requests.District.IsNullOrWhiteSpace())
+            {
+                baseData = baseData.Where(x => x.DSTRCT_CODE == requests.District).ToList();
+                var listDept = baseData.Select(x => x.DEPT_DESC).Distinct().ToList();
+                dataResponse.labels = listDept;
+
+                foreach (var dataSet in dataInit)
+                {
+                    var newData = new ChartDataSet
+                    {
+                        label = dataSet.label,
+                        backgroundColor = dataSet.backgroundColor,
+                        data = new List<int>()
+                    };
+
+                    foreach (var dept in listDept)
+                    {
+                        int totalData = 0;
+                        if (dataSet.isSubmit)
+                        {
+                            totalData = baseData.Where(x => x.DEPT_DESC == dept && x.PI_SUBMIT == dataSet.isSubmit).Count();
+                        }
+                        else
+                        {
+                            totalData = baseData.Where(x => x.DEPT_DESC == dept && (x.PI_SUBMIT == dataSet.isSubmit || x.PI_SUBMIT == null)).Count();
+                        }
+                        newData.data.Add(totalData);
+                    }
+                    dataResponse.datasets.Add(newData);
+                }
+                return dataResponse;
+            }
+            else
+            {
+                var listDistrict = baseData.Select(x => x.DSTRCT_CODE).Distinct().ToList();
+                dataResponse.labels = listDistrict;
+
+                foreach (var dataSet in dataInit)
+                {
+                    var newData = new ChartDataSet
+                    {
+                        label = dataSet.label,
+                        backgroundColor = dataSet.backgroundColor,
+                        data = new List<int>()
+                    };
+
+                    foreach (var district in listDistrict)
+                    {
+                        int totalData = 0;
+                        if (dataSet.isSubmit)
+                        {
+                            totalData = baseData.Where(x => x.DSTRCT_CODE == district && x.PI_SUBMIT == dataSet.isSubmit).Count();
+                        }
+                        else
+                        {
+                            totalData = baseData.Where(x => x.DSTRCT_CODE == district && (x.PI_SUBMIT == dataSet.isSubmit || x.PI_SUBMIT == null)).Count();
+                        }
+                        newData.data.Add(totalData);
+                    }
+                    dataResponse.datasets.Add(newData);
+                }
+
+                return dataResponse;
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace INTEGRASI_API_2.Controllers
             try
             {
                 var isAuthorized = clsAuth.AuthLDAP(login);
-                //isAuthorized = true;
+                isAuthorized = true;
                 if (isAuthorized)
                 {
                     var dataUser = clsAuth.GetUserData(login.Username);

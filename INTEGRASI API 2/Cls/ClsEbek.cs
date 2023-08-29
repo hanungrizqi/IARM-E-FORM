@@ -1,7 +1,9 @@
 ﻿using INTEGRASI_API_2.Constanta;
 using INTEGRASI_API_2.Models;
 using INTEGRASI_API_2.ViewModels;
+using INTEGRASI_API_2.ViewModels.Chart;
 using INTEGRASI_API_2.ViewModels.Ebek;
+using INTEGRASI_API_2.Helpers;
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
@@ -171,6 +173,146 @@ namespace INTEGRASI_API_2.Cls
             }
 
             return listDataEbek.ToList();
+        }
+
+        public ChartResponseVM GetChartEbek(ChartRequestVM requests)
+        {
+            var dataInit = ChartHelper.InitChartDataSet();
+            ChartResponseVM dataResponse = new ChartResponseVM()
+            {
+                labels = new List<string>(),
+                datasets = new List<ChartDataSet>()
+            };
+
+            var baseData = db.VW_ALL_USERs.Where(x => x.DSTRCT_CODE != null).ToList();
+
+            if (!requests.Dept.IsNullOrWhiteSpace() && !requests.District.IsNullOrWhiteSpace())
+            {
+                baseData = baseData.Where(x => x.DEPT_DESC == requests.Dept && x.DSTRCT_CODE == requests.District).ToList();
+                var customLabel = ($"{requests.District} - {requests.Dept}");
+                dataResponse.labels.Add(customLabel);
+
+                foreach (var dataSet in dataInit)
+                {
+                    var countData = baseData.Where(x => x.EBEK_SUBMIT == dataSet.isSubmit).Count();
+                    var newData = new ChartDataSet
+                    {
+                        label = dataSet.label,
+                        backgroundColor = dataSet.backgroundColor,
+                        data = new List<int>()
+                    };
+                    int totalData = 0;
+                    if (dataSet.isSubmit)
+                    {
+                        totalData = baseData.Where(x => x.EBEK_SUBMIT == dataSet.isSubmit).Count();
+                    }
+                    else
+                    {
+                        totalData = baseData.Where(x => x.EBEK_SUBMIT == dataSet.isSubmit || x.EBEK_SUBMIT == null).Count();
+                    }
+                    newData.data.Add(totalData);
+                    dataResponse.datasets.Add(newData);
+                }
+
+                return dataResponse;
+            }
+            else if (!requests.Dept.IsNullOrWhiteSpace())
+            {
+                baseData = baseData.Where(x => x.DEPT_DESC == requests.Dept).ToList();
+                var listDistrict = baseData.Select(x => x.DSTRCT_CODE).Distinct().ToList();
+                dataResponse.labels = listDistrict;
+
+                foreach (var dataSet in dataInit)
+                {
+                    var newData = new ChartDataSet
+                    {
+                        label = dataSet.label,
+                        backgroundColor = dataSet.backgroundColor,
+                        data = new List<int>()
+                    };
+
+                    foreach (var district in listDistrict)
+                    {
+                        int totalData = 0;
+                        if (dataSet.isSubmit)
+                        {
+                            totalData = baseData.Where(x => x.DSTRCT_CODE == district && x.EBEK_SUBMIT == dataSet.isSubmit).Count();
+                        }
+                        else
+                        {
+                            totalData = baseData.Where(x => x.DSTRCT_CODE == district && (x.EBEK_SUBMIT == dataSet.isSubmit || x.EBEK_SUBMIT == null)).Count();
+                        }
+                        newData.data.Add(totalData);
+                    }
+                    dataResponse.datasets.Add(newData);
+                }
+
+                return dataResponse;
+            }
+            else if (!requests.District.IsNullOrWhiteSpace())
+            {
+                baseData = baseData.Where(x => x.DSTRCT_CODE == requests.District).ToList();
+                var listDept = baseData.Select(x => x.DEPT_DESC).Distinct().ToList();
+                dataResponse.labels = listDept;
+
+                foreach (var dataSet in dataInit)
+                {
+                    var newData = new ChartDataSet
+                    {
+                        label = dataSet.label,
+                        backgroundColor = dataSet.backgroundColor,
+                        data = new List<int>()
+                    };
+
+                    foreach (var dept in listDept)
+                    {
+                        int totalData = 0;
+                        if (dataSet.isSubmit)
+                        {
+                            totalData = baseData.Where(x => x.DEPT_DESC == dept && x.EBEK_SUBMIT == dataSet.isSubmit).Count();
+                        }
+                        else
+                        {
+                            totalData = baseData.Where(x => x.DEPT_DESC == dept && (x.EBEK_SUBMIT == dataSet.isSubmit || x.EBEK_SUBMIT == null)).Count();
+                        }
+                        newData.data.Add(totalData);
+                    }
+                    dataResponse.datasets.Add(newData);
+                }
+                return dataResponse;
+            }
+            else
+            {
+                var listDistrict = baseData.Select(x => x.DSTRCT_CODE).Distinct().ToList();
+                dataResponse.labels = listDistrict;
+
+                foreach (var dataSet in dataInit)
+                {
+                    var newData = new ChartDataSet
+                    {
+                        label = dataSet.label,
+                        backgroundColor = dataSet.backgroundColor,
+                        data = new List<int>()
+                    };
+
+                    foreach (var district in listDistrict)
+                    {
+                        int totalData = 0;
+                        if (dataSet.isSubmit)
+                        {
+                            totalData = baseData.Where(x => x.DSTRCT_CODE == district && x.EBEK_SUBMIT == dataSet.isSubmit).Count();
+                        }
+                        else
+                        {
+                            totalData = baseData.Where(x => x.DSTRCT_CODE == district && (x.EBEK_SUBMIT == dataSet.isSubmit || x.EBEK_SUBMIT == null)).Count();
+                        }
+                        newData.data.Add(totalData);
+                    }
+                    dataResponse.datasets.Add(newData);
+                }
+
+                return dataResponse;
+            }
         }
     }
 }
