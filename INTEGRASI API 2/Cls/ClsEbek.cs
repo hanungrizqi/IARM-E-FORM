@@ -199,6 +199,7 @@ namespace INTEGRASI_API_2.Cls
                     {
                         label = dataSet.label,
                         backgroundColor = dataSet.backgroundColor,
+                        categoryPercentage = dataSet.categoryPercentage,
                         data = new List<int>()
                     };
                     int totalData = 0;
@@ -228,6 +229,7 @@ namespace INTEGRASI_API_2.Cls
                     {
                         label = dataSet.label,
                         backgroundColor = dataSet.backgroundColor,
+                        categoryPercentage = dataSet.categoryPercentage,
                         data = new List<int>()
                     };
 
@@ -261,6 +263,7 @@ namespace INTEGRASI_API_2.Cls
                     {
                         label = dataSet.label,
                         backgroundColor = dataSet.backgroundColor,
+                        categoryPercentage = dataSet.categoryPercentage,
                         data = new List<int>()
                     };
 
@@ -292,6 +295,7 @@ namespace INTEGRASI_API_2.Cls
                     {
                         label = dataSet.label,
                         backgroundColor = dataSet.backgroundColor,
+                        categoryPercentage = dataSet.categoryPercentage,
                         data = new List<int>()
                     };
 

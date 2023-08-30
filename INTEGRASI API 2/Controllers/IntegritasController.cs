@@ -7,6 +7,7 @@ using System.Web.Http;
 using INTEGRASI_API_2.Cls;
 using INTEGRASI_API_2.Models;
 using INTEGRASI_API_2.ViewModels;
+using INTEGRASI_API_2.ViewModels.Chart;
 using INTEGRASI_API_2.ViewModels.Ebek;
 using INTEGRASI_API_2.ViewModels.PI;
 
@@ -91,6 +92,20 @@ namespace INTEGRASI_API_2.Controllers
             }
         }
 
-    }
+        [Route("api/integritas/chart")]
+        [HttpPost]
+        public IHttpActionResult GetChart(ChartRequestVM chartRequestVM)
+        {
+            try
+            {
+                var response = clsPi.GetChartPI(chartRequestVM);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
 
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+    }
 }

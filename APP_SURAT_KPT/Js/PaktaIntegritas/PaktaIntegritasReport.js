@@ -81,6 +81,49 @@
         })
     })
 
+    // init chart
+    $(function () {
+        var district = document.querySelector('#chart-district').value
+        var dept = document.querySelector('#chart-dept').value
+
+        var dataRequest = {
+            District: district,
+            Dept: dept
+        }
+
+        $.ajax({
+            url: `${apiUrl}api/integritas/chart`,
+            method: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(dataRequest)
+        }).done(function (response) {
+            console.log(response.Data)
+            var contex = document.getElementById('chartPI')
+            chartJs = new Chart(contex, {
+                type: 'bar',
+                data: response.Data,
+                options: {
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    responsive: true,
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                }
+            });
+        }).fail(function (jqXHR, textStatus) {
+            console.log(jqXHR, textStatus);
+        });
+    })
+
     $('.select2').select2({
         placeholder: "Pilih input",
         allowClear: true
@@ -92,10 +135,12 @@
             method: "GET",
         }).done(function (response) {
             response.Data.forEach((val, idx) => {
-                $('#list-district').append($('<option/>', {
-                    value: val.DSTRCT_CODE,
-                    text: val.DSTRCT_CODE
-                }));
+                $('.list-district').each(function () {
+                    $(this).append($('<option/>', {
+                        value: val.DSTRCT_CODE,
+                        text: val.DSTRCT_CODE
+                    }));
+                });
             });
         }).fail(function (jqXHR, textStatus) {
             console.log(jqXHR, textStatus);
@@ -108,10 +153,12 @@
             method: "GET",
         }).done(function (response) {
             response.Data.forEach((val, idx) => {
-                $('#list-dept').append($('<option/>', {
-                    value: val.DEPT_NAME,
-                    text: val.DEPT_NAME
-                }));
+                $('.list-dept').each(function () {
+                    $(this).append($('<option/>', {
+                        value: val.DEPT_NAME,
+                        text: val.DEPT_NAME
+                    }));
+                });
             });
         }).fail(function (jqXHR, textStatus) {
             console.log(jqXHR, textStatus);
@@ -139,6 +186,49 @@
             $('#report-tbl').DataTable().clear();
             $('#report-tbl').DataTable().rows.add(response.Data)
             $('#report-tbl').DataTable().draw()
+        }).fail(function (jqXHR, textStatus) {
+            console.log(jqXHR, textStatus);
+        });
+    });
+
+    $("#chart-pi").click(async function () {
+        var district = document.querySelector('#chart-district').value
+        var dept = document.querySelector('#chart-dept').value
+
+        var dataRequest = {
+            District: district,
+            Dept: dept
+        }
+
+        $.ajax({
+            url: `${apiUrl}api/integritas/chart`,
+            method: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(dataRequest)
+        }).done(function (response) {
+            console.log(response.Data)
+            var contex = document.getElementById('chartPI')
+            chartJs.destroy();
+            chartJs = new Chart(contex, {
+                type: 'bar',
+                data: response.Data,
+                options: {
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    responsive: true,
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                }
+            });
         }).fail(function (jqXHR, textStatus) {
             console.log(jqXHR, textStatus);
         });

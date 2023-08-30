@@ -120,7 +120,7 @@
         })
     })
 
-    // init chartjs
+    // init chart
     $(function () {
         var namaKaryawan = document.querySelector('#filter-name').value
         var district = document.querySelector('#chart-district').value
@@ -233,12 +233,10 @@
     });
 
     $("#chart-ebek").click(async function () {
-        var namaKaryawan = document.querySelector('#filter-name').value
         var district = document.querySelector('#chart-district').value
         var dept = document.querySelector('#chart-dept').value
 
         var dataRequest = {
-            Nama: namaKaryawan,
             District: district,
             Dept: dept
         }

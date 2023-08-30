@@ -16,12 +16,15 @@ namespace INTEGRASI_API_2.Helpers
                 {
                     label = "Sudah Submit",
                     backgroundColor = "rgb(75, 192, 192)",
+                    categoryPercentage = 0.5,
                     isSubmit = true
+                    
                 },
                 new InitDataSet
                 {
                     label = "Belum Submit",
                     backgroundColor = "rgb(255, 99, 132)",
+                    categoryPercentage = 0.75,
                     isSubmit = false
                 }
             };
