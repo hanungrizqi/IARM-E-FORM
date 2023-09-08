@@ -53,7 +53,11 @@
         }
 
         .sign-area {
-            margin-top: 
+            margin-top: 15px;
+        }
+
+        .img-responsive {
+            margin: 0 auto;
         }
     </style>
 }
@@ -62,89 +66,91 @@
     <script type="text/javascript" src="~/Js/PaktaIntegritas/PaktaIntegritas.js"></script>
 }
 
-<section class="content-header" id="form-pi">
-    <div class="container">
-        <img src="~/Content/Image/Logo_KPP2-removebg-preview.png" alt="Header Image" style="display: block; margin: 0 auto; width: 600px;" /><br>
-        <h4>PAKTA INTEGRITAS</h4>
-        <div class="info">
-            <table>
-                <tbody>
-                    <tr>
-                        <td><strong>Nama</strong></td>
-                        <td>:&nbsp</td>
-                        <td id="form-name"></td>
-                    </tr>
-                    <tr>
-                        <td><strong>NRP</strong></td>
-                        <td>:&nbsp</td>
-                        <td id="form-nrp"></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Dept. / Div.</strong></td>
-                        <td>:&nbsp</td>
-                        <td id="form-dept"></td>
-                    </tr>
-                </tbody>
-            </table>
-            @*<strong>Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> @ViewBag.NAME<br>
-                <strong>NRP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> @ViewBag.NRP<br>
-                <strong>Dept. / Div.:</strong> @ViewBag.DEPT_DESC*@
-        </div>
-
-        <div>
-            <p>
-                Dalam rangka menjalankan tugas, kewajiban, dan tanggung jawab sebagai Pekerja PT Kalimantan Prima
-                Persada
-                (“Perusahaan”) dan untuk mendukung terciptanya tata Kelola Perusahaan yang baik, dengan ini menyatakan
-                bahwa
-                saya:
-            </p>
-            <ol>
-                <li>Menjunjung tinggi nilai integritas dalam lingkungan kerja perusahaan.</li>
-                <li>Berjanji untuk menerapkan perilaku yang berpedoman pada etika bisnis dan etika kerja.</li>
-                <li>
-                    Berjanji untuk selalu berupaya melakukan tindakan pencegahan terhadap potensi terjadinya pelanggaran
-                    etika
-                    bisnis dan etika kerja.
-                </li>
-                <li>
-                    Berjanji untuk selalu melaporkan segala bentuk pelanggaran etika bisnis dan etika kerja yang terjadi
-                    yang
-                    kami ketahui melalui media pelaporan yang disediakan perusahaan.
-                </li>
-                <li>Berjanji untuk menjadi role model dalam berperilaku positif.</li>
-            </ol>
-            <p>
-                Demikian pernyataan ini saya buat dengan sebenar-benarnya dan tanpa paksaan dari pihak manapun. Apabila
-                saya
-                melanggar hal-hal yang telah dinyatakan dalam pakta integritas ini, maka saya bersedia menerima sanksi
-                sesuai
-                dengan ketentuan dan peraturan yang berlaku dalam perusahaan.
-            </p>
-            <div class="row sign-area">
-                <div class="col-md-4 text-center">
-                    <div>
-                        <span><input id="sign-location" type="text" placeholder="lokasi"></span>, @DateTime.Now.ToString("dd-MMM-yyyy")
-                    </div>
-                    <div class="signature text-center">
-                        <br><br>
-                        <strong id="sign-name"></strong>
-                    </div>
-
-                </div>
+<div id="form-pi">
+    <div class="box box-solid">
+        <div class="box-body">
+            <img src="~/Content/Image/Logo_KPP2-removebg-preview.png" alt="Header Image" class="img-responsive" /><br>
+            <h4>PAKTA INTEGRITAS</h4>
+            <div class="info">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nama</strong></td>
+                            <td>:&nbsp</td>
+                            <td id="form-name"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>NRP</strong></td>
+                            <td>:&nbsp</td>
+                            <td id="form-nrp"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dept. / Div.</strong></td>
+                            <td>:&nbsp</td>
+                            <td id="form-dept"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                @*<strong>Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> @ViewBag.NAME<br>
+            <strong>NRP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> @ViewBag.NRP<br>
+            <strong>Dept. / Div.:</strong> @ViewBag.DEPT_DESC*@
             </div>
-            @*<p>@((DateTime.Now.ToString("dd MMMM yyyy")))</p>
+
+            <div>
+                <p>
+                    Dalam rangka menjalankan tugas, kewajiban, dan tanggung jawab sebagai Pekerja PT Kalimantan Prima
+                    Persada
+                    (“Perusahaan”) dan untuk mendukung terciptanya tata Kelola Perusahaan yang baik, dengan ini menyatakan
+                    bahwa
+                    saya:
+                </p>
+                <ol>
+                    <li>Menjunjung tinggi nilai integritas dalam lingkungan kerja perusahaan.</li>
+                    <li>Berjanji untuk menerapkan perilaku yang berpedoman pada etika bisnis dan etika kerja.</li>
+                    <li>
+                        Berjanji untuk selalu berupaya melakukan tindakan pencegahan terhadap potensi terjadinya pelanggaran
+                        etika
+                        bisnis dan etika kerja.
+                    </li>
+                    <li>
+                        Berjanji untuk selalu melaporkan segala bentuk pelanggaran etika bisnis dan etika kerja yang terjadi
+                        yang
+                        kami ketahui melalui media pelaporan yang disediakan perusahaan.
+                    </li>
+                    <li>Berjanji untuk menjadi role model dalam berperilaku positif.</li>
+                </ol>
+                <p>
+                    Demikian pernyataan ini saya buat dengan sebenar-benarnya dan tanpa paksaan dari pihak manapun. Apabila
+                    saya
+                    melanggar hal-hal yang telah dinyatakan dalam pakta integritas ini, maka saya bersedia menerima sanksi
+                    sesuai
+                    dengan ketentuan dan peraturan yang berlaku dalam perusahaan.
+                </p>
+                <div class="row sign-area">
+                    <div class="col-md-4 text-center">
+                        <div>
+                            <span><input id="sign-location" type="text" placeholder="lokasi"></span>, @DateTime.Now.ToString("dd-MMM-yyyy")
+                        </div>
+                        <div class="signature text-center">
+                            <br><br>
+                            <strong id="sign-name"></strong>
+                        </div>
+
+                    </div>
+                </div>
+                @*<p>@((DateTime.Now.ToString("dd MMMM yyyy")))</p>
             <div class="signature">
                 <br><br>
                 <strong id="sign-name"></strong>
             </div>*@
-        </div>
-        
-        <div class="text-center btn-submit">
-            <button class="btn btn-success btn-sm" type="button" id="btn-submit-pi">Submit</button>
+            </div>
+
+            <div class="text-center btn-submit">
+                <button class="btn btn-success btn-sm" type="button" id="btn-submit-pi">Submit</button>
+            </div>
         </div>
     </div>
-</section>
+</div>
 
 <section class="content-header" id="form-pi-submit">
     <div class="container text-center">
