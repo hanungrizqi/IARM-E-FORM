@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
@@ -16,6 +17,7 @@ namespace APP_SURAT_KPT.Cls.Auth
 
         public async Task<LoginResponseVM> GetUserData(LoginVM request)
         {
+            System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             LoginResponseVM errorResponse = new LoginResponseVM();
             string API_PATH = ConfigurationManager.AppSettings["API_PATH"];
             var values = new Dictionary<string, string>
@@ -41,6 +43,12 @@ namespace APP_SURAT_KPT.Cls.Auth
                     errorResponse.Message = $"Terjadi kesalahan dalam menyambungkan ke server. <br />Message : {response.ReasonPhrase}";
                     return errorResponse;
                 }
+            }
+            catch (HttpRequestException ex )
+            {
+                errorResponse.Success = false;
+                errorResponse.Message = $"Terjadi kesalahan dalam menyambungkan ke server. <br />Message : {ex.Message}";
+                return errorResponse;
             }
             catch (Exception ex)
             {
