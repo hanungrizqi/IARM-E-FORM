@@ -29,6 +29,11 @@
     </style>
 }
 
+@section Scripts{
+    <script type="text/javascript" src="~/Js/Auth/Login.js"></script>
+}
+
+
 <div class="login-header">
     <div class="login-logo" @*style="width: 480px;*@>
         <div><b>IARM e-Form</b></div>
@@ -60,7 +65,7 @@
         }
 
         <div id="error-message" style="display: none;"></div>
-        <form action="@(Url.Action("loginUser", "Login"))" method="post">
+        <form>
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" id="nrp" name="nrp" placeholder="nrp">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -80,10 +85,10 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    <button id="login-btn" type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                 </div>
                 <!-- /.col -->
-                <!--</div>-->
+            </div>
         </form>
 
         <!-- /.social-auth-links -->

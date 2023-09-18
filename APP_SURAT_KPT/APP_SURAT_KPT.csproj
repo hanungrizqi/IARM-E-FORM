@@ -2893,6 +2893,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Js\Auth\Login.js" />
     <Content Include="Js\Ebek\EbekIndex.js" />
     <Content Include="Js\Ebek\EbekReport.js" />
     <Content Include="Js\PaktaIntegritas\PaktaIntegritas.js" />

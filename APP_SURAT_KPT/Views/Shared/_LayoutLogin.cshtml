@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="~/Content/Boostraps/dist/css/AdminLTE.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="~/Content/Boostraps/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="~/Content/Boostraps/dist/Site.css">
+
     @RenderSection("Styles", false)
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,20 +36,29 @@
 </head>
 <body class="hold-transition login-page">
     @RenderBody()
+    <div id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
     <!-- jQuery 3 -->
     <script src="~/Content/Boostraps/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="~/Content/Boostraps/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- iCheck -->
     <script src="~/Content/Boostraps/plugins/iCheck/icheck.min.js"></script>
+    <script src="~/Content/Boostraps/dist/js/sweetalert2.all.min.js"></script>
     <script>
-$(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });</script>
+        var apiUrl = "@ViewBag.ApiUrl";
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' /* optional */
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", false)
 </body>
 </html>
 

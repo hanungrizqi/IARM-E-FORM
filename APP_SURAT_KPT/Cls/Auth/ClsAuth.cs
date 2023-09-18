@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 using System.Web;
 using APP_SURAT_KPT.ViewModels.Account;
@@ -13,11 +14,14 @@ namespace APP_SURAT_KPT.Cls.Auth
 {
     public class ClsAuth
     {
-        private static readonly HttpClient client = new HttpClient();
-
         public async Task<LoginResponseVM> GetUserData(LoginVM request)
         {
-            System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            var handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            handler.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls11 | SslProtocols.Tls;
+
+            HttpClient client = new HttpClient(handler);
+
             LoginResponseVM errorResponse = new LoginResponseVM();
             string API_PATH = ConfigurationManager.AppSettings["API_PATH"];
             var values = new Dictionary<string, string>

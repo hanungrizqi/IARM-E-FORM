@@ -25,25 +25,18 @@ namespace APP_SURAT_KPT.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> LoginUser(LoginVM requestVM)
+        public JsonResult LoginUser(UserData requestVM)
         {
-            var tryLogin = await auth.GetUserData(requestVM);
-            if (tryLogin.Success)
-            {
-                Session["Nrp"] = tryLogin.Data.Nrp;
-                Session["Role"] = tryLogin.Data.Role;
-                Session["IsSectionHead"] = tryLogin.Data.IsSectionHead;
-                return RedirectToAction("dashboard", "dashboard");
-            }
-
-            TempData["Error"] = tryLogin.Message;
-            return RedirectToAction("Login", "Login");
+            Session["Nrp"] = requestVM.Nrp;
+            Session["Role"] = requestVM.Role;
+            Session["IsSectionHead"] = requestVM.IsSectionHead;
+            return new JsonResult() { Data = new { Success = true, Message = "Berhasil Login" }};
         }
         
         public ActionResult Login()
         {
             //return View();
-
+            ViewBag.ApiUrl = System.Configuration.ConfigurationManager.AppSettings["API_PATH"].ToString();
             if (TempData["Error"] != null)
             {
                 ViewBag.Msg = TempData["Error"].ToString();
