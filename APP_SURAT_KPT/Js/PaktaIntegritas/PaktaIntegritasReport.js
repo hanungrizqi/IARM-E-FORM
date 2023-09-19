@@ -9,6 +9,7 @@
                     className: 'text-center'
                 }
             ],
+            scrollX: true,
             processing: true,
             pagingType: "full_numbers",
             pageLength: 10,
@@ -167,8 +168,8 @@
 
     $("#filter-pi").click(async function () {
         var namaKaryawan = document.querySelector('#filter-name').value
-        var district = document.querySelector('#list-district').value
-        var dept = document.querySelector('#list-dept').value
+        var district = document.querySelector('#filter-district').value
+        var dept = document.querySelector('#filter-dept').value
 
         var dataRequest = {
             Nama: namaKaryawan,

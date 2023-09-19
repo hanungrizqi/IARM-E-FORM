@@ -15,6 +15,7 @@
                     className: 'text-center'
                 },
             ],
+            scrollX: true,
             processing: true,
             pagingType: "full_numbers",
             pageLength: 10,
