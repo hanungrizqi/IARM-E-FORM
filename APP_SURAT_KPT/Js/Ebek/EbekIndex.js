@@ -24,7 +24,7 @@
                     document.getElementById("user-dept").innerHTML = response.Data.DEPT_DESC;
                     document.getElementById("user-divisi").innerHTML = response.Data.DEPT_DESC;
                     document.getElementById("user-hire-date").innerHTML = new moment(response.Data.HIRE_DATE, "YYYYMMDD").format("YYYY-MMMM-DD") ;
-                    document.getElementById("user-gender").innerHTML = response.Data.GENDER_CODE = 'M' ? 'Pria' : 'Wanita';
+                    document.getElementById("user-gender").innerHTML = response.Data.GENDER_CODE == 'M' ? 'Pria' : 'Wanita';
                     document.getElementById("user-address").innerHTML = response.Data.alamat;
                     document.getElementById("user-phone").innerHTML = response.Data.No_telp;
 
