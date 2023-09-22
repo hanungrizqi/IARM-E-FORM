@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.UI.WebControls;
-using FormsAuth;
+﻿using APP_SURAT_KPT.Cls.Auth;
+using APP_SURAT_KPT.Models;
 using APP_SURAT_KPT.ViewModels.Account;
-using System.DirectoryServices;
-using APP_SURAT_KPT.Controllers;
-using System.Threading.Tasks;
-using APP_SURAT_KPT.Cls.Auth;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace APP_SURAT_KPT.Controllers
 {
@@ -17,10 +10,11 @@ namespace APP_SURAT_KPT.Controllers
     {
 
         ClsAuth auth = new ClsAuth();
+        DBPakta_IntegritasDataContext _dbContext = new DBPakta_IntegritasDataContext();
 
         public ActionResult Logout()
         {
-            Session.Clear();
+            Session.Abandon();
             return RedirectToAction("Login", "Login");
         }
 
@@ -30,9 +24,9 @@ namespace APP_SURAT_KPT.Controllers
             Session["Nrp"] = requestVM.Nrp;
             Session["Role"] = requestVM.Role;
             Session["IsSectionHead"] = requestVM.IsSectionHead;
-            return new JsonResult() { Data = new { Success = true, Message = "Berhasil Login" }};
+            return new JsonResult() { Data = new { Success = true, Message = "Berhasil Login" } };
         }
-        
+
         public ActionResult Login()
         {
             //return View();
@@ -42,6 +36,39 @@ namespace APP_SURAT_KPT.Controllers
                 ViewBag.Msg = TempData["Error"].ToString();
             }
             return View();
+        }
+
+        public ActionResult LoginMok(string o, string i)
+        {
+            var userDataMok = _dbContext.VW_MOK_LOGINs.Where(f => f.username == o && f.token == i).FirstOrDefault();
+
+            if (o == null || i == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                if (userDataMok != null)
+                {
+                    var userDataApp = _dbContext.VW_ALL_USERs.Where(x => x.EMPLOYEE_ID == o).FirstOrDefault();
+
+                    if (userDataApp != null)
+                    {
+                        Session["Nrp"] = userDataApp.EMPLOYEE_ID;
+                        Session["Role"] = userDataApp.ROLE;
+                        Session["IsSectionHead"] = userDataApp.SECTION_HEAD != null ? true : false;
+                        return RedirectToAction("dashboard", "dashboard");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Login", "Login");
+                    }
+                }
+                else
+                {
+                    return View((object)"Data tidak ditemukan !");
+                }
+            }
         }
     }
 }

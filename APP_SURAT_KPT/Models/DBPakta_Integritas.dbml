@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_IA_PAKTA_INTEGRITAS_KPP" Class="DBPakta_IntegritasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=10.14.101.1\KPPPROD;Initial Catalog=DB_IA_PAKTA_INTEGRITAS_KPP;Persist Security Info=True;User ID=sqlservices" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_IA_PAKTA_INTEGRITAS_KPPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.VW_MOK_LOGIN" Member="VW_MOK_LOGINs">
+    <Type Name="VW_MOK_LOGIN">
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="expiredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="otp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="token" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="device_id" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ALL_USER" Member="VW_ALL_USERs">
+    <Type Name="VW_ALL_USER">
+      <Column Name="EMPLOYEE_ID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POSITION_ID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="POS_TITLE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DSTRCT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPT_DESC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="alamat" Type="System.String" DbType="VarChar(303)" CanBeNull="true" />
+      <Column Name="HIRE_DATE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="GENDER_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="No_telp" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ROLE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PI_SUBMIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EBEK_SUBMIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SECTION_HEAD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

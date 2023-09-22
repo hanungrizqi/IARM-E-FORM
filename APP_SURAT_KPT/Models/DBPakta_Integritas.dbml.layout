@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DBPakta_Integritas">
+  <DataContextMoniker Name="/DBPakta_IntegritasDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ace6545f-dbe4-4d51-b23f-5e11bf03fb14" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_MOK_LOGIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="833779b7-df66-48c3-bed7-08f6508e80f8" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b398336-bc9d-414e-bb92-ef2b293947b1" isExpanded="false" absoluteBounds="2.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_ALL_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ab341581-6f08-4ac7-8aac-78bb9c39e581" absoluteBounds="2.6399999999999997, 0.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
