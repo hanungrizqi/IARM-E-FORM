@@ -16,7 +16,7 @@ namespace APP_SURAT_KPT
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "LoginMok", id = UrlParameter.Optional }
             );
         }
     }
