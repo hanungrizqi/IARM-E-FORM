@@ -22,7 +22,7 @@ namespace INTEGRASI_API_2.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DB_IA_PAKTA_INTEGRITAS_KPP")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DB_IA_PAKTA_INTEGRITAS_KPT")]
 	public partial class DBPakta_IntegritasDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -51,6 +51,9 @@ namespace INTEGRASI_API_2.Models
     partial void InsertTBL_T_EBEK(TBL_T_EBEK instance);
     partial void UpdateTBL_T_EBEK(TBL_T_EBEK instance);
     partial void DeleteTBL_T_EBEK(TBL_T_EBEK instance);
+    partial void InsertTBL_T_GRATIFIKASI(TBL_T_GRATIFIKASI instance);
+    partial void UpdateTBL_T_GRATIFIKASI(TBL_T_GRATIFIKASI instance);
+    partial void DeleteTBL_T_GRATIFIKASI(TBL_T_GRATIFIKASI instance);
     #endregion
 		
 		public DBPakta_IntegritasDataContext() : 
@@ -176,6 +179,14 @@ namespace INTEGRASI_API_2.Models
 			get
 			{
 				return this.GetTable<VW_DISTRICT_ALL>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_T_GRATIFIKASI> TBL_T_GRATIFIKASIs
+		{
+			get
+			{
+				return this.GetTable<TBL_T_GRATIFIKASI>();
 			}
 		}
 	}
@@ -2323,6 +2334,356 @@ namespace INTEGRASI_API_2.Models
 				{
 					this._DSTRCT_STATUS = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_GRATIFIKASI")]
+	public partial class TBL_T_GRATIFIKASI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _NRP;
+		
+		private System.Nullable<System.DateTime> _CREATED_DATE;
+		
+		private string _JENIS_PENERIMAAN;
+		
+		private string _ESTIMASI_HARGA;
+		
+		private string _TEMPAT_PENERIMAAN;
+		
+		private System.Nullable<System.DateTime> _TANGGAL_PENERIMAAN;
+		
+		private string _NAMA_PEMBERI;
+		
+		private string _PEKERJAAN_PEMBERI;
+		
+		private string _NAMA_PERUSAHAAN;
+		
+		private string _HUBUNGAN_PEMBERI;
+		
+		private string _ALASAN_PEMBERIAN;
+		
+		private string _BUKTI_GRATIFIKASI;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNRPChanging(string value);
+    partial void OnNRPChanged();
+    partial void OnCREATED_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCREATED_DATEChanged();
+    partial void OnJENIS_PENERIMAANChanging(string value);
+    partial void OnJENIS_PENERIMAANChanged();
+    partial void OnESTIMASI_HARGAChanging(string value);
+    partial void OnESTIMASI_HARGAChanged();
+    partial void OnTEMPAT_PENERIMAANChanging(string value);
+    partial void OnTEMPAT_PENERIMAANChanged();
+    partial void OnTANGGAL_PENERIMAANChanging(System.Nullable<System.DateTime> value);
+    partial void OnTANGGAL_PENERIMAANChanged();
+    partial void OnNAMA_PEMBERIChanging(string value);
+    partial void OnNAMA_PEMBERIChanged();
+    partial void OnPEKERJAAN_PEMBERIChanging(string value);
+    partial void OnPEKERJAAN_PEMBERIChanged();
+    partial void OnNAMA_PERUSAHAANChanging(string value);
+    partial void OnNAMA_PERUSAHAANChanged();
+    partial void OnHUBUNGAN_PEMBERIChanging(string value);
+    partial void OnHUBUNGAN_PEMBERIChanged();
+    partial void OnALASAN_PEMBERIANChanging(string value);
+    partial void OnALASAN_PEMBERIANChanged();
+    partial void OnBUKTI_GRATIFIKASIChanging(string value);
+    partial void OnBUKTI_GRATIFIKASIChanged();
+    #endregion
+		
+		public TBL_T_GRATIFIKASI()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this.OnNRPChanging(value);
+					this.SendPropertyChanging();
+					this._NRP = value;
+					this.SendPropertyChanged("NRP");
+					this.OnNRPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATED_DATE
+		{
+			get
+			{
+				return this._CREATED_DATE;
+			}
+			set
+			{
+				if ((this._CREATED_DATE != value))
+				{
+					this.OnCREATED_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_DATE = value;
+					this.SendPropertyChanged("CREATED_DATE");
+					this.OnCREATED_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JENIS_PENERIMAAN", DbType="VarChar(50)")]
+		public string JENIS_PENERIMAAN
+		{
+			get
+			{
+				return this._JENIS_PENERIMAAN;
+			}
+			set
+			{
+				if ((this._JENIS_PENERIMAAN != value))
+				{
+					this.OnJENIS_PENERIMAANChanging(value);
+					this.SendPropertyChanging();
+					this._JENIS_PENERIMAAN = value;
+					this.SendPropertyChanged("JENIS_PENERIMAAN");
+					this.OnJENIS_PENERIMAANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTIMASI_HARGA", DbType="VarChar(50)")]
+		public string ESTIMASI_HARGA
+		{
+			get
+			{
+				return this._ESTIMASI_HARGA;
+			}
+			set
+			{
+				if ((this._ESTIMASI_HARGA != value))
+				{
+					this.OnESTIMASI_HARGAChanging(value);
+					this.SendPropertyChanging();
+					this._ESTIMASI_HARGA = value;
+					this.SendPropertyChanged("ESTIMASI_HARGA");
+					this.OnESTIMASI_HARGAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEMPAT_PENERIMAAN", DbType="VarChar(50)")]
+		public string TEMPAT_PENERIMAAN
+		{
+			get
+			{
+				return this._TEMPAT_PENERIMAAN;
+			}
+			set
+			{
+				if ((this._TEMPAT_PENERIMAAN != value))
+				{
+					this.OnTEMPAT_PENERIMAANChanging(value);
+					this.SendPropertyChanging();
+					this._TEMPAT_PENERIMAAN = value;
+					this.SendPropertyChanged("TEMPAT_PENERIMAAN");
+					this.OnTEMPAT_PENERIMAANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL_PENERIMAAN", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TANGGAL_PENERIMAAN
+		{
+			get
+			{
+				return this._TANGGAL_PENERIMAAN;
+			}
+			set
+			{
+				if ((this._TANGGAL_PENERIMAAN != value))
+				{
+					this.OnTANGGAL_PENERIMAANChanging(value);
+					this.SendPropertyChanging();
+					this._TANGGAL_PENERIMAAN = value;
+					this.SendPropertyChanged("TANGGAL_PENERIMAAN");
+					this.OnTANGGAL_PENERIMAANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEMBERI", DbType="VarChar(50)")]
+		public string NAMA_PEMBERI
+		{
+			get
+			{
+				return this._NAMA_PEMBERI;
+			}
+			set
+			{
+				if ((this._NAMA_PEMBERI != value))
+				{
+					this.OnNAMA_PEMBERIChanging(value);
+					this.SendPropertyChanging();
+					this._NAMA_PEMBERI = value;
+					this.SendPropertyChanged("NAMA_PEMBERI");
+					this.OnNAMA_PEMBERIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PEKERJAAN_PEMBERI", DbType="VarChar(50)")]
+		public string PEKERJAAN_PEMBERI
+		{
+			get
+			{
+				return this._PEKERJAAN_PEMBERI;
+			}
+			set
+			{
+				if ((this._PEKERJAAN_PEMBERI != value))
+				{
+					this.OnPEKERJAAN_PEMBERIChanging(value);
+					this.SendPropertyChanging();
+					this._PEKERJAAN_PEMBERI = value;
+					this.SendPropertyChanged("PEKERJAAN_PEMBERI");
+					this.OnPEKERJAAN_PEMBERIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PERUSAHAAN", DbType="VarChar(50)")]
+		public string NAMA_PERUSAHAAN
+		{
+			get
+			{
+				return this._NAMA_PERUSAHAAN;
+			}
+			set
+			{
+				if ((this._NAMA_PERUSAHAAN != value))
+				{
+					this.OnNAMA_PERUSAHAANChanging(value);
+					this.SendPropertyChanging();
+					this._NAMA_PERUSAHAAN = value;
+					this.SendPropertyChanged("NAMA_PERUSAHAAN");
+					this.OnNAMA_PERUSAHAANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HUBUNGAN_PEMBERI", DbType="VarChar(50)")]
+		public string HUBUNGAN_PEMBERI
+		{
+			get
+			{
+				return this._HUBUNGAN_PEMBERI;
+			}
+			set
+			{
+				if ((this._HUBUNGAN_PEMBERI != value))
+				{
+					this.OnHUBUNGAN_PEMBERIChanging(value);
+					this.SendPropertyChanging();
+					this._HUBUNGAN_PEMBERI = value;
+					this.SendPropertyChanged("HUBUNGAN_PEMBERI");
+					this.OnHUBUNGAN_PEMBERIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALASAN_PEMBERIAN", DbType="VarChar(MAX)")]
+		public string ALASAN_PEMBERIAN
+		{
+			get
+			{
+				return this._ALASAN_PEMBERIAN;
+			}
+			set
+			{
+				if ((this._ALASAN_PEMBERIAN != value))
+				{
+					this.OnALASAN_PEMBERIANChanging(value);
+					this.SendPropertyChanging();
+					this._ALASAN_PEMBERIAN = value;
+					this.SendPropertyChanged("ALASAN_PEMBERIAN");
+					this.OnALASAN_PEMBERIANChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUKTI_GRATIFIKASI", DbType="VarChar(MAX)")]
+		public string BUKTI_GRATIFIKASI
+		{
+			get
+			{
+				return this._BUKTI_GRATIFIKASI;
+			}
+			set
+			{
+				if ((this._BUKTI_GRATIFIKASI != value))
+				{
+					this.OnBUKTI_GRATIFIKASIChanging(value);
+					this.SendPropertyChanging();
+					this._BUKTI_GRATIFIKASI = value;
+					this.SendPropertyChanged("BUKTI_GRATIFIKASI");
+					this.OnBUKTI_GRATIFIKASIChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

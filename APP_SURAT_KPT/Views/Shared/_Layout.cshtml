@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="~/Content/Boostraps/dist/Site.css">
     <link rel="stylesheet" href="~/Content/sweetalert2.min.css">
     <link rel="stylesheet" href="~/Content/Boostraps/bower_components/select2/dist/css/select2.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/Content/Boostraps/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="~/Content/Boostraps/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -81,15 +85,15 @@
             <section class="sidebar">
                 <!-- search form -->
                 @*<form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                </form>*@
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>*@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
@@ -107,6 +111,7 @@
                                 <li class="@(ViewBag.NavMainLinkSubmenu == "PI" ? "active" : "")"><a href="/Integritas/RptFaktaIntegritas"><i class="fa fa-files-o"></i>Pakta Integritas</a></li>
                             }
                             <li class="@(ViewBag.NavMainLinkSubmenu == "EBEK" ? "active" : "")"><a href="/Ebek/Index"><i class="fa fa-files-o"></i><span>EBEK</span></a></li>
+                            <li class="@(ViewBag.NavMainLinkSubmenu == "GRATIFIKASI" ? "active" : "")"><a href="/Gratifikasi/Index"><i class="fa fa-files-o"></i><span>Gratifikasi</span></a></li>
                         </ul>
                     </li>
                     @if (ViewBag.Role == "ADMINISTRATOR")
@@ -120,7 +125,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 @*<li class="@(ViewBag.NavMainLinkSubmenu == "PIReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>PI Report</span></a></li>
-                                <li class="@(ViewBag.NavMainLinkSubmenu == "EBEKReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>*@
+                                    <li class="@(ViewBag.NavMainLinkSubmenu == "EBEKReport" ? "active" : "")"><a href="#"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>*@
                                 <li class="@(ViewBag.NavMainLinkSubmenu == "PIReport" ? "active" : "")"><a href="/integritas/paktaintegritasreport"><i class="fa fa-files-o"></i> <span>PI Report</span></a></li>
                                 <li class="@(ViewBag.NavMainLinkSubmenu == "EBEKReport" ? "active" : "")"><a href="/ebek/ebekreport"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>
                             </ul>
@@ -163,11 +168,19 @@
     <script src="~/Content/Boostraps/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Content/Boostraps/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="~/Content/Boostraps/bower_components/moment/min/moment.min.js"></script>
+    <script src="~/Content/Boostraps/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap datepicker -->
+    <script src="~/Content/Boostraps/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
     <!-- AdminLTE App -->
     <script src="~/Content/Boostraps/dist/js/adminlte.min.js"></script>
     <script src="~/Content/Boostraps/dist/js/sweetalert2.all.min.js"></script>
     <script src="~/Content/Boostraps/bower_components/select2/dist/js/select2.min.js"></script>
-    
+
     <script>
         var apiUrl = "@ViewBag.ApiUrl";
         var userNrp = "@ViewBag.UserNrp"

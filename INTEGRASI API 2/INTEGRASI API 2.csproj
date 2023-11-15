@@ -170,10 +170,12 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Cls\ClsAuth.cs" />
     <Compile Include="Cls\ClsEbek.cs" />
+    <Compile Include="Cls\ClsGratifikasi.cs" />
     <Compile Include="Cls\ClsMasterData.cs" />
     <Compile Include="Cls\ClsPI.cs" />
     <Compile Include="Constants\CoiConstant.cs" />
     <Compile Include="Controllers\EbekController.cs" />
+    <Compile Include="Controllers\GratifikasiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntegritasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />

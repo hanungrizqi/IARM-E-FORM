@@ -74,5 +74,11 @@
         <elementListCompartment Id="17a57f7a-6f31-4cbe-b995-ec8125e5d0b6" absoluteBounds="4.8900000000000006, 2.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="689b9db4-70bc-451b-b1b5-45670f0870be" isExpanded="false" absoluteBounds="2.625, 3, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_T_GRATIFIKASI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce8efe93-497c-4c50-bba8-ab12a4f8765b" absoluteBounds="2.64, 3.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
