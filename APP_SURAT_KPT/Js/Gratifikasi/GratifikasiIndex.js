@@ -16,18 +16,38 @@ $('#datepicker').datepicker({
     autoclose: true
 })
 
+function displayImage() {
+    var fileInput = document.getElementById('exampleInputFile');
+    //var checkBox = document.getElementById('cekboks');
+    var imagePreview = document.getElementById('imagePreview');
+    var preview = document.getElementById('preview');
+
+    if (fileInput.files.length > 0) {
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+        if (!allowedExtensions.exec(fileInput.value)) {
+            alert('Tipe file tidak valid. Harap pilih file dengan tipe jpg, jpeg, atau png.');
+            fileInput.value = '';
+            //checkBox.disabled = true;
+            imagePreview.style.display = 'none';
+        } else {
+            //checkBox.disabled = false;
+            imagePreview.style.display = 'block';
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    } else {
+        //checkBox.disabled = true;
+        imagePreview.style.display = 'none';
+    }
+}
+
 function submitGratifikasi() {
     debugger
-
-    if (!$('#cekboks').is(':checked')) {
-        Swal.fire({
-            title: 'Warning!',
-            text: 'Please confirm that you have filled in the gratification report truthfully.',
-            icon: 'warning',
-            confirmButtonText: 'OK'
-        });
-        return;
-    }
 
     let obj = new Object();
     obj.NRP = userNrp;
@@ -59,9 +79,18 @@ function submitGratifikasi() {
     ) {
         Swal.fire(
             'Warning',
-            'Mohon lenkapi semua data inputan.',
+            'Please complete all input data.',
             'warning'
         );
+        return;
+    }
+    if (!$('#cekboks').is(':checked')) {
+        Swal.fire({
+            title: 'Warning!',
+            text: 'Please confirm that you have filled in the gratification report truthfully.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
         return;
     }
 
@@ -145,4 +174,6 @@ function resetForm() {
     if ($('#lainnyaInput').is(':visible')) {
         toggleInput();
     }
+    $("#imagePreview").hide();
+    $("#preview").attr("src", "");
 }

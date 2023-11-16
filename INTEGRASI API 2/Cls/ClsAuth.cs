@@ -80,6 +80,7 @@ namespace INTEGRASI_API_2.Cls
             {
                 dataUser.Nrp = getUser.EMPLOYEE_ID;
                 dataUser.Role = getUser.ROLE;
+                dataUser.District = getUser.DSTRCT_CODE;
                 dataUser.IsSectionHead = getUser.SECTION_HEAD == null ? false : true;
             }
             return dataUser;

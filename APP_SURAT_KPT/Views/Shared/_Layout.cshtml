@@ -130,6 +130,61 @@
                                 <li class="@(ViewBag.NavMainLinkSubmenu == "EBEKReport" ? "active" : "")"><a href="/ebek/ebekreport"><i class="fa fa-files-o"></i> <span>EBEK Report</span></a></li>
                             </ul>
                         </li>
+                        <li class="treeview @(ViewBag.NavMainLink == "approval" ? "active" : "")">
+                            <a href="#">
+                                <i class="fa fa-check-square-o"></i> <span>Approval</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "PM" ? "active" : "")"><a href="/approval/pm"><i class="fa fa-files-o"></i> <span>Approval Project Manager</span></a></li>
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "DEPTHEAD" ? "active" : "")"><a href="/approval/depthead"><i class="fa fa-files-o"></i> <span>Approval Dept. Head</span></a></li>
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "BOD" ? "active" : "")"><a href="/approval/bod"><i class="fa fa-files-o"></i> <span>Approval BOD</span></a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (ViewBag.Role == "APPROVER PM")
+                    {
+                        <li class="treeview @(ViewBag.NavMainLink == "approval" ? "active" : "")">
+                            <a href="#">
+                                <i class="fa fa-check-square-o"></i> <span>Approval</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "PM" ? "active" : "")"><a href="/approval/pm"><i class="fa fa-files-o"></i> <span>Approval Project Manager</span></a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (ViewBag.Role == "APPROVER DEPTHEAD")
+                    {
+                        <li class="treeview @(ViewBag.NavMainLink == "approval" ? "active" : "")">
+                            <a href="#">
+                                <i class="fa fa-check-square-o"></i> <span>Approval</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "DEPTHEAD" ? "active" : "")"><a href="/approval/depthead"><i class="fa fa-files-o"></i> <span>Approval Dept. Head</span></a></li>
+                            </ul>
+                        </li>
+                    }
+                    @if (ViewBag.Role == "APPROVER BOD")
+                    {
+                        <li class="treeview @(ViewBag.NavMainLink == "approval" ? "active" : "")">
+                            <a href="#">
+                                <i class="fa fa-check-square-o"></i> <span>Approval</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="@(ViewBag.NavMainLinkSubmenu == "BOD" ? "active" : "")"><a href="/approval/bod"><i class="fa fa-files-o"></i> <span>Approval BOD</span></a></li>
+                            </ul>
+                        </li>
                     }
                 </ul>
             </section>
@@ -183,7 +238,8 @@
 
     <script>
         var apiUrl = "@ViewBag.ApiUrl";
-        var userNrp = "@ViewBag.UserNrp"
+        var userNrp = "@ViewBag.UserNrp";
+        var districtPM = "@ViewBag.District";
         $(document).ready(function () {
             $('.sidebar-menu').tree()
         })

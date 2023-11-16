@@ -139,6 +139,78 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="CREATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="JENIS_PENERIMAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ESTIMASI_HARGA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TEMPAT_PENERIMAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TANGGAL_PENERIMAAN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NAMA_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PEKERJAAN_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA_PERUSAHAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HUBUNGAN_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ALASAN_PEMBERIAN" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BUKTI_GRATIFIKASI" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_GRATIFIKASI_REPORT_BOD" Member="VW_GRATIFIKASI_REPORT_BODs">
+    <Type Name="VW_GRATIFIKASI_REPORT_BOD">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(43)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SITE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="JENIS_PENERIMAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ESTIMASI_HARGA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TEMPAT_PENERIMAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TANGGAL_PENERIMAAN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NAMA_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PEKERJAAN_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA_PERUSAHAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HUBUNGAN_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ALASAN_PEMBERIAN" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BUKTI_GRATIFIKASI" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_GRATIFIKASI_REPORT_DEPTHEAD" Member="VW_GRATIFIKASI_REPORT_DEPTHEADs">
+    <Type Name="VW_GRATIFIKASI_REPORT_DEPTHEAD">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(43)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SITE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="JENIS_PENERIMAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ESTIMASI_HARGA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TEMPAT_PENERIMAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TANGGAL_PENERIMAAN" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NAMA_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PEKERJAAN_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA_PERUSAHAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HUBUNGAN_PEMBERI" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ALASAN_PEMBERIAN" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="BUKTI_GRATIFIKASI" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_GRATIFIKASI_REPORT_PM" Member="VW_GRATIFIKASI_REPORT_PMs">
+    <Type Name="VW_GRATIFIKASI_REPORT_PM">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NRP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(43)" CanBeNull="true" />
+      <Column Name="DEPT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SITE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="JENIS_PENERIMAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ESTIMASI_HARGA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="TEMPAT_PENERIMAAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />

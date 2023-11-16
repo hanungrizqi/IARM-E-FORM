@@ -16,6 +16,7 @@ namespace APP_SURAT_KPT.ViewModels.Account
     {
         public string Nrp { get; set; }
         public string Role { get; set; }
+        public string District { get; set; }
         public bool IsSectionHead { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace INTEGRASI_API_2.ViewModels.Auth
     {
         public string Nrp { get; set; }
         public string Role { get; set; }
+        public string District { get; set; }
         public bool IsSectionHead { get; set; }
 
     }

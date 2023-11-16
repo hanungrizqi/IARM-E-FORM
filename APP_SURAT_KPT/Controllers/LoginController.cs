@@ -23,6 +23,7 @@ namespace APP_SURAT_KPT.Controllers
         {
             Session["Nrp"] = requestVM.Nrp;
             Session["Role"] = requestVM.Role;
+            Session["District"] = requestVM.District;
             Session["IsSectionHead"] = requestVM.IsSectionHead;
             return new JsonResult() { Data = new { Success = true, Message = "Berhasil Login" } };
         }

@@ -107,7 +107,7 @@
                         <form role="form">
                             <!-- text input -->
                             <div class="form-group">
-                                <input type="number" id="estimasiharga" class="form-control" placeholder="Your answer">
+                                <input type="number" id="estimasiharga" class="form-control" placeholder="Input tanpa tanda titik">
                             </div>
                         </form>
                     </div>
@@ -231,7 +231,7 @@
                         <form role="form">
                             <!-- text input -->
                             <div class="form-group">
-                                <input type="text" id="alasanpemberian" class="form-control" placeholder="Your answer">
+                                <textarea rows="3" id="alasanpemberian" class="form-control" placeholder="Your answer"></textarea>
                             </div>
                         </form>
                     </div>
@@ -253,12 +253,17 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>
-                                <input type="file" id="exampleInputFile">
+                                @*<input type="file" id="exampleInputFile">*@
+                                <input type="file" accept=".jpg,.jpeg,.png" id="exampleInputFile" onchange="displayImage()">
                             </div>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" id="cekboks"> Saya telah mengisi laporan gratifikasi dengan sebenar - benarnya
                                 </label>
+                            </div>
+                            <div id="imagePreview" style="display:none;">
+                                <label>Gambar yang diupload:</label>
+                                <img id="preview" style="max-width:300px" />
                             </div>
                         </div>
                         <!-- /.box-body -->
