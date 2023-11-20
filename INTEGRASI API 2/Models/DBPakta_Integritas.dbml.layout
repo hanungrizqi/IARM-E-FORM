@@ -80,22 +80,22 @@
         <elementListCompartment Id="72051891-38bd-4e40-8e05-2d0c1fecf9bb" absoluteBounds="2.64, 3.46, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2865ecd0-2324-40d6-bf70-cf92a6c6da67" isExpanded="false" absoluteBounds="4.875, 3, 2, 0.45">
+    <classShape Id="8182c5e6-c938-4130-831f-a456e91652e6" isExpanded="false" absoluteBounds="4.875, 3, 2, 0.45">
       <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_GRATIFIKASI_REPORT_BOD" />
       <nestedChildShapes>
-        <elementListCompartment Id="89e6b506-db68-4260-bd96-ea1d6beb1811" absoluteBounds="4.89, 3.46, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="17a8a6c4-3db4-4d61-b58f-c47839c2116a" absoluteBounds="4.89, 3.46, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ab9b95f6-7014-48bc-adf9-3cf27c83ddc1" isExpanded="false" absoluteBounds="4.875, 3.5, 2, 0.45">
+    <classShape Id="5bae3235-6435-40d2-a28d-279fd5311d00" isExpanded="false" absoluteBounds="4.875, 3.5, 2, 0.45">
       <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_GRATIFIKASI_REPORT_DEPTHEAD" />
       <nestedChildShapes>
-        <elementListCompartment Id="9b29d03c-4989-4647-beb0-6fa954ba8eac" absoluteBounds="4.89, 3.96, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="41ac79b3-618c-48dd-b11b-e4ae79d0cf45" absoluteBounds="4.89, 3.96, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7972b3ac-b989-4efd-873b-58f3373f6a43" isExpanded="false" absoluteBounds="4.875, 4, 2, 0.45">
+    <classShape Id="20843610-9e7d-4c0b-8773-215a59731939" isExpanded="false" absoluteBounds="4.875, 4, 2, 0.45">
       <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_GRATIFIKASI_REPORT_PM" />
       <nestedChildShapes>
-        <elementListCompartment Id="c80349d0-1258-4c60-bd47-1e098624e272" absoluteBounds="4.89, 4.46, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e82b1078-ea7e-4ee2-9a51-22586f750cff" absoluteBounds="4.89, 4.46, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

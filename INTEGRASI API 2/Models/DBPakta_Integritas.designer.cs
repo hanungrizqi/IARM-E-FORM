@@ -213,6 +213,27 @@ namespace INTEGRASI_API_2.Models
 				return this.GetTable<VW_GRATIFIKASI_REPORT_PM>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cusp_insertNotifProjectManager")]
+		public ISingleResult<cusp_insertNotifProjectManagerResult> cusp_insertNotifProjectManager([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<cusp_insertNotifProjectManagerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cusp_insertNotifDeptHead")]
+		public ISingleResult<cusp_insertNotifDeptHeadResult> cusp_insertNotifDeptHead([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<cusp_insertNotifDeptHeadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cusp_insertNotifBOD")]
+		public ISingleResult<cusp_insertNotifBODResult> cusp_insertNotifBOD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<cusp_insertNotifBODResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_ROLE")]
@@ -2804,6 +2825,8 @@ namespace INTEGRASI_API_2.Models
 		
 		private string _UPDATED_BY;
 		
+		private string _UPDATED_NAME;
+		
 		private System.Nullable<System.DateTime> _UPDATED_DATE;
 		
 		private string _JENIS_PENERIMAAN;
@@ -2954,6 +2977,22 @@ namespace INTEGRASI_API_2.Models
 				if ((this._UPDATED_BY != value))
 				{
 					this._UPDATED_BY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_NAME", DbType="VarChar(43)")]
+		public string UPDATED_NAME
+		{
+			get
+			{
+				return this._UPDATED_NAME;
+			}
+			set
+			{
+				if ((this._UPDATED_NAME != value))
+				{
+					this._UPDATED_NAME = value;
 				}
 			}
 		}
@@ -3155,6 +3194,8 @@ namespace INTEGRASI_API_2.Models
 		
 		private string _UPDATED_BY;
 		
+		private string _UPDATED_NAME;
+		
 		private System.Nullable<System.DateTime> _UPDATED_DATE;
 		
 		private string _JENIS_PENERIMAAN;
@@ -3305,6 +3346,22 @@ namespace INTEGRASI_API_2.Models
 				if ((this._UPDATED_BY != value))
 				{
 					this._UPDATED_BY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_NAME", DbType="VarChar(43)")]
+		public string UPDATED_NAME
+		{
+			get
+			{
+				return this._UPDATED_NAME;
+			}
+			set
+			{
+				if ((this._UPDATED_NAME != value))
+				{
+					this._UPDATED_NAME = value;
 				}
 			}
 		}
@@ -3506,6 +3563,8 @@ namespace INTEGRASI_API_2.Models
 		
 		private string _UPDATED_BY;
 		
+		private string _UPDATED_NAME;
+		
 		private System.Nullable<System.DateTime> _UPDATED_DATE;
 		
 		private string _JENIS_PENERIMAAN;
@@ -3656,6 +3715,22 @@ namespace INTEGRASI_API_2.Models
 				if ((this._UPDATED_BY != value))
 				{
 					this._UPDATED_BY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_NAME", DbType="VarChar(43)")]
+		public string UPDATED_NAME
+		{
+			get
+			{
+				return this._UPDATED_NAME;
+			}
+			set
+			{
+				if ((this._UPDATED_NAME != value))
+				{
+					this._UPDATED_NAME = value;
 				}
 			}
 		}
@@ -3832,6 +3907,138 @@ namespace INTEGRASI_API_2.Models
 				if ((this._BUKTI_GRATIFIKASI != value))
 				{
 					this._BUKTI_GRATIFIKASI = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cusp_insertNotifProjectManagerResult
+	{
+		
+		private string _TO_LIST;
+		
+		private string _BODY;
+		
+		public cusp_insertNotifProjectManagerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TO_LIST", DbType="VarChar(MAX)")]
+		public string TO_LIST
+		{
+			get
+			{
+				return this._TO_LIST;
+			}
+			set
+			{
+				if ((this._TO_LIST != value))
+				{
+					this._TO_LIST = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BODY", DbType="VarChar(MAX)")]
+		public string BODY
+		{
+			get
+			{
+				return this._BODY;
+			}
+			set
+			{
+				if ((this._BODY != value))
+				{
+					this._BODY = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cusp_insertNotifDeptHeadResult
+	{
+		
+		private string _TO_LIST;
+		
+		private string _BODY;
+		
+		public cusp_insertNotifDeptHeadResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TO_LIST", DbType="VarChar(MAX)")]
+		public string TO_LIST
+		{
+			get
+			{
+				return this._TO_LIST;
+			}
+			set
+			{
+				if ((this._TO_LIST != value))
+				{
+					this._TO_LIST = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BODY", DbType="VarChar(MAX)")]
+		public string BODY
+		{
+			get
+			{
+				return this._BODY;
+			}
+			set
+			{
+				if ((this._BODY != value))
+				{
+					this._BODY = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cusp_insertNotifBODResult
+	{
+		
+		private string _TO_LIST;
+		
+		private string _BODY;
+		
+		public cusp_insertNotifBODResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TO_LIST", DbType="VarChar(MAX)")]
+		public string TO_LIST
+		{
+			get
+			{
+				return this._TO_LIST;
+			}
+			set
+			{
+				if ((this._TO_LIST != value))
+				{
+					this._TO_LIST = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BODY", DbType="VarChar(MAX)")]
+		public string BODY
+		{
+			get
+			{
+				return this._BODY;
+			}
+			set
+			{
+				if ((this._BODY != value))
+				{
+					this._BODY = value;
 				}
 			}
 		}

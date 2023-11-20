@@ -9,7 +9,7 @@ namespace INTEGRASI_API_2.ViewModels
     
     public class ClsSIntegrasi
     {
-        DBSuratKPTDataContext db = new DBSuratKPTDataContext();
+        //DBSuratKPTDataContext db = new DBSuratKPTDataContext();
 
         public string NRP { get; set; }
 
@@ -31,5 +31,5 @@ namespace INTEGRASI_API_2.ViewModels
 
         public System.Nullable<int> MOD_BY { get; set; }
        
-            }
+        }
 }
