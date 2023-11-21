@@ -107,7 +107,7 @@
                         <form role="form">
                             <!-- text input -->
                             <div class="form-group">
-                                <input type="number" id="estimasiharga" class="form-control" placeholder="Input tanpa tanda titik">
+                                <input type="text" id="estimasiharga" class="form-control" placeholder="Input tanpa tanda titik" oninput="formatCurrency()">
                             </div>
                         </form>
                     </div>
@@ -139,13 +139,13 @@
                         <!-- Date -->
                         <div class="form-group">
                             <label>Date:</label>
-
-                            <div class="input-group date">
+                            <input type="date" onkeydown="return false" class="form-control" id="datepickerd">
+                            @*<div class="input-group date">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" id="datepicker">
-                            </div>
+                                <input type="date" onkeydown="return false" class="form-control" id="datepicker">
+                            </div>*@
                             <!-- /.input group -->
                         </div>
                         <!-- /.form group -->

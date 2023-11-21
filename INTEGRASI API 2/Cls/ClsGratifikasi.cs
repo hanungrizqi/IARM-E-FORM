@@ -14,10 +14,19 @@ namespace INTEGRASI_API_2.Cls
     {
         DBPakta_IntegritasDataContext db = new DBPakta_IntegritasDataContext();
 
-        public List<VW_GRATIFIKASI_REPORT_PM> GetDataTablePM(string district)
+        public List<VW_GRATIFIKASI_REPORT_PM> GetDataTablePM(string district, string nrp)
         {
-            var listDataPI = db.VW_GRATIFIKASI_REPORT_PMs.Where(a => a.STATUS == "CREATED" && a.SITE == district).ToList();
-            return listDataPI;
+            var chcekRole = db.VW_ALL_USERs.Where(a => a.EMPLOYEE_ID == nrp).FirstOrDefault();
+            if (chcekRole.ROLE == "ADMINISTRATOR")
+            {
+                var listDataPI = db.VW_GRATIFIKASI_REPORT_PMs.Where(a => a.STATUS == "CREATED").ToList();
+                return listDataPI;
+            }
+            else
+            {
+                var listDataPI = db.VW_GRATIFIKASI_REPORT_PMs.Where(a => a.STATUS == "CREATED" && a.SITE == district).ToList();
+                return listDataPI;
+            }
         }
 
         public List<VW_GRATIFIKASI_REPORT_PM> GetFilteredDataTablePM(PIFilterRequestsVM requestsVM)

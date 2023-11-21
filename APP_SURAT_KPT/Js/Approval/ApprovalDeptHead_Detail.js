@@ -8,9 +8,15 @@ function getDetail() {
         type: "GET",
         cache: false,
         success: function (result) {
+            debugger
             var data = result.Data;
+
             $("#jenispenerimaan").val(data.JENIS_PENERIMAAN);
-            $("#estimasiharga").val(data.ESTIMASI_HARGA);
+
+            //$("#estimasiharga").val(data.ESTIMASI_HARGA);
+            var formattedEstimasiHarga = parseFloat(data.ESTIMASI_HARGA).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+            $("#estimasiharga").val(formattedEstimasiHarga);
+
             $("#tempatpenerimaan").val(data.TEMPAT_PENERIMAAN);
             $("#tanggalpenerimaan").val(moment(data.TANGGAL_PENERIMAAN).format("YYYY-MM-DD"));
             $("#alasanpemberian").val(data.ALASAN_PEMBERIAN);

@@ -58,7 +58,8 @@
                 {
                     data: 'ESTIMASI_HARGA',
                     render: (data, type, row, meta) => {
-                        return data
+                        //return data
+                        return parseFloat(data).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
                     }
                 },
                 {

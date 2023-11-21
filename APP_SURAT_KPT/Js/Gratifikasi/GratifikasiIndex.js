@@ -1,4 +1,7 @@
-﻿
+﻿$("document").ready(function () {
+    document.getElementById("datepickerd").setAttribute("max", new Date().toISOString().split("T")[0]);
+})
+
 function toggleInput() {
     debugger
     var lainnyaInput = document.getElementById("lainnyaInput");
@@ -12,13 +15,22 @@ function toggleInput() {
     }
 }
 
-$('#datepicker').datepicker({
-    autoclose: true
-})
+function formatCurrency() {
+    // Mengambil nilai input
+    var inputValue = document.getElementById('estimasiharga').value;
+
+    // Menghapus karakter selain angka
+    var numericValue = inputValue.replace(/\D/g, '');
+
+    // Mengonversi nilai ke dalam format dengan tanda titik sebagai pemisah ribuan
+    var formattedValue = new Intl.NumberFormat('id-ID').format(numericValue);
+
+    // Memasukkan nilai yang telah diformat kembali ke dalam input
+    document.getElementById('estimasiharga').value = formattedValue;
+}
 
 function displayImage() {
     var fileInput = document.getElementById('exampleInputFile');
-    //var checkBox = document.getElementById('cekboks');
     var imagePreview = document.getElementById('imagePreview');
     var preview = document.getElementById('preview');
 
@@ -27,10 +39,8 @@ function displayImage() {
         if (!allowedExtensions.exec(fileInput.value)) {
             alert('Tipe file tidak valid. Harap pilih file dengan tipe jpg, jpeg, atau png.');
             fileInput.value = '';
-            //checkBox.disabled = true;
             imagePreview.style.display = 'none';
         } else {
-            //checkBox.disabled = false;
             imagePreview.style.display = 'block';
 
             var reader = new FileReader();
@@ -41,7 +51,6 @@ function displayImage() {
             reader.readAsDataURL(fileInput.files[0]);
         }
     } else {
-        //checkBox.disabled = true;
         imagePreview.style.display = 'none';
     }
 }
@@ -56,25 +65,25 @@ function submitGratifikasi() {
     } else {
         obj.JENIS_PENERIMAAN = $('input[name=optionsRadios]:checked').val();
     }
-    obj.ESTIMASI_HARGA = $('#estimasiharga').val();
+    //obj.ESTIMASI_HARGA = $('#estimasiharga').val();
+    obj.ESTIMASI_HARGA = $('#estimasiharga').val().replace(/\./g, '');
     obj.TEMPAT_PENERIMAAN = $('#tempatpenerimaan').val();
-    obj.TANGGAL_PENERIMAAN = $('#datepicker').val();
+    obj.TANGGAL_PENERIMAAN = $('#datepickerd').val();
     obj.NAMA_PEMBERI = $('#namapemberi').val();
     obj.PEKERJAAN_PEMBERI = $('#pekerjaanpemberi').val();
     obj.NAMA_PERUSAHAAN = $('#namaperusahaan').val();
     obj.HUBUNGAN_PEMBERI = $('#hubungandgpemberi').val();
     obj.ALASAN_PEMBERIAN = $('#alasanpemberian').val();
 
-    if ($("#estimasiharga").val() == ""
-        || $("#tempatpenerimaan").val() == ""
-        || $("#datepicker").val() == ""
-        || $("#namapemberi").val() == ""
-        || $("#pekerjaanpemberi").val() == ""
-        || $("#namaperusahaan").val() == ""
-        || $("#hubungandgpemberi").val() == ""
-        || $("#alasanpemberian").val() == ""
-        || $("#tempatpenerimaan").val() == ""
-        || $("#fasilitaslainnya").val() == ""
+    if (obj.ESTIMASI_HARGA == ""
+        || obj.TEMPAT_PENERIMAAN == ""
+        || obj.TANGGAL_PENERIMAAN == ""
+        || obj.NAMA_PEMBERI == ""
+        || obj.PEKERJAAN_PEMBERI == ""
+        || obj.NAMA_PERUSAHAAN == ""
+        || obj.HUBUNGAN_PEMBERI == ""
+        || obj.ALASAN_PEMBERIAN == ""
+        || obj.JENIS_PENERIMAAN == "" || obj.JENIS_PENERIMAAN == undefined
         || $("#exampleInputFile").val() == ""
     ) {
         Swal.fire(
@@ -162,7 +171,7 @@ function resetForm() {
     $('input[name=optionsRadios]').prop('checked', false);
     $('#estimasiharga').val('');
     $('#tempatpenerimaan').val('');
-    $('#datepicker').val('');
+    $('#datepickerd').val('');
     $('#namapemberi').val('');
     $('#pekerjaanpemberi').val('');
     $('#namaperusahaan').val('');

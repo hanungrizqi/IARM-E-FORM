@@ -15,7 +15,7 @@
             pageLength: 10,
             lengthMenu: [10, 25, 50],
             ajax: {
-                url: `${apiUrl}api/gratifikasi/datatable_pm?district=` + districtPM,
+                url: `${apiUrl}api/gratifikasi/datatable_pm?district=` + districtPM + '&nrp=' + userNrp,
                 dataSrc: 'Data'
             },
             columns: [
@@ -58,7 +58,8 @@
                 {
                     data: 'ESTIMASI_HARGA',
                     render: (data, type, row, meta) => {
-                        return data
+                        //return data
+                        return parseFloat(data).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
                     }
                 },
                 {

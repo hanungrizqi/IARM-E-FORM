@@ -113,12 +113,12 @@ namespace INTEGRASI_API_2.Controllers
 
         [Route("Datatable_PM")]
         [HttpGet]
-        public IHttpActionResult Datatable_PM(string district)
+        public IHttpActionResult Datatable_PM(string district, string nrp)
         {
             try
             {
                 ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
-                var response = clsGratifikasi.GetDataTablePM(district);
+                var response = clsGratifikasi.GetDataTablePM(district, nrp);
                 return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
             }
             catch (Exception ex)
