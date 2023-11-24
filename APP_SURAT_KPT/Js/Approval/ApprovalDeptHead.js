@@ -15,7 +15,7 @@
             pageLength: 10,
             lengthMenu: [10, 25, 50],
             ajax: {
-                url: `${apiUrl}api/gratifikasi/datatable_depthead`,
+                url: `${apiUrl}api/gratifikasi/datatable_depthead?dept=` + department,
                 dataSrc: 'Data'
             },
             columns: [
@@ -139,7 +139,7 @@
         }
 
         $.ajax({
-            url: `${apiUrl}api/gratifikasi/filter_depthead`,
+            url: `${apiUrl}api/gratifikasi/filter_depthead?dept=` + department,
             method: "POST",
             dataType: "json",
             contentType: "application/json",

@@ -130,12 +130,12 @@ namespace INTEGRASI_API_2.Controllers
 
         [Route("filter_PM")]
         [HttpPost]
-        public IHttpActionResult filter_PM(PIFilterRequestsVM piFilterRequestsVM)
+        public IHttpActionResult filter_PM(PIFilterRequestsVM piFilterRequestsVM, string district)
         {
             try
             {
                 ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
-                var response = clsGratifikasi.GetFilteredDataTablePM(piFilterRequestsVM);
+                var response = clsGratifikasi.GetFilteredDataTablePM(piFilterRequestsVM, district);
                 return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
             }
             catch (Exception ex)
@@ -147,12 +147,12 @@ namespace INTEGRASI_API_2.Controllers
 
         [Route("Datatable_DeptHead")]
         [HttpGet]
-        public IHttpActionResult Datatable_DeptHead()
+        public IHttpActionResult Datatable_DeptHead(string dept)
         {
             try
             {
                 ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
-                var response = clsGratifikasi.GetDataTableDeptHead();
+                var response = clsGratifikasi.GetDataTableDeptHead(dept);
                 return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
             }
             catch (Exception ex)
@@ -164,12 +164,12 @@ namespace INTEGRASI_API_2.Controllers
 
         [Route("filter_DeptHead")]
         [HttpPost]
-        public IHttpActionResult filter_DeptHead(PIFilterRequestsVM piFilterRequestsVM)
+        public IHttpActionResult filter_DeptHead(PIFilterRequestsVM piFilterRequestsVM, string dept)
         {
             try
             {
                 ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
-                var response = clsGratifikasi.GetFilteredDataTableDeptHead(piFilterRequestsVM);
+                var response = clsGratifikasi.GetFilteredDataTableDeptHead(piFilterRequestsVM, dept);
                 return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
             }
             catch (Exception ex)
@@ -181,12 +181,12 @@ namespace INTEGRASI_API_2.Controllers
 
         [Route("Datatable_BOD")]
         [HttpGet]
-        public IHttpActionResult Datatable_BOD()
+        public IHttpActionResult Datatable_BOD(string posid)
         {
             try
             {
                 ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
-                var response = clsGratifikasi.GetDataTableBOD();
+                var response = clsGratifikasi.GetDataTableBOD(posid);
                 return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
             }
             catch (Exception ex)

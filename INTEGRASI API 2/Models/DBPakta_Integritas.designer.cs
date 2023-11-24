@@ -190,14 +190,6 @@ namespace INTEGRASI_API_2.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<VW_GRATIFIKASI_REPORT_BOD> VW_GRATIFIKASI_REPORT_BODs
-		{
-			get
-			{
-				return this.GetTable<VW_GRATIFIKASI_REPORT_BOD>();
-			}
-		}
-		
 		public System.Data.Linq.Table<VW_GRATIFIKASI_REPORT_DEPTHEAD> VW_GRATIFIKASI_REPORT_DEPTHEADs
 		{
 			get
@@ -211,6 +203,14 @@ namespace INTEGRASI_API_2.Models
 			get
 			{
 				return this.GetTable<VW_GRATIFIKASI_REPORT_PM>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_GRATIFIKASI_REPORT_BOD> VW_GRATIFIKASI_REPORT_BODs
+		{
+			get
+			{
+				return this.GetTable<VW_GRATIFIKASI_REPORT_BOD>();
 			}
 		}
 		
@@ -2805,375 +2805,6 @@ namespace INTEGRASI_API_2.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_GRATIFIKASI_REPORT_BOD")]
-	public partial class VW_GRATIFIKASI_REPORT_BOD
-	{
-		
-		private int _ID;
-		
-		private string _NRP;
-		
-		private string _NAME;
-		
-		private string _DEPT;
-		
-		private string _SITE;
-		
-		private System.Nullable<System.DateTime> _CREATED_DATE;
-		
-		private string _STATUS;
-		
-		private string _UPDATED_BY;
-		
-		private string _UPDATED_NAME;
-		
-		private System.Nullable<System.DateTime> _UPDATED_DATE;
-		
-		private string _JENIS_PENERIMAAN;
-		
-		private string _ESTIMASI_HARGA;
-		
-		private string _TEMPAT_PENERIMAAN;
-		
-		private System.Nullable<System.DateTime> _TANGGAL_PENERIMAAN;
-		
-		private string _NAMA_PEMBERI;
-		
-		private string _PEKERJAAN_PEMBERI;
-		
-		private string _NAMA_PERUSAHAAN;
-		
-		private string _HUBUNGAN_PEMBERI;
-		
-		private string _ALASAN_PEMBERIAN;
-		
-		private string _BUKTI_GRATIFIKASI;
-		
-		public VW_GRATIFIKASI_REPORT_BOD()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50)")]
-		public string NRP
-		{
-			get
-			{
-				return this._NRP;
-			}
-			set
-			{
-				if ((this._NRP != value))
-				{
-					this._NRP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(43)")]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this._NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT", DbType="VarChar(50)")]
-		public string DEPT
-		{
-			get
-			{
-				return this._DEPT;
-			}
-			set
-			{
-				if ((this._DEPT != value))
-				{
-					this._DEPT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SITE", DbType="VarChar(50)")]
-		public string SITE
-		{
-			get
-			{
-				return this._SITE;
-			}
-			set
-			{
-				if ((this._SITE != value))
-				{
-					this._SITE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATED_DATE
-		{
-			get
-			{
-				return this._CREATED_DATE;
-			}
-			set
-			{
-				if ((this._CREATED_DATE != value))
-				{
-					this._CREATED_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
-		public string STATUS
-		{
-			get
-			{
-				return this._STATUS;
-			}
-			set
-			{
-				if ((this._STATUS != value))
-				{
-					this._STATUS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="VarChar(50)")]
-		public string UPDATED_BY
-		{
-			get
-			{
-				return this._UPDATED_BY;
-			}
-			set
-			{
-				if ((this._UPDATED_BY != value))
-				{
-					this._UPDATED_BY = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_NAME", DbType="VarChar(43)")]
-		public string UPDATED_NAME
-		{
-			get
-			{
-				return this._UPDATED_NAME;
-			}
-			set
-			{
-				if ((this._UPDATED_NAME != value))
-				{
-					this._UPDATED_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UPDATED_DATE
-		{
-			get
-			{
-				return this._UPDATED_DATE;
-			}
-			set
-			{
-				if ((this._UPDATED_DATE != value))
-				{
-					this._UPDATED_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JENIS_PENERIMAAN", DbType="VarChar(50)")]
-		public string JENIS_PENERIMAAN
-		{
-			get
-			{
-				return this._JENIS_PENERIMAAN;
-			}
-			set
-			{
-				if ((this._JENIS_PENERIMAAN != value))
-				{
-					this._JENIS_PENERIMAAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTIMASI_HARGA", DbType="VarChar(50)")]
-		public string ESTIMASI_HARGA
-		{
-			get
-			{
-				return this._ESTIMASI_HARGA;
-			}
-			set
-			{
-				if ((this._ESTIMASI_HARGA != value))
-				{
-					this._ESTIMASI_HARGA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEMPAT_PENERIMAAN", DbType="VarChar(50)")]
-		public string TEMPAT_PENERIMAAN
-		{
-			get
-			{
-				return this._TEMPAT_PENERIMAAN;
-			}
-			set
-			{
-				if ((this._TEMPAT_PENERIMAAN != value))
-				{
-					this._TEMPAT_PENERIMAAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL_PENERIMAAN", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TANGGAL_PENERIMAAN
-		{
-			get
-			{
-				return this._TANGGAL_PENERIMAAN;
-			}
-			set
-			{
-				if ((this._TANGGAL_PENERIMAAN != value))
-				{
-					this._TANGGAL_PENERIMAAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEMBERI", DbType="VarChar(50)")]
-		public string NAMA_PEMBERI
-		{
-			get
-			{
-				return this._NAMA_PEMBERI;
-			}
-			set
-			{
-				if ((this._NAMA_PEMBERI != value))
-				{
-					this._NAMA_PEMBERI = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PEKERJAAN_PEMBERI", DbType="VarChar(50)")]
-		public string PEKERJAAN_PEMBERI
-		{
-			get
-			{
-				return this._PEKERJAAN_PEMBERI;
-			}
-			set
-			{
-				if ((this._PEKERJAAN_PEMBERI != value))
-				{
-					this._PEKERJAAN_PEMBERI = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PERUSAHAAN", DbType="VarChar(50)")]
-		public string NAMA_PERUSAHAAN
-		{
-			get
-			{
-				return this._NAMA_PERUSAHAAN;
-			}
-			set
-			{
-				if ((this._NAMA_PERUSAHAAN != value))
-				{
-					this._NAMA_PERUSAHAAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HUBUNGAN_PEMBERI", DbType="VarChar(50)")]
-		public string HUBUNGAN_PEMBERI
-		{
-			get
-			{
-				return this._HUBUNGAN_PEMBERI;
-			}
-			set
-			{
-				if ((this._HUBUNGAN_PEMBERI != value))
-				{
-					this._HUBUNGAN_PEMBERI = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALASAN_PEMBERIAN", DbType="VarChar(MAX)")]
-		public string ALASAN_PEMBERIAN
-		{
-			get
-			{
-				return this._ALASAN_PEMBERIAN;
-			}
-			set
-			{
-				if ((this._ALASAN_PEMBERIAN != value))
-				{
-					this._ALASAN_PEMBERIAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUKTI_GRATIFIKASI", DbType="VarChar(MAX)")]
-		public string BUKTI_GRATIFIKASI
-		{
-			get
-			{
-				return this._BUKTI_GRATIFIKASI;
-			}
-			set
-			{
-				if ((this._BUKTI_GRATIFIKASI != value))
-				{
-					this._BUKTI_GRATIFIKASI = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_GRATIFIKASI_REPORT_DEPTHEAD")]
 	public partial class VW_GRATIFIKASI_REPORT_DEPTHEAD
 	{
@@ -3182,7 +2813,11 @@ namespace INTEGRASI_API_2.Models
 		
 		private string _NRP;
 		
+		private string _POSITION_ID;
+		
 		private string _NAME;
+		
+		private string _EMAIL;
 		
 		private string _DEPT;
 		
@@ -3254,6 +2889,22 @@ namespace INTEGRASI_API_2.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION_ID", DbType="Char(10)")]
+		public string POSITION_ID
+		{
+			get
+			{
+				return this._POSITION_ID;
+			}
+			set
+			{
+				if ((this._POSITION_ID != value))
+				{
+					this._POSITION_ID = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(43)")]
 		public string NAME
 		{
@@ -3266,6 +2917,22 @@ namespace INTEGRASI_API_2.Models
 				if ((this._NAME != value))
 				{
 					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="NVarChar(4000)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this._EMAIL = value;
 				}
 			}
 		}
@@ -3553,6 +3220,8 @@ namespace INTEGRASI_API_2.Models
 		
 		private string _NAME;
 		
+		private string _EMAIL;
+		
 		private string _DEPT;
 		
 		private string _SITE;
@@ -3635,6 +3304,22 @@ namespace INTEGRASI_API_2.Models
 				if ((this._NAME != value))
 				{
 					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="NVarChar(4000)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this._EMAIL = value;
 				}
 			}
 		}
@@ -3907,6 +3592,645 @@ namespace INTEGRASI_API_2.Models
 				if ((this._BUKTI_GRATIFIKASI != value))
 				{
 					this._BUKTI_GRATIFIKASI = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_GRATIFIKASI_REPORT_BOD")]
+	public partial class VW_GRATIFIKASI_REPORT_BOD
+	{
+		
+		private int _ID;
+		
+		private string _NRP;
+		
+		private string _NAME;
+		
+		private string _EMAIL;
+		
+		private string _DEPT;
+		
+		private string _SITE;
+		
+		private System.Nullable<System.DateTime> _CREATED_DATE;
+		
+		private string _STATUS;
+		
+		private string _UPDATED_BY;
+		
+		private string _UPDATED_NAME;
+		
+		private System.Nullable<System.DateTime> _UPDATED_DATE;
+		
+		private string _JENIS_PENERIMAAN;
+		
+		private string _ESTIMASI_HARGA;
+		
+		private string _TEMPAT_PENERIMAAN;
+		
+		private System.Nullable<System.DateTime> _TANGGAL_PENERIMAAN;
+		
+		private string _NAMA_PEMBERI;
+		
+		private string _PEKERJAAN_PEMBERI;
+		
+		private string _NAMA_PERUSAHAAN;
+		
+		private string _HUBUNGAN_PEMBERI;
+		
+		private string _ALASAN_PEMBERIAN;
+		
+		private string _BUKTI_GRATIFIKASI;
+		
+		private string _EMPLOYEE_ID;
+		
+		private string _POSITION_ID;
+		
+		private string _DSTRCT_CODE;
+		
+		private string _DEPT_DESC;
+		
+		private string _Atasan_1;
+		
+		private string _Atasan_2;
+		
+		private string _Atasan_3;
+		
+		private string _Atasan_4;
+		
+		private string _Atasan_5;
+		
+		private string _Atasan_6;
+		
+		private string _Atasan_7;
+		
+		private string _Atasan_8;
+		
+		private string _Atasan_9;
+		
+		private string _Atasan_10;
+		
+		public VW_GRATIFIKASI_REPORT_BOD()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="VarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(43)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="NVarChar(4000)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this._EMAIL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT", DbType="VarChar(50)")]
+		public string DEPT
+		{
+			get
+			{
+				return this._DEPT;
+			}
+			set
+			{
+				if ((this._DEPT != value))
+				{
+					this._DEPT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SITE", DbType="VarChar(50)")]
+		public string SITE
+		{
+			get
+			{
+				return this._SITE;
+			}
+			set
+			{
+				if ((this._SITE != value))
+				{
+					this._SITE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATED_DATE
+		{
+			get
+			{
+				return this._CREATED_DATE;
+			}
+			set
+			{
+				if ((this._CREATED_DATE != value))
+				{
+					this._CREATED_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="VarChar(50)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this._STATUS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="VarChar(50)")]
+		public string UPDATED_BY
+		{
+			get
+			{
+				return this._UPDATED_BY;
+			}
+			set
+			{
+				if ((this._UPDATED_BY != value))
+				{
+					this._UPDATED_BY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_NAME", DbType="VarChar(43)")]
+		public string UPDATED_NAME
+		{
+			get
+			{
+				return this._UPDATED_NAME;
+			}
+			set
+			{
+				if ((this._UPDATED_NAME != value))
+				{
+					this._UPDATED_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATED_DATE
+		{
+			get
+			{
+				return this._UPDATED_DATE;
+			}
+			set
+			{
+				if ((this._UPDATED_DATE != value))
+				{
+					this._UPDATED_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JENIS_PENERIMAAN", DbType="VarChar(50)")]
+		public string JENIS_PENERIMAAN
+		{
+			get
+			{
+				return this._JENIS_PENERIMAAN;
+			}
+			set
+			{
+				if ((this._JENIS_PENERIMAAN != value))
+				{
+					this._JENIS_PENERIMAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESTIMASI_HARGA", DbType="VarChar(50)")]
+		public string ESTIMASI_HARGA
+		{
+			get
+			{
+				return this._ESTIMASI_HARGA;
+			}
+			set
+			{
+				if ((this._ESTIMASI_HARGA != value))
+				{
+					this._ESTIMASI_HARGA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEMPAT_PENERIMAAN", DbType="VarChar(50)")]
+		public string TEMPAT_PENERIMAAN
+		{
+			get
+			{
+				return this._TEMPAT_PENERIMAAN;
+			}
+			set
+			{
+				if ((this._TEMPAT_PENERIMAAN != value))
+				{
+					this._TEMPAT_PENERIMAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL_PENERIMAAN", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TANGGAL_PENERIMAAN
+		{
+			get
+			{
+				return this._TANGGAL_PENERIMAAN;
+			}
+			set
+			{
+				if ((this._TANGGAL_PENERIMAAN != value))
+				{
+					this._TANGGAL_PENERIMAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PEMBERI", DbType="VarChar(50)")]
+		public string NAMA_PEMBERI
+		{
+			get
+			{
+				return this._NAMA_PEMBERI;
+			}
+			set
+			{
+				if ((this._NAMA_PEMBERI != value))
+				{
+					this._NAMA_PEMBERI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PEKERJAAN_PEMBERI", DbType="VarChar(50)")]
+		public string PEKERJAAN_PEMBERI
+		{
+			get
+			{
+				return this._PEKERJAAN_PEMBERI;
+			}
+			set
+			{
+				if ((this._PEKERJAAN_PEMBERI != value))
+				{
+					this._PEKERJAAN_PEMBERI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAMA_PERUSAHAAN", DbType="VarChar(50)")]
+		public string NAMA_PERUSAHAAN
+		{
+			get
+			{
+				return this._NAMA_PERUSAHAAN;
+			}
+			set
+			{
+				if ((this._NAMA_PERUSAHAAN != value))
+				{
+					this._NAMA_PERUSAHAAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HUBUNGAN_PEMBERI", DbType="VarChar(50)")]
+		public string HUBUNGAN_PEMBERI
+		{
+			get
+			{
+				return this._HUBUNGAN_PEMBERI;
+			}
+			set
+			{
+				if ((this._HUBUNGAN_PEMBERI != value))
+				{
+					this._HUBUNGAN_PEMBERI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALASAN_PEMBERIAN", DbType="VarChar(MAX)")]
+		public string ALASAN_PEMBERIAN
+		{
+			get
+			{
+				return this._ALASAN_PEMBERIAN;
+			}
+			set
+			{
+				if ((this._ALASAN_PEMBERIAN != value))
+				{
+					this._ALASAN_PEMBERIAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUKTI_GRATIFIKASI", DbType="VarChar(MAX)")]
+		public string BUKTI_GRATIFIKASI
+		{
+			get
+			{
+				return this._BUKTI_GRATIFIKASI;
+			}
+			set
+			{
+				if ((this._BUKTI_GRATIFIKASI != value))
+				{
+					this._BUKTI_GRATIFIKASI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPLOYEE_ID", DbType="NVarChar(8)")]
+		public string EMPLOYEE_ID
+		{
+			get
+			{
+				return this._EMPLOYEE_ID;
+			}
+			set
+			{
+				if ((this._EMPLOYEE_ID != value))
+				{
+					this._EMPLOYEE_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION_ID", DbType="Char(10)")]
+		public string POSITION_ID
+		{
+			get
+			{
+				return this._POSITION_ID;
+			}
+			set
+			{
+				if ((this._POSITION_ID != value))
+				{
+					this._POSITION_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSTRCT_CODE", DbType="VarChar(50)")]
+		public string DSTRCT_CODE
+		{
+			get
+			{
+				return this._DSTRCT_CODE;
+			}
+			set
+			{
+				if ((this._DSTRCT_CODE != value))
+				{
+					this._DSTRCT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_DESC", DbType="VarChar(100)")]
+		public string DEPT_DESC
+		{
+			get
+			{
+				return this._DEPT_DESC;
+			}
+			set
+			{
+				if ((this._DEPT_DESC != value))
+				{
+					this._DEPT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_1", DbType="NVarChar(10)")]
+		public string Atasan_1
+		{
+			get
+			{
+				return this._Atasan_1;
+			}
+			set
+			{
+				if ((this._Atasan_1 != value))
+				{
+					this._Atasan_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_2", DbType="NVarChar(10)")]
+		public string Atasan_2
+		{
+			get
+			{
+				return this._Atasan_2;
+			}
+			set
+			{
+				if ((this._Atasan_2 != value))
+				{
+					this._Atasan_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_3", DbType="NVarChar(10)")]
+		public string Atasan_3
+		{
+			get
+			{
+				return this._Atasan_3;
+			}
+			set
+			{
+				if ((this._Atasan_3 != value))
+				{
+					this._Atasan_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_4", DbType="NVarChar(10)")]
+		public string Atasan_4
+		{
+			get
+			{
+				return this._Atasan_4;
+			}
+			set
+			{
+				if ((this._Atasan_4 != value))
+				{
+					this._Atasan_4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_5", DbType="NVarChar(10)")]
+		public string Atasan_5
+		{
+			get
+			{
+				return this._Atasan_5;
+			}
+			set
+			{
+				if ((this._Atasan_5 != value))
+				{
+					this._Atasan_5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_6", DbType="NVarChar(10)")]
+		public string Atasan_6
+		{
+			get
+			{
+				return this._Atasan_6;
+			}
+			set
+			{
+				if ((this._Atasan_6 != value))
+				{
+					this._Atasan_6 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_7", DbType="NVarChar(10)")]
+		public string Atasan_7
+		{
+			get
+			{
+				return this._Atasan_7;
+			}
+			set
+			{
+				if ((this._Atasan_7 != value))
+				{
+					this._Atasan_7 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_8", DbType="NVarChar(10)")]
+		public string Atasan_8
+		{
+			get
+			{
+				return this._Atasan_8;
+			}
+			set
+			{
+				if ((this._Atasan_8 != value))
+				{
+					this._Atasan_8 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_9", DbType="NVarChar(10)")]
+		public string Atasan_9
+		{
+			get
+			{
+				return this._Atasan_9;
+			}
+			set
+			{
+				if ((this._Atasan_9 != value))
+				{
+					this._Atasan_9 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Atasan_10", DbType="NVarChar(10)")]
+		public string Atasan_10
+		{
+			get
+			{
+				return this._Atasan_10;
+			}
+			set
+			{
+				if ((this._Atasan_10 != value))
+				{
+					this._Atasan_10 = value;
 				}
 			}
 		}

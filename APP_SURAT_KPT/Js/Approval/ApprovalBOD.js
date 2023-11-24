@@ -15,7 +15,7 @@
             pageLength: 10,
             lengthMenu: [10, 25, 50],
             ajax: {
-                url: `${apiUrl}api/gratifikasi/datatable_bod`,
+                url: `${apiUrl}api/gratifikasi/datatable_bod?posid=` + posid,
                 dataSrc: 'Data'
             },
             columns: [

@@ -16,16 +16,9 @@ function toggleInput() {
 }
 
 function formatCurrency() {
-    // Mengambil nilai input
     var inputValue = document.getElementById('estimasiharga').value;
-
-    // Menghapus karakter selain angka
     var numericValue = inputValue.replace(/\D/g, '');
-
-    // Mengonversi nilai ke dalam format dengan tanda titik sebagai pemisah ribuan
     var formattedValue = new Intl.NumberFormat('id-ID').format(numericValue);
-
-    // Memasukkan nilai yang telah diformat kembali ke dalam input
     document.getElementById('estimasiharga').value = formattedValue;
 }
 
@@ -57,6 +50,7 @@ function displayImage() {
 
 function submitGratifikasi() {
     debugger
+    $("#submitButton").prop("disabled", true);
 
     let obj = new Object();
     obj.NRP = userNrp;
@@ -91,6 +85,7 @@ function submitGratifikasi() {
             'Please complete all input data.',
             'warning'
         );
+        $("#submitButton").prop("disabled", false);
         return;
     }
     if (!$('#cekboks').is(':checked')) {
@@ -100,9 +95,11 @@ function submitGratifikasi() {
             icon: 'warning',
             confirmButtonText: 'OK'
         });
+        $("#submitButton").prop("disabled", false);
         return;
     }
 
+    document.getElementById("loadingScreen").style.display = "block";
     $.ajax({
         url: apiUrl + "api/Gratifikasi/submitGratifikasi",
         data: JSON.stringify(obj),
@@ -118,6 +115,7 @@ function submitGratifikasi() {
                     'Message : ' + data.Message,
                     'error'
                 );
+                $("#submitButton").prop("disabled", false);
             }
 
         },
@@ -143,6 +141,7 @@ function buktiGratifikasi() {
         contentType: false,
         processData: false,
         success: function (data) {
+            document.getElementById("loadingScreen").style.display = "none";
             if (data.Remarks == true) {
                 Swal.fire(
                     'Saved!',
@@ -153,12 +152,14 @@ function buktiGratifikasi() {
                 $('#modal-insert').modal('hide');
                 $('.select2-modal').val('').trigger('change');
                 $('.form-control').val('');
+                $("#submitButton").prop("disabled", false);
             } if (data.Remarks == false) {
                 Swal.fire(
                     'Error!',
                     'Message : ' + data.Message,
                     'error'
                 );
+                $("#submitButton").prop("disabled", false);
             }
         },
         error: function (xhr) {

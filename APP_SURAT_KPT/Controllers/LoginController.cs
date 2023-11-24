@@ -24,6 +24,8 @@ namespace APP_SURAT_KPT.Controllers
             Session["Nrp"] = requestVM.Nrp;
             Session["Role"] = requestVM.Role;
             Session["District"] = requestVM.District;
+            Session["Department"] = requestVM.Department;
+            Session["Posid"] = requestVM.Posid;
             Session["IsSectionHead"] = requestVM.IsSectionHead;
             return new JsonResult() { Data = new { Success = true, Message = "Berhasil Login" } };
         }
@@ -57,6 +59,9 @@ namespace APP_SURAT_KPT.Controllers
                     {
                         Session["Nrp"] = userDataApp.EMPLOYEE_ID;
                         Session["Role"] = userDataApp.ROLE;
+                        Session["District"] = userDataApp.DSTRCT_CODE;
+                        Session["Department"] = userDataApp.DEPT_DESC;
+                        Session["Posid"] = userDataApp.POSITION_ID;
                         Session["IsSectionHead"] = userDataApp.SECTION_HEAD != null ? true : false;
                         return RedirectToAction("dashboard", "dashboard");
                     }

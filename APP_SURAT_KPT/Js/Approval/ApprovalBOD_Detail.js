@@ -35,6 +35,7 @@ function submitApproval(postStatus) {
     data.STATUS = postStatus;
     data.UPDATED_BY = userNrp;
 
+    document.getElementById("loadingScreen").style.display = "block";
     $.ajax({
         url: apiUrl + "api/Approval/ApproveBOD",
         data: JSON.stringify(data),
@@ -42,6 +43,7 @@ function submitApproval(postStatus) {
         type: "POST",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
+            document.getElementById("loadingScreen").style.display = "none";
             if (data.Remarks == true) {
                 Swal.fire(
                     'Saved!',
@@ -72,6 +74,7 @@ function rejectApproval(postStatus) {
     data.STATUS = postStatus;
     data.UPDATED_BY = userNrp;
 
+    document.getElementById("loadingScreen").style.display = "block";
     $.ajax({
         url: apiUrl + "api/Approval/RejectBOD",
         data: JSON.stringify(data),
@@ -79,6 +82,7 @@ function rejectApproval(postStatus) {
         type: "POST",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
+            document.getElementById("loadingScreen").style.display = "none";
             if (data.Remarks == true) {
                 Swal.fire(
                     'Saved!',

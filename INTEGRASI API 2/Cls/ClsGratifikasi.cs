@@ -29,9 +29,9 @@ namespace INTEGRASI_API_2.Cls
             }
         }
 
-        public List<VW_GRATIFIKASI_REPORT_PM> GetFilteredDataTablePM(PIFilterRequestsVM requestsVM)
+        public List<VW_GRATIFIKASI_REPORT_PM> GetFilteredDataTablePM(PIFilterRequestsVM requestsVM, string district)
         {
-            var listDataPI = db.VW_GRATIFIKASI_REPORT_PMs.AsQueryable();
+            var listDataPI = db.VW_GRATIFIKASI_REPORT_PMs.Where(a => a.STATUS == "CREATED" && a.SITE == district).AsQueryable();
             if (!requestsVM.Nama.IsNullOrWhiteSpace())
             {
                 listDataPI = listDataPI.Where(x => x.NAME.Contains(requestsVM.Nama));
@@ -50,15 +50,15 @@ namespace INTEGRASI_API_2.Cls
             return listDataPI.ToList();
         }
 
-        public List<VW_GRATIFIKASI_REPORT_DEPTHEAD> GetDataTableDeptHead()
+        public List<VW_GRATIFIKASI_REPORT_DEPTHEAD> GetDataTableDeptHead(string dept)
         {
-            var listDataPI = db.VW_GRATIFIKASI_REPORT_DEPTHEADs.Where(a => a.STATUS == "CREATED").ToList();
+            var listDataPI = db.VW_GRATIFIKASI_REPORT_DEPTHEADs.Where(a => a.STATUS == "CREATED" && a.DEPT == dept).ToList();
             return listDataPI;
         }
 
-        public List<VW_GRATIFIKASI_REPORT_DEPTHEAD> GetFilteredDataTableDeptHead(PIFilterRequestsVM requestsVM)
+        public List<VW_GRATIFIKASI_REPORT_DEPTHEAD> GetFilteredDataTableDeptHead(PIFilterRequestsVM requestsVM, string dept)
         {
-            var listDataPI = db.VW_GRATIFIKASI_REPORT_DEPTHEADs.AsQueryable();
+            var listDataPI = db.VW_GRATIFIKASI_REPORT_DEPTHEADs.Where(a => a.STATUS == "CREATED" && a.DEPT == dept).AsQueryable();
             if (!requestsVM.Nama.IsNullOrWhiteSpace())
             {
                 listDataPI = listDataPI.Where(x => x.NAME.Contains(requestsVM.Nama));
@@ -77,15 +77,28 @@ namespace INTEGRASI_API_2.Cls
             return listDataPI.ToList();
         }
 
-        public List<VW_GRATIFIKASI_REPORT_BOD> GetDataTableBOD()
+        public List<VW_GRATIFIKASI_REPORT_BOD> GetDataTableBOD(string posid)
         {
-            var listDataPI = db.VW_GRATIFIKASI_REPORT_BODs.Where(a => a.STATUS == "CREATED").ToList();
+            //var listDataPI = db.VW_GRATIFIKASI_REPORT_BODs.Where(a => a.STATUS == "CREATED").ToList();
+            //return listDataPI;
+
+            var listDataPI = db.VW_GRATIFIKASI_REPORT_BODs.Where(a => a.STATUS == "CREATED" &&
+                (a.Atasan_1 == posid ||
+                    a.Atasan_2 == posid ||
+                    a.Atasan_3 == posid ||
+                    a.Atasan_4 == posid ||
+                    a.Atasan_5 == posid ||
+                    a.Atasan_6 == posid ||
+                    a.Atasan_7 == posid ||
+                    a.Atasan_8 == posid ||
+                    a.Atasan_9 == posid ||
+                    a.Atasan_10 == posid)).ToList();
             return listDataPI;
         }
 
         public List<VW_GRATIFIKASI_REPORT_BOD> GetFilteredDataTableBOD(PIFilterRequestsVM requestsVM)
         {
-            var listDataPI = db.VW_GRATIFIKASI_REPORT_BODs.AsQueryable();
+            var listDataPI = db.VW_GRATIFIKASI_REPORT_BODs.Where(a => a.STATUS == "CREATED").AsQueryable();
             if (!requestsVM.Nama.IsNullOrWhiteSpace())
             {
                 listDataPI = listDataPI.Where(x => x.NAME.Contains(requestsVM.Nama));

@@ -139,7 +139,7 @@
         }
 
         $.ajax({
-            url: `${apiUrl}api/gratifikasi/filter_pm`,
+            url: `${apiUrl}api/gratifikasi/filter_pm?district=` + districtPM,
             method: "POST",
             dataType: "json",
             contentType: "application/json",
