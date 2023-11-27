@@ -198,12 +198,12 @@ namespace INTEGRASI_API_2.Controllers
 
         [Route("filter_BOD")]
         [HttpPost]
-        public IHttpActionResult filter_BOD(PIFilterRequestsVM piFilterRequestsVM)
+        public IHttpActionResult filter_BOD(PIFilterRequestsVM piFilterRequestsVM, string posid)
         {
             try
             {
                 ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
-                var response = clsGratifikasi.GetFilteredDataTableBOD(piFilterRequestsVM);
+                var response = clsGratifikasi.GetFilteredDataTableBOD(piFilterRequestsVM, posid);
                 return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
             }
             catch (Exception ex)

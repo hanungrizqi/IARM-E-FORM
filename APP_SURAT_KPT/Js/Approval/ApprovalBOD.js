@@ -139,7 +139,7 @@
         }
 
         $.ajax({
-            url: `${apiUrl}api/gratifikasi/filter_bod`,
+            url: `${apiUrl}api/gratifikasi/filter_bod?posid=` + posid,
             method: "POST",
             dataType: "json",
             contentType: "application/json",

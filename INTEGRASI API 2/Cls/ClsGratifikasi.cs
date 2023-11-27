@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using INTEGRASI_API_2.ViewModels.Ebek;
 using Microsoft.Ajax.Utilities;
+using System.Security.Cryptography;
 
 namespace INTEGRASI_API_2.Cls
 {
@@ -96,9 +97,19 @@ namespace INTEGRASI_API_2.Cls
             return listDataPI;
         }
 
-        public List<VW_GRATIFIKASI_REPORT_BOD> GetFilteredDataTableBOD(PIFilterRequestsVM requestsVM)
+        public List<VW_GRATIFIKASI_REPORT_BOD> GetFilteredDataTableBOD(PIFilterRequestsVM requestsVM, string posid)
         {
-            var listDataPI = db.VW_GRATIFIKASI_REPORT_BODs.Where(a => a.STATUS == "CREATED").AsQueryable();
+            var listDataPI = db.VW_GRATIFIKASI_REPORT_BODs.Where(a => a.STATUS == "CREATED" &&
+                (a.Atasan_1 == posid ||
+                    a.Atasan_2 == posid ||
+                    a.Atasan_3 == posid ||
+                    a.Atasan_4 == posid ||
+                    a.Atasan_5 == posid ||
+                    a.Atasan_6 == posid ||
+                    a.Atasan_7 == posid ||
+                    a.Atasan_8 == posid ||
+                    a.Atasan_9 == posid ||
+                    a.Atasan_10 == posid)).AsQueryable();
             if (!requestsVM.Nama.IsNullOrWhiteSpace())
             {
                 listDataPI = listDataPI.Where(x => x.NAME.Contains(requestsVM.Nama));
