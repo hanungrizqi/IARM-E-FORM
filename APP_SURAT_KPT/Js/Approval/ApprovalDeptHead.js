@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+    console.log(department);
+    var trimmedDepartment = department.trim();
     $(function () {
         $('#report-tbl').DataTable({
             columnDefs: [
@@ -15,7 +17,8 @@
             pageLength: 10,
             lengthMenu: [10, 25, 50],
             ajax: {
-                url: `${apiUrl}api/gratifikasi/datatable_depthead?dept=` + department,
+                //url: `${apiUrl}api/gratifikasi/datatable_depthead?dept=` + department,
+                url: `${apiUrl}api/gratifikasi/datatable_depthead?dept=${encodeURIComponent(trimmedDepartment)}`,
                 dataSrc: 'Data'
             },
             columns: [

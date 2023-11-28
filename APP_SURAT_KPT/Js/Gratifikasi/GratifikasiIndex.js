@@ -2,6 +2,13 @@
     document.getElementById("datepickerd").setAttribute("max", new Date().toISOString().split("T")[0]);
 })
 
+var radioButtons = document.getElementsByName("optionsRadios");
+
+for (var i = 0; i < radioButtons.length; i++) {
+    debugger
+    radioButtons[i].addEventListener("change", toggleInput);
+}
+
 function toggleInput() {
     debugger
     var lainnyaInput = document.getElementById("lainnyaInput");

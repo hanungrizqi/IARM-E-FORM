@@ -240,7 +240,7 @@
         var apiUrl = "@ViewBag.ApiUrl";
         var userNrp = "@ViewBag.UserNrp";
         var districtPM = "@ViewBag.District";
-        var department = "@ViewBag.Department";
+        var department = @Html.Raw(Json.Encode(ViewBag.Department));
         var posid = "@ViewBag.Posid";
         $(document).ready(function () {
             $('.sidebar-menu').tree()
