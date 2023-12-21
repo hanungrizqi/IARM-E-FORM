@@ -234,9 +234,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Cls\Auth\ClsAuth.cs" />
+    <Compile Include="Controllers\ApprovalController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\dashboardController.cs" />
     <Compile Include="Controllers\EbekController.cs" />
+    <Compile Include="Controllers\GiftEntertainmentController.cs" />
     <Compile Include="Controllers\GratifikasiController.cs" />
     <Compile Include="Controllers\IntegritasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -3650,6 +3652,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Js\Approval\ApprovalBOD.js" />
+    <Content Include="Js\Approval\ApprovalBOD_Detail.js" />
+    <Content Include="Js\Approval\ApprovalDeptHead.js" />
+    <Content Include="Js\Approval\ApprovalDeptHead_Detail.js" />
+    <Content Include="Js\Approval\ApprovalPM.js" />
+    <Content Include="Js\Approval\ApprovalPM_Detail.js" />
     <Content Include="Js\Auth\Login.js" />
     <Content Include="Js\Ebek\EbekIndex.js" />
     <Content Include="Js\Ebek\EbekReport.js" />
@@ -3971,6 +3979,13 @@
     <Content Include="Views\Ebek\EbekReport.cshtml" />
     <Content Include="Views\Login\LoginMok.cshtml" />
     <Content Include="Views\Gratifikasi\Index.cshtml" />
+    <Content Include="Views\Approval\PM.cshtml" />
+    <Content Include="Views\Approval\Depthead.cshtml" />
+    <Content Include="Views\Approval\BOD.cshtml" />
+    <Content Include="Views\Approval\Detail_PM.cshtml" />
+    <Content Include="Views\Approval\Detail_DeptHead.cshtml" />
+    <Content Include="Views\Approval\Detail_BOD.cshtml" />
+    <Content Include="Views\GiftEntertainment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

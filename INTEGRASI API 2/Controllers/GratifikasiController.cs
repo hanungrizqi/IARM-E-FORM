@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Http;
 using INTEGRASI_API_2.Cls;
 using INTEGRASI_API_2.Models;
+using INTEGRASI_API_2.ViewModels.Ebek;
 
 namespace INTEGRASI_API_2.Controllers
 {
@@ -25,6 +26,7 @@ namespace INTEGRASI_API_2.Controllers
                 TBL_T_GRATIFIKASI tbl = new TBL_T_GRATIFIKASI();
                 tbl.NRP = param.NRP;
                 tbl.CREATED_DATE = DateTime.Now;
+                tbl.STATUS = "CREATED";
                 tbl.JENIS_PENERIMAAN = param.JENIS_PENERIMAAN;
                 tbl.ESTIMASI_HARGA = param.ESTIMASI_HARGA;
                 tbl.TEMPAT_PENERIMAAN = param.TEMPAT_PENERIMAAN;
@@ -109,5 +111,106 @@ namespace INTEGRASI_API_2.Controllers
             }
         }
 
+        [Route("Datatable_PM")]
+        [HttpGet]
+        public IHttpActionResult Datatable_PM(string district, string nrp)
+        {
+            try
+            {
+                ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
+                var response = clsGratifikasi.GetDataTablePM(district, nrp);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
+        [Route("filter_PM")]
+        [HttpPost]
+        public IHttpActionResult filter_PM(PIFilterRequestsVM piFilterRequestsVM, string district)
+        {
+            try
+            {
+                ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
+                var response = clsGratifikasi.GetFilteredDataTablePM(piFilterRequestsVM, district);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
+        [Route("Datatable_DeptHead")]
+        [HttpGet]
+        public IHttpActionResult Datatable_DeptHead(string dept)
+        {
+            try
+            {
+                ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
+                var response = clsGratifikasi.GetDataTableDeptHead(dept);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
+        [Route("filter_DeptHead")]
+        [HttpPost]
+        public IHttpActionResult filter_DeptHead(PIFilterRequestsVM piFilterRequestsVM, string dept)
+        {
+            try
+            {
+                ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
+                var response = clsGratifikasi.GetFilteredDataTableDeptHead(piFilterRequestsVM, dept);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
+        [Route("Datatable_BOD")]
+        [HttpGet]
+        public IHttpActionResult Datatable_BOD(string posid)
+        {
+            try
+            {
+                ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
+                var response = clsGratifikasi.GetDataTableBOD(posid);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
+        [Route("filter_BOD")]
+        [HttpPost]
+        public IHttpActionResult filter_BOD(PIFilterRequestsVM piFilterRequestsVM, string posid)
+        {
+            try
+            {
+                ClsGratifikasi clsGratifikasi = new ClsGratifikasi();
+                var response = clsGratifikasi.GetFilteredDataTableBOD(piFilterRequestsVM, posid);
+                return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
     }
 }

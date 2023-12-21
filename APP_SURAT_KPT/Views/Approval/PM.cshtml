@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Approval Project Manager";
+    ViewBag.NavMainLink = "approval";
+    ViewBag.NavMainLinkSubmenu = "PM";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/Boostraps/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <style>
+        .select2-selection__rendered {
+            line-height: 23px !important;
+        }
+
+        .btn-filter {
+            height: 30px;
+            margin-bottom: 10px;
+        }
+
+        .form-label {
+            margin-top: 3px;
+        }
+
+        .h-divider {
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 80%;
+            position: relative;
+        }
+
+        .h-divider .shadow {
+            overflow: hidden;
+            height: 20px;
+        }
+
+        .h-divider .shadow:after {
+            content: '';
+            display: block;
+            margin: -25px auto 0;
+            width: 100%;
+            height: 25px;
+            border-radius: 125px/12px;
+            box-shadow: 0 0 8px black;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script src="~/Content/Boostraps/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Boostraps/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/Boostraps/bower_components/chartjs/Chart.js"></script>
+    <script type="text/javascript" src="~/Js/Approval/ApprovalPM.js"></script>
+}
+
+<!-- Content Wrapper. Contains page content -->
+<section class="content-header" id="form-pi">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="form-label" for="no-fix-plan">Nama</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" id="filter-name" placeholder="Nama Karyawan" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label" for="no-fix-plan">Department</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select id="filter-dept" name="list-dept" class="form-control select2 list-dept" style="width: 100%;">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label" for="no-fix-plan">District</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select id="filter-district" name="list-district" class="form-control select2 list-district" style="width: 100%;">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <button class="btn btn-primary btn-filter" id="filter-pi">Filter</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Data Gift &amp; Entertainment</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="report-tbl" class="table table-bordered table-striped">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>No</th>
+                                    <th>NRP</th>
+                                    <th>Nama</th>
+                                    <th>Department</th>
+                                    <th>District</th>
+                                    <th>Jenis Penerimaan</th>
+                                    <th>Estimasi Harga</th>
+                                    <th>Tanggal Penerimaan</th>
+                                    <th>Detail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>

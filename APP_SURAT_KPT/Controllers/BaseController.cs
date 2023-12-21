@@ -20,6 +20,9 @@ namespace APP_SURAT_KPT.Controllers
 
             ViewBag.UserNrp = Session["Nrp"];
             ViewBag.Role = Session["Role"];
+            ViewBag.District = Session["District"];
+            ViewBag.Department = Session["Department"];
+            ViewBag.Posid = Session["Posid"];
             ViewBag.IsSectionHead = Session["IsSectionHead"];
 
             base.OnActionExecuting(filterContext);
