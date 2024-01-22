@@ -22,7 +22,7 @@ namespace INTEGRASI_API_2.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DB_IA_PAKTA_INTEGRITAS_KPT")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DB_IA_PAKTA_INTEGRITAS")]
 	public partial class DBPakta_IntegritasDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -45,15 +45,15 @@ namespace INTEGRASI_API_2.Models
     partial void InsertTBL_T_EBEK_COI(TBL_T_EBEK_COI instance);
     partial void UpdateTBL_T_EBEK_COI(TBL_T_EBEK_COI instance);
     partial void DeleteTBL_T_EBEK_COI(TBL_T_EBEK_COI instance);
-    partial void InsertTBL_T_PI(TBL_T_PI instance);
-    partial void UpdateTBL_T_PI(TBL_T_PI instance);
-    partial void DeleteTBL_T_PI(TBL_T_PI instance);
     partial void InsertTBL_T_EBEK(TBL_T_EBEK instance);
     partial void UpdateTBL_T_EBEK(TBL_T_EBEK instance);
     partial void DeleteTBL_T_EBEK(TBL_T_EBEK instance);
     partial void InsertTBL_T_GRATIFIKASI(TBL_T_GRATIFIKASI instance);
     partial void UpdateTBL_T_GRATIFIKASI(TBL_T_GRATIFIKASI instance);
     partial void DeleteTBL_T_GRATIFIKASI(TBL_T_GRATIFIKASI instance);
+    partial void InsertTBL_T_PI(TBL_T_PI instance);
+    partial void UpdateTBL_T_PI(TBL_T_PI instance);
+    partial void DeleteTBL_T_PI(TBL_T_PI instance);
     #endregion
 		
 		public DBPakta_IntegritasDataContext() : 
@@ -123,14 +123,6 @@ namespace INTEGRASI_API_2.Models
 			get
 			{
 				return this.GetTable<TBL_T_EBEK_COI>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TBL_T_PI> TBL_T_PIs
-		{
-			get
-			{
-				return this.GetTable<TBL_T_PI>();
 			}
 		}
 		
@@ -211,6 +203,14 @@ namespace INTEGRASI_API_2.Models
 			get
 			{
 				return this.GetTable<VW_GRATIFIKASI_REPORT_BOD>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_T_PI> TBL_T_PIs
+		{
+			get
+			{
+				return this.GetTable<TBL_T_PI>();
 			}
 		}
 		
@@ -1193,188 +1193,6 @@ namespace INTEGRASI_API_2.Models
 					this._INFORMATION = value;
 					this.SendPropertyChanged("INFORMATION");
 					this.OnINFORMATIONChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_PI")]
-	public partial class TBL_T_PI : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _ID;
-		
-		private string _PI_NO;
-		
-		private string _NRP;
-		
-		private System.Nullable<bool> _SUBMIT;
-		
-		private string _SIGN_LOCATION;
-		
-		private System.Nullable<System.DateTime> _SUBMITDATE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(System.Guid value);
-    partial void OnIDChanged();
-    partial void OnPI_NOChanging(string value);
-    partial void OnPI_NOChanged();
-    partial void OnNRPChanging(string value);
-    partial void OnNRPChanged();
-    partial void OnSUBMITChanging(System.Nullable<bool> value);
-    partial void OnSUBMITChanged();
-    partial void OnSIGN_LOCATIONChanging(string value);
-    partial void OnSIGN_LOCATIONChanged();
-    partial void OnSUBMITDATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnSUBMITDATEChanged();
-    #endregion
-		
-		public TBL_T_PI()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
-		public System.Guid ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PI_NO", DbType="NVarChar(50)")]
-		public string PI_NO
-		{
-			get
-			{
-				return this._PI_NO;
-			}
-			set
-			{
-				if ((this._PI_NO != value))
-				{
-					this.OnPI_NOChanging(value);
-					this.SendPropertyChanging();
-					this._PI_NO = value;
-					this.SendPropertyChanged("PI_NO");
-					this.OnPI_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="NVarChar(50)")]
-		public string NRP
-		{
-			get
-			{
-				return this._NRP;
-			}
-			set
-			{
-				if ((this._NRP != value))
-				{
-					this.OnNRPChanging(value);
-					this.SendPropertyChanging();
-					this._NRP = value;
-					this.SendPropertyChanged("NRP");
-					this.OnNRPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMIT", DbType="Bit")]
-		public System.Nullable<bool> SUBMIT
-		{
-			get
-			{
-				return this._SUBMIT;
-			}
-			set
-			{
-				if ((this._SUBMIT != value))
-				{
-					this.OnSUBMITChanging(value);
-					this.SendPropertyChanging();
-					this._SUBMIT = value;
-					this.SendPropertyChanged("SUBMIT");
-					this.OnSUBMITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIGN_LOCATION", DbType="NVarChar(100)")]
-		public string SIGN_LOCATION
-		{
-			get
-			{
-				return this._SIGN_LOCATION;
-			}
-			set
-			{
-				if ((this._SIGN_LOCATION != value))
-				{
-					this.OnSIGN_LOCATIONChanging(value);
-					this.SendPropertyChanging();
-					this._SIGN_LOCATION = value;
-					this.SendPropertyChanged("SIGN_LOCATION");
-					this.OnSIGN_LOCATIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMITDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> SUBMITDATE
-		{
-			get
-			{
-				return this._SUBMITDATE;
-			}
-			set
-			{
-				if ((this._SUBMITDATE != value))
-				{
-					this.OnSUBMITDATEChanging(value);
-					this.SendPropertyChanging();
-					this._SUBMITDATE = value;
-					this.SendPropertyChanged("SUBMITDATE");
-					this.OnSUBMITDATEChanged();
 				}
 			}
 		}
@@ -4232,6 +4050,212 @@ namespace INTEGRASI_API_2.Models
 				{
 					this._Atasan_10 = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_T_PI")]
+	public partial class TBL_T_PI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _ID;
+		
+		private string _PI_NO;
+		
+		private string _NRP;
+		
+		private System.Nullable<bool> _SUBMIT;
+		
+		private string _SIGN_LOCATION;
+		
+		private System.Nullable<System.DateTime> _SUBMITDATE;
+		
+		private string _DOCUMENT_LINK;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(System.Guid value);
+    partial void OnIDChanged();
+    partial void OnPI_NOChanging(string value);
+    partial void OnPI_NOChanged();
+    partial void OnNRPChanging(string value);
+    partial void OnNRPChanged();
+    partial void OnSUBMITChanging(System.Nullable<bool> value);
+    partial void OnSUBMITChanged();
+    partial void OnSIGN_LOCATIONChanging(string value);
+    partial void OnSIGN_LOCATIONChanged();
+    partial void OnSUBMITDATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSUBMITDATEChanged();
+    partial void OnDOCUMENT_LINKChanging(string value);
+    partial void OnDOCUMENT_LINKChanged();
+    #endregion
+		
+		public TBL_T_PI()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
+		public System.Guid ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PI_NO", DbType="NVarChar(50)")]
+		public string PI_NO
+		{
+			get
+			{
+				return this._PI_NO;
+			}
+			set
+			{
+				if ((this._PI_NO != value))
+				{
+					this.OnPI_NOChanging(value);
+					this.SendPropertyChanging();
+					this._PI_NO = value;
+					this.SendPropertyChanged("PI_NO");
+					this.OnPI_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="NVarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this.OnNRPChanging(value);
+					this.SendPropertyChanging();
+					this._NRP = value;
+					this.SendPropertyChanged("NRP");
+					this.OnNRPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMIT", DbType="Bit")]
+		public System.Nullable<bool> SUBMIT
+		{
+			get
+			{
+				return this._SUBMIT;
+			}
+			set
+			{
+				if ((this._SUBMIT != value))
+				{
+					this.OnSUBMITChanging(value);
+					this.SendPropertyChanging();
+					this._SUBMIT = value;
+					this.SendPropertyChanged("SUBMIT");
+					this.OnSUBMITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIGN_LOCATION", DbType="NVarChar(100)")]
+		public string SIGN_LOCATION
+		{
+			get
+			{
+				return this._SIGN_LOCATION;
+			}
+			set
+			{
+				if ((this._SIGN_LOCATION != value))
+				{
+					this.OnSIGN_LOCATIONChanging(value);
+					this.SendPropertyChanging();
+					this._SIGN_LOCATION = value;
+					this.SendPropertyChanged("SIGN_LOCATION");
+					this.OnSIGN_LOCATIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMITDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SUBMITDATE
+		{
+			get
+			{
+				return this._SUBMITDATE;
+			}
+			set
+			{
+				if ((this._SUBMITDATE != value))
+				{
+					this.OnSUBMITDATEChanging(value);
+					this.SendPropertyChanging();
+					this._SUBMITDATE = value;
+					this.SendPropertyChanged("SUBMITDATE");
+					this.OnSUBMITDATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOCUMENT_LINK", DbType="VarChar(MAX)")]
+		public string DOCUMENT_LINK
+		{
+			get
+			{
+				return this._DOCUMENT_LINK;
+			}
+			set
+			{
+				if ((this._DOCUMENT_LINK != value))
+				{
+					this.OnDOCUMENT_LINKChanging(value);
+					this.SendPropertyChanging();
+					this._DOCUMENT_LINK = value;
+					this.SendPropertyChanged("DOCUMENT_LINK");
+					this.OnDOCUMENT_LINKChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

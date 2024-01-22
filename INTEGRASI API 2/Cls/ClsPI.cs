@@ -7,13 +7,24 @@ using INTEGRASI_API_2.ViewModels.PI;
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Configuration;
+using System.Web;
+using INTEGRASI_API_2.Constants;
+using System.Configuration;
+using Spire.Pdf;
+using Spire.Pdf.Graphics;
+using System.Drawing;
 
 namespace INTEGRASI_API_2.Cls
 {
     public class ClsPI
     {
         DBPakta_IntegritasDataContext db = new DBPakta_IntegritasDataContext();
+        public string _cloudUploadUrl = ConfigurationManager.AppSettings["fileUploadPath"].ToString();
+        public string _environment = ConfigurationManager.AppSettings["Environment"];
 
         public bool IsUserHasSubmitPi(string Nrp)
         {
@@ -56,19 +67,22 @@ namespace INTEGRASI_API_2.Cls
             return piNumber;
         }
 
-        public StatusResponseVM SubmitPaktaIntegritas(SubmitPIDataRequestVM requestVM)
+        public async Task<StatusResponseVM> SubmitPaktaIntegritas(SubmitPIDataRequestVM requestVM)
         {
             try
             {
-                TBL_T_PI newData = new TBL_T_PI()
+                await Task.Run(() =>
                 {
-                    NRP = requestVM.UserNrp,
-                    SUBMIT = true,
-                    SIGN_LOCATION = requestVM.Location,
-                    SUBMITDATE = DateTime.Now
-                };
-                db.TBL_T_PIs.InsertOnSubmit(newData);
-                db.SubmitChanges();
+                    TBL_T_PI newData = new TBL_T_PI()
+                    {
+                        NRP = requestVM.UserNrp,
+                        SUBMIT = true,
+                        SIGN_LOCATION = requestVM.Location,
+                        SUBMITDATE = DateTime.Now
+                    };
+                    db.TBL_T_PIs.InsertOnSubmit(newData);
+                    db.SubmitChanges();
+                });
 
                 var responseVM = new StatusResponseVM()
                 {
@@ -258,6 +272,65 @@ namespace INTEGRASI_API_2.Cls
 
                 return dataResponse;
             }
+        }
+
+        public async Task<string> SignDocumentPI(string nrp/*, string name, string dept, string location, DateTime submitdate*/)
+        {
+
+            PdfTrueTypeFont font = new PdfTrueTypeFont(new Font("Calibri", 12f), true);
+
+            var userData = db.VW_PI_REPORTs.Where(x => x.NRP == nrp).FirstOrDefault();
+            var insertData = db.TBL_T_PIs.Where(x => x.NRP == nrp).FirstOrDefault();
+
+            // prepare document file
+            var filePath = string.Empty;
+            var signPath = string.Empty;
+            var documentLinks = string.Empty;
+            var ctx = HttpContext.Current;
+            filePath = ctx.Server.MapPath($"~/File/PI_PDF.pdf");
+
+            string newDocumentFile = null;
+
+            await Task.Run(() =>
+            {
+                PdfDocument pdfDocument = new PdfDocument();
+                pdfDocument.LoadFromFile(filePath);
+
+                PdfPageBase pdfPage = pdfDocument.Pages[0];
+
+                var newDocumentURl = System.IO.Path.GetDirectoryName(filePath);
+                var currentDocumentFileName = System.IO.Path.GetFileName(filePath);
+                string newDocumentLocation = ctx.Server.MapPath("~/Content/PI/");
+                string newDocumentFileName = nrp + ".pdf";
+
+                if (!Directory.Exists(newDocumentLocation))
+                {
+                    Directory.CreateDirectory(newDocumentLocation);
+                }
+
+                newDocumentFile = System.IO.Path.Combine(newDocumentLocation, newDocumentFileName);
+
+                if (File.Exists(newDocumentFile))
+                {
+                    File.Delete(newDocumentFile);
+                }
+
+                pdfPage.Canvas.DrawString(userData.NRP, font, PdfBrushes.Black, new PointF(190, 198));
+                pdfPage.Canvas.DrawString(userData.NAME, font, PdfBrushes.Black, new PointF(190, 175));
+                pdfPage.Canvas.DrawString(userData.DEPT, font, PdfBrushes.Black, new PointF(190, 221));
+                pdfPage.Canvas.DrawString(userData.SIGN_LOCATION, font, PdfBrushes.Black, new PointF(350, 672));
+                pdfPage.Canvas.DrawString(userData.SUBMITDATE.Value.ToString("dd-MM-yyyy"), font, PdfBrushes.Black, new PointF(400, 672));
+                pdfPage.Canvas.DrawString("(" + userData.NAME + ")", font, PdfBrushes.Black, new PointF(390, 747));
+
+                pdfDocument.SaveToFile(newDocumentFile);
+
+                newDocumentFile = newDocumentFile.Substring(newDocumentFile.LastIndexOf(@"Content\"));
+
+                insertData.DOCUMENT_LINK = newDocumentFile;
+                db.SubmitChanges();
+            });
+
+            return newDocumentFile;
         }
     }
 }

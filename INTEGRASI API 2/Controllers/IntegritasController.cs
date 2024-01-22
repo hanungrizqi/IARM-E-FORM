@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using INTEGRASI_API_2.Cls;
 using INTEGRASI_API_2.Models;
@@ -45,11 +46,13 @@ namespace INTEGRASI_API_2.Controllers
 
         [Route("api/integritas/submit")]
         [HttpPost]
-        public IHttpActionResult submitPaktaIntegrasi(SubmitPIDataRequestVM requestVM)
+        public async Task<IHttpActionResult> submitPaktaIntegrasi(SubmitPIDataRequestVM requestVM)
         {
             try
             {
-                var response = clsPi.SubmitPaktaIntegritas(requestVM);
+                var response = await clsPi.SubmitPaktaIntegritas(requestVM);
+                await generatePdfFile(requestVM.UserNrp);
+
                 return Ok(new { Success = response.Success, Message = response.Message });
             }
             catch (Exception ex)
@@ -100,6 +103,22 @@ namespace INTEGRASI_API_2.Controllers
             {
                 var response = clsPi.GetChartPI(chartRequestVM);
                 return Ok(new { Success = true, Message = "Data berhasil diambil", Data = response });
+            }
+            catch (Exception ex)
+            {
+
+                return Content(HttpStatusCode.BadRequest, new { Message = ex.Message, Status = false });
+            }
+        }
+
+        [Route("api/integritas/pdffile")]
+        [HttpPost]
+        public async Task<IHttpActionResult> generatePdfFile(string nrp/*, string name, string dept, string location, DateTime submitdate*/)
+        {
+            try
+            {
+                var response = await clsPi.SignDocumentPI(nrp/*, name, dept, location, submitdate*/);
+                return Ok(new { Success = true, Message = "Gagal" });
             }
             catch (Exception ex)
             {

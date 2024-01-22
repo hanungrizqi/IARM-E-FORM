@@ -55,6 +55,9 @@
       <HintPath>..\..\HAI\she_hai-main202306221013\she_hai-main\HAI API\bin\LdapAuthentication.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Spire.Pdf">
+      <HintPath>C:\Users\hanungrisqi\Music\New folder (2)\Spire.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
@@ -174,6 +177,8 @@
     <Compile Include="Cls\ClsMasterData.cs" />
     <Compile Include="Cls\ClsPI.cs" />
     <Compile Include="Constants\CoiConstant.cs" />
+    <Compile Include="Constants\DocumentFolderConstant.cs" />
+    <Compile Include="Constants\EnvironmentConstant.cs" />
     <Compile Include="Controllers\ApprovalController.cs" />
     <Compile Include="Controllers\EbekController.cs" />
     <Compile Include="Controllers\GratifikasiController.cs" />
@@ -199,6 +204,7 @@
     <Compile Include="ViewModels\Auth\LoginVM.cs" />
     <Compile Include="ViewModels\Ebek\EbekFilterRequestsVM.cs" />
     <Compile Include="ViewModels\Ebek\EbekRequestsVM.cs" />
+    <Compile Include="ViewModels\PI\GeneratePDF.cs" />
     <Compile Include="ViewModels\PI\PIFilterRequestsVM.cs" />
     <Compile Include="ViewModels\PI\PiDataResponseVM.cs" />
     <Compile Include="ViewModels\PI\SubmitPIDataRequestVM.cs" />
