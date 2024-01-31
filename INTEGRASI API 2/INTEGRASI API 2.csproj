@@ -260,6 +260,9 @@
       <LastGenOutput>DBPakta_Integritas.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\Template\PI_PDF.pdf" />
+    <Content Include="Content\Template\PI_SIGN_PDF.pdf" />
+    <Content Include="File\PI_PDF.pdf" />
     <None Include="Models\DBPakta_Integritas.dbml.layout">
       <DependentUpon>DBPakta_Integritas.dbml</DependentUpon>
     </None>

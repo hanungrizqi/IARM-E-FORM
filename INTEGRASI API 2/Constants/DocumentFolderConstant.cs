@@ -7,6 +7,6 @@ namespace INTEGRASI_API_2.Constants
 {
     public class DocumentFolderConstant
     {
-        public const string PI = "/File/PI_PDF";
+        public const string PI = "/File/PI";
     }
 }

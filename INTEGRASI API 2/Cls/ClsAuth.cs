@@ -36,8 +36,8 @@ namespace INTEGRASI_API_2.Cls
 
             try
             {
-                var ldap = new LdapAuthentication("LDAP://KPPMINING:389");
-                status = ldap.IsAuthenticated("KPPMINING", login.Username, login.Password);
+                var ldap = new LdapAuthentication("LDAP://KPPMINING.NET:389");
+                status = ldap.IsAuthenticated("KPPMINING.NET", login.Username, login.Password);
             }
             catch (Exception)
             {

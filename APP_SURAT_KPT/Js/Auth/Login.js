@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     $("#login-btn").click(async function () {
+        console.log(apiUrl)
         event.preventDefault()
         document.getElementById("loadingScreen").style.display = "block";
         const requestData = {

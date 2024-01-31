@@ -17,6 +17,7 @@ using System.Configuration;
 using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using System.Drawing;
+using System.Web.Http.Results;
 
 namespace INTEGRASI_API_2.Cls
 {
@@ -274,63 +275,85 @@ namespace INTEGRASI_API_2.Cls
             }
         }
 
-        public async Task<string> SignDocumentPI(string nrp/*, string name, string dept, string location, DateTime submitdate*/)
+        public async Task<StatusResponseVM> SignDocumentPI(string nrp)
         {
+            string documentFolder = null;
+
+            documentFolder = DocumentFolderConstant.PI;
+
+            var baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
 
             PdfTrueTypeFont font = new PdfTrueTypeFont(new Font("Calibri", 12f), true);
+            PdfTrueTypeFont bfont = new PdfTrueTypeFont(new Font("Calibri", 12f, FontStyle.Bold), true);
 
             var userData = db.VW_PI_REPORTs.Where(x => x.NRP == nrp).FirstOrDefault();
             var insertData = db.TBL_T_PIs.Where(x => x.NRP == nrp).FirstOrDefault();
 
-            // prepare document file
-            var filePath = string.Empty;
-            var signPath = string.Empty;
-            var documentLinks = string.Empty;
+            var template = HttpContext.Current.Server.MapPath($"~/File/PI_PDF.pdf");
+
             var ctx = HttpContext.Current;
-            filePath = ctx.Server.MapPath($"~/File/PI_PDF.pdf");
 
+            string root;
+            //root = ctx.Server.MapPath($"~/Content{documentFolder}");
+            root = _cloudUploadUrl + documentFolder;
+            
             string newDocumentFile = null;
-
-            await Task.Run(() =>
+            try
             {
-                PdfDocument pdfDocument = new PdfDocument();
-                pdfDocument.LoadFromFile(filePath);
-
-                PdfPageBase pdfPage = pdfDocument.Pages[0];
-
-                var newDocumentURl = System.IO.Path.GetDirectoryName(filePath);
-                var currentDocumentFileName = System.IO.Path.GetFileName(filePath);
-                string newDocumentLocation = ctx.Server.MapPath("~/Content/PI/");
-                string newDocumentFileName = nrp + ".pdf";
-
-                if (!Directory.Exists(newDocumentLocation))
+                if (!Directory.Exists(root))
                 {
-                    Directory.CreateDirectory(newDocumentLocation);
+                    Directory.CreateDirectory(root);
                 }
 
-                newDocumentFile = System.IO.Path.Combine(newDocumentLocation, newDocumentFileName);
-
-                if (File.Exists(newDocumentFile))
+                await Task.Run(() =>
                 {
-                    File.Delete(newDocumentFile);
-                }
+                    PdfDocument pdfDocument = new PdfDocument();
+                    pdfDocument.LoadFromFile(template); ;
+                    PdfPageBase pdfPage = pdfDocument.Pages[0];
 
-                pdfPage.Canvas.DrawString(userData.NRP, font, PdfBrushes.Black, new PointF(190, 198));
-                pdfPage.Canvas.DrawString(userData.NAME, font, PdfBrushes.Black, new PointF(190, 175));
-                pdfPage.Canvas.DrawString(userData.DEPT, font, PdfBrushes.Black, new PointF(190, 221));
-                pdfPage.Canvas.DrawString(userData.SIGN_LOCATION, font, PdfBrushes.Black, new PointF(350, 672));
-                pdfPage.Canvas.DrawString(userData.SUBMITDATE.Value.ToString("dd-MM-yyyy"), font, PdfBrushes.Black, new PointF(400, 672));
-                pdfPage.Canvas.DrawString("(" + userData.NAME + ")", font, PdfBrushes.Black, new PointF(390, 747));
+                    string newDocumentFileName = nrp + ".pdf";
+                    newDocumentFile = System.IO.Path.Combine(root, newDocumentFileName);
 
-                pdfDocument.SaveToFile(newDocumentFile);
+                    if (File.Exists(newDocumentFile))
+                    {
+                        File.Delete(newDocumentFile);
+                    }
 
-                newDocumentFile = newDocumentFile.Substring(newDocumentFile.LastIndexOf(@"Content\"));
+                    pdfPage.Canvas.DrawString(userData.NRP, font, PdfBrushes.Black, new PointF(190, 198));
+                    pdfPage.Canvas.DrawString(userData.NAME, font, PdfBrushes.Black, new PointF(190, 175));
+                    pdfPage.Canvas.DrawString(userData.DEPT, font, PdfBrushes.Black, new PointF(190, 221));
+                    pdfPage.Canvas.DrawString(userData.SIGN_LOCATION + ", " + userData.SUBMITDATE.Value.ToString("dd-MM-yyyy"), font, PdfBrushes.Black, new PointF(356, 684));
+                    pdfPage.Canvas.DrawString("[E-Signature]", font, PdfBrushes.Black, new PointF(356, 697));
+                    pdfPage.Canvas.DrawString("(" + userData.NAME + ")", bfont, PdfBrushes.Black, new PointF(356, 737));
 
-                insertData.DOCUMENT_LINK = newDocumentFile;
-                db.SubmitChanges();
-            });
+                    pdfDocument.SaveToFile(newDocumentFile);
 
-            return newDocumentFile;
+                    //newDocumentFile = newDocumentFile.Substring(newDocumentFile.LastIndexOf(@"Content\"));
+                    newDocumentFile = newDocumentFile.Substring(newDocumentFile.LastIndexOf(documentFolder));
+
+                    insertData.DOCUMENT_LINK = newDocumentFile;
+                    db.SubmitChanges();
+                });
+
+                return new StatusResponseVM() { Success = true, Message = "Data berhasil disimpan" }; ;
+            }
+            catch (Exception ex)
+            {
+                return new StatusResponseVM() { Success = false, Message = ex.Message };
+            }
+        }
+
+        public void SendNotification(string nrp)
+        {
+            try
+            {
+                var dt = db.VW_PI_REPORTs.Where(a => a.NRP == nrp).FirstOrDefault();
+                var notif = db.cusp_insertNotifPI(nrp);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

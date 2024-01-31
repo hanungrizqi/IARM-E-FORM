@@ -234,6 +234,13 @@ namespace INTEGRASI_API_2.Models
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<cusp_insertNotifBODResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cusp_insertNotifPI")]
+		public ISingleResult<cusp_insertNotifPIResult> cusp_insertNotifPI([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NRPS", DbType="VarChar(10)")] string nRPS)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nRPS);
+			return ((ISingleResult<cusp_insertNotifPIResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_ROLE")]
@@ -4356,6 +4363,50 @@ namespace INTEGRASI_API_2.Models
 		private string _BODY;
 		
 		public cusp_insertNotifBODResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TO_LIST", DbType="VarChar(MAX)")]
+		public string TO_LIST
+		{
+			get
+			{
+				return this._TO_LIST;
+			}
+			set
+			{
+				if ((this._TO_LIST != value))
+				{
+					this._TO_LIST = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BODY", DbType="VarChar(MAX)")]
+		public string BODY
+		{
+			get
+			{
+				return this._BODY;
+			}
+			set
+			{
+				if ((this._BODY != value))
+				{
+					this._BODY = value;
+				}
+			}
+		}
+	}
+	
+	public partial class cusp_insertNotifPIResult
+	{
+		
+		private string _TO_LIST;
+		
+		private string _BODY;
+		
+		public cusp_insertNotifPIResult()
 		{
 		}
 		

@@ -51,7 +51,15 @@ namespace INTEGRASI_API_2.Controllers
             try
             {
                 var response = await clsPi.SubmitPaktaIntegritas(requestVM);
-                await generatePdfFile(requestVM.UserNrp);
+
+                var result = await clsPi.SignDocumentPI(requestVM.UserNrp);
+                if (result.Success == false)
+                {
+                    return Ok(new { Success = result.Success, Message = result.Message });
+                }
+
+                var notificationManager = new ClsPI();
+                notificationManager.SendNotification(requestVM.UserNrp);
 
                 return Ok(new { Success = response.Success, Message = response.Message });
             }
