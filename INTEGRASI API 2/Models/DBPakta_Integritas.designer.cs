@@ -150,14 +150,6 @@ namespace INTEGRASI_API_2.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<VW_PI_REPORT> VW_PI_REPORTs
-		{
-			get
-			{
-				return this.GetTable<VW_PI_REPORT>();
-			}
-		}
-		
 		public System.Data.Linq.Table<VW_DEPT_ALL> VW_DEPT_ALLs
 		{
 			get
@@ -211,6 +203,14 @@ namespace INTEGRASI_API_2.Models
 			get
 			{
 				return this.GetTable<TBL_T_PI>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_PI_REPORT> VW_PI_REPORTs
+		{
+			get
+			{
+				return this.GetTable<VW_PI_REPORT>();
 			}
 		}
 		
@@ -1894,141 +1894,6 @@ namespace INTEGRASI_API_2.Models
 				if ((this._ISHADCOI != value))
 				{
 					this._ISHADCOI = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(43)")]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this._NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT", DbType="VarChar(50)")]
-		public string DEPT
-		{
-			get
-			{
-				return this._DEPT;
-			}
-			set
-			{
-				if ((this._DEPT != value))
-				{
-					this._DEPT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SITE", DbType="VarChar(50)")]
-		public string SITE
-		{
-			get
-			{
-				return this._SITE;
-			}
-			set
-			{
-				if ((this._SITE != value))
-				{
-					this._SITE = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_PI_REPORT")]
-	public partial class VW_PI_REPORT
-	{
-		
-		private string _NRP;
-		
-		private System.Nullable<bool> _SUBMIT;
-		
-		private string _SIGN_LOCATION;
-		
-		private System.Nullable<System.DateTime> _SUBMITDATE;
-		
-		private string _NAME;
-		
-		private string _DEPT;
-		
-		private string _SITE;
-		
-		public VW_PI_REPORT()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="NVarChar(50)")]
-		public string NRP
-		{
-			get
-			{
-				return this._NRP;
-			}
-			set
-			{
-				if ((this._NRP != value))
-				{
-					this._NRP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMIT", DbType="Bit")]
-		public System.Nullable<bool> SUBMIT
-		{
-			get
-			{
-				return this._SUBMIT;
-			}
-			set
-			{
-				if ((this._SUBMIT != value))
-				{
-					this._SUBMIT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIGN_LOCATION", DbType="NVarChar(100)")]
-		public string SIGN_LOCATION
-		{
-			get
-			{
-				return this._SIGN_LOCATION;
-			}
-			set
-			{
-				if ((this._SIGN_LOCATION != value))
-				{
-					this._SIGN_LOCATION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMITDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> SUBMITDATE
-		{
-			get
-			{
-				return this._SUBMITDATE;
-			}
-			set
-			{
-				if ((this._SUBMITDATE != value))
-				{
-					this._SUBMITDATE = value;
 				}
 			}
 		}
@@ -4263,6 +4128,177 @@ namespace INTEGRASI_API_2.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_PI_REPORT")]
+	public partial class VW_PI_REPORT
+	{
+		
+		private string _NRP;
+		
+		private System.Nullable<bool> _SUBMIT;
+		
+		private string _SIGN_LOCATION;
+		
+		private System.Nullable<System.DateTime> _SUBMITDATE;
+		
+		private string _NAME;
+		
+		private string _DEPT;
+		
+		private string _SITE;
+		
+		private string _EMAIL;
+		
+		private string _DOCUMENT_LINK;
+		
+		public VW_PI_REPORT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NRP", DbType="NVarChar(50)")]
+		public string NRP
+		{
+			get
+			{
+				return this._NRP;
+			}
+			set
+			{
+				if ((this._NRP != value))
+				{
+					this._NRP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMIT", DbType="Bit")]
+		public System.Nullable<bool> SUBMIT
+		{
+			get
+			{
+				return this._SUBMIT;
+			}
+			set
+			{
+				if ((this._SUBMIT != value))
+				{
+					this._SUBMIT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIGN_LOCATION", DbType="NVarChar(100)")]
+		public string SIGN_LOCATION
+		{
+			get
+			{
+				return this._SIGN_LOCATION;
+			}
+			set
+			{
+				if ((this._SIGN_LOCATION != value))
+				{
+					this._SIGN_LOCATION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUBMITDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SUBMITDATE
+		{
+			get
+			{
+				return this._SUBMITDATE;
+			}
+			set
+			{
+				if ((this._SUBMITDATE != value))
+				{
+					this._SUBMITDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(43)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT", DbType="VarChar(50)")]
+		public string DEPT
+		{
+			get
+			{
+				return this._DEPT;
+			}
+			set
+			{
+				if ((this._DEPT != value))
+				{
+					this._DEPT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SITE", DbType="VarChar(50)")]
+		public string SITE
+		{
+			get
+			{
+				return this._SITE;
+			}
+			set
+			{
+				if ((this._SITE != value))
+				{
+					this._SITE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="NVarChar(4000)")]
+		public string EMAIL
+		{
+			get
+			{
+				return this._EMAIL;
+			}
+			set
+			{
+				if ((this._EMAIL != value))
+				{
+					this._EMAIL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOCUMENT_LINK", DbType="VarChar(MAX)")]
+		public string DOCUMENT_LINK
+		{
+			get
+			{
+				return this._DOCUMENT_LINK;
+			}
+			set
+			{
+				if ((this._DOCUMENT_LINK != value))
+				{
+					this._DOCUMENT_LINK = value;
+				}
 			}
 		}
 	}

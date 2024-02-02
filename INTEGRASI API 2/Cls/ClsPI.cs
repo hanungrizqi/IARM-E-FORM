@@ -140,7 +140,7 @@ namespace INTEGRASI_API_2.Cls
                 datasets = new List<ChartDataSet>()
             };
 
-            var baseData = db.VW_ALL_USERs.Where(x => x.DSTRCT_CODE != null && x.SECTION_HEAD != null).ToList();
+            var baseData = db.VW_ALL_USERs.Where(x => x.DSTRCT_CODE != null/* && x.SECTION_HEAD != null*/).ToList();
 
             if (!requests.Dept.IsNullOrWhiteSpace() && !requests.District.IsNullOrWhiteSpace())
             {

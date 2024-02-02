@@ -50,12 +50,6 @@
         <elementListCompartment Id="26c47a8c-60f8-47c3-acd2-72bf75c92ec7" absoluteBounds="4.89, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5fdaf475-ef4b-4c40-9fec-403ecdcabef5" isExpanded="false" absoluteBounds="4.875, 1.5, 2, 0.45">
-      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_PI_REPORT" />
-      <nestedChildShapes>
-        <elementListCompartment Id="e846a72e-d1ed-49bd-b938-9eb202a6a67d" absoluteBounds="4.89, 1.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="60f0b06b-4e21-48fe-9801-c845a3a3268c" isExpanded="false" absoluteBounds="4.875, 2, 2, 0.45">
       <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_DEPT_ALL" />
       <nestedChildShapes>
@@ -96,6 +90,12 @@
       <DataClassMoniker Name="/DBPakta_IntegritasDataContext/TBL_T_PI" />
       <nestedChildShapes>
         <elementListCompartment Id="e36231a0-c22d-4282-ab02-1c227b4b096e" absoluteBounds="2.64, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e4512f5-89b4-4d0c-ae49-65d137335feb" isExpanded="false" absoluteBounds="4.875, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/DBPakta_IntegritasDataContext/VW_PI_REPORT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a72243a-1410-41b6-b67c-d0e1bf49d1e6" absoluteBounds="4.89, 1.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

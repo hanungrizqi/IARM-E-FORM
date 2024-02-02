@@ -34,25 +34,48 @@
         });
     }
 
+    // Function to check if all checkboxes are checked
+    function areAllCheckboxesChecked() {
+        debugger
+        var checkboxes = $('.user-checkbox');
+        return checkboxes.length === checkboxes.filter(':checked').length;
+    }
+
+    // Function to enable or disable the submit button based on checkbox status
+    function updateSubmitButtonStatus() {
+        debugger
+        var btnSubmit = $('#btn-submit-pi');
+        btnSubmit.prop('disabled', !areAllCheckboxesChecked());
+    }
+
+    // Attach a change event listener to all checkboxes
+    $('.user-checkbox').change(function () {
+        debugger
+        updateSubmitButtonStatus();
+    });
+
+    // Call the function initially to set the initial state of the submit button
+    updateSubmitButtonStatus();
+
     $("#btn-submit-pi").click(async function () {
         event.preventDefault()
 
         // Menyimpan status checkbox dalam array
-        debugger
-        var checkboxes1 = $('#pi-1');
-        var checkboxes2 = $('#pi-2');
-        var checkboxes3 = $('#pi-3');
-        var checkboxes4 = $('#pi-4');
-        var checkboxes5 = $('#pi-5');
-        var checkboxes6 = $('#pi-6');
-        var checkboxes7 = $('#pi-7');
-        var isChecked1 = Array.from(checkboxes1).some(checkbox => checkbox.checked);
-        var isChecked2 = Array.from(checkboxes2).some(checkbox => checkbox.checked);
-        var isChecked3 = Array.from(checkboxes3).some(checkbox => checkbox.checked);
-        var isChecked4 = Array.from(checkboxes4).some(checkbox => checkbox.checked);
-        var isChecked5 = Array.from(checkboxes5).some(checkbox => checkbox.checked);
-        var isChecked6 = Array.from(checkboxes6).some(checkbox => checkbox.checked);
-        var isChecked7 = Array.from(checkboxes7).some(checkbox => checkbox.checked);
+        //debugger
+        //var checkboxes1 = $('#pi-1');
+        //var checkboxes2 = $('#pi-2');
+        //var checkboxes3 = $('#pi-3');
+        //var checkboxes4 = $('#pi-4');
+        //var checkboxes5 = $('#pi-5');
+        //var checkboxes6 = $('#pi-6');
+        //var checkboxes7 = $('#pi-7');
+        //var isChecked1 = Array.from(checkboxes1).some(checkbox => checkbox.checked);
+        //var isChecked2 = Array.from(checkboxes2).some(checkbox => checkbox.checked);
+        //var isChecked3 = Array.from(checkboxes3).some(checkbox => checkbox.checked);
+        //var isChecked4 = Array.from(checkboxes4).some(checkbox => checkbox.checked);
+        //var isChecked5 = Array.from(checkboxes5).some(checkbox => checkbox.checked);
+        //var isChecked6 = Array.from(checkboxes6).some(checkbox => checkbox.checked);
+        //var isChecked7 = Array.from(checkboxes7).some(checkbox => checkbox.checked);
 
         var signLocation = $('#sign-location').val();
 
@@ -72,18 +95,18 @@
                 }
             })
         }
-        else if (!isChecked1 || !isChecked2 || !isChecked3 || !isChecked4 || !isChecked5 || !isChecked6 || !isChecked7) {
-            debugger
-            Swal.fire({
-                icon: 'error',
-                title: "Anda harus menyetujui semua syarat dan ketentuan!",
-                confirmButtonText: 'Ok'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById("loadingScreen").style.display = "none";
-                }
-            })
-        }
+        //else if (!isChecked1 || !isChecked2 || !isChecked3 || !isChecked4 || !isChecked5 || !isChecked6 || !isChecked7) {
+        //    debugger
+        //    Swal.fire({
+        //        icon: 'error',
+        //        title: "Anda harus menyetujui semua syarat dan ketentuan!",
+        //        confirmButtonText: 'Ok'
+        //    }).then((result) => {
+        //        if (result.isConfirmed) {
+        //            document.getElementById("loadingScreen").style.display = "none";
+        //        }
+        //    })
+        //}
         else {
             console.log(requestData)
             Swal.fire({
